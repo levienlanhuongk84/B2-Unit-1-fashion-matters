@@ -1,0 +1,1703 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fashion Matters B2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500&family=Roboto+Condensed:wght@500;700&family=Roboto+Mono:wght@500;700&family=Noto+Sans:wght@400;500&display=swap">
+<style>
+  :root {
+    --bg: #FBF9FC; --surface: #FFFFFF; --surface-2: #F4EEFA; --surface-3: #FBF5FF;
+    --ink: #241530; --ink-2: #5A4C68; --muted: #8B7C99;
+    --line: #E6DDF0; --line-strong: #CDB9E1;
+    --purple: #613087; --purple-ink: #4A2467; --purple-soft: #EFE4F7;
+    --orange: #DD5A28; --orange-ink: #B8471E; --orange-soft: #FCEBDD; --gold: #FCB715; --gold-soft: #FFF4D6;
+    --good: #2E7D4F; --good-soft: #DFF1E5; --bad: #B23B3B; --bad-soft: #F8E1E1;
+    --how: #A6740A; --result: #2A62C4; --eval: #7A3E9C;
+    --shadow: 0 1px 2px rgba(74,36,103,.06), 0 10px 28px rgba(74,36,103,.08);
+    --radius: 12px;
+    --font: "Roboto", "Segoe UI", Arial, sans-serif;
+    --font-cond: "Roboto Condensed", "Arial Narrow", Arial, sans-serif;
+    --font-mono: "Roboto Mono", "SF Mono", Menlo, Consolas, monospace;
+    --font-ipa: "Noto Sans", "Roboto", "Segoe UI", "Lucida Sans Unicode", Arial, sans-serif;
+    --rail-w: 296px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #17101F; --surface: #201530; --surface-2: #291B3C; --surface-3: #241838;
+      --ink: #F1E9F8; --ink-2: #D2C2E0; --muted: #9C8BAC;
+      --line: #3B2A50; --line-strong: #533B6E;
+      --purple: #BB8FE6; --purple-ink: #D9BCF2; --purple-soft: #33234A;
+      --orange: #FCA453; --orange-ink: #FFC48A; --orange-soft: #402911; --gold: #FCB715; --gold-soft: #3E3010;
+      --good: #6FCF97; --good-soft: #1E3A2A; --bad: #EF7B7B; --bad-soft: #3F2323;
+      --how: #E0AB3D; --result: #7FA8FF; --eval: #C9A6E8;
+      --shadow: 0 1px 2px rgba(0,0,0,.35), 0 10px 28px rgba(0,0,0,.3);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #17101F; --surface: #201530; --surface-2: #291B3C; --surface-3: #241838;
+    --ink: #F1E9F8; --ink-2: #D2C2E0; --muted: #9C8BAC;
+    --line: #3B2A50; --line-strong: #533B6E;
+    --purple: #BB8FE6; --purple-ink: #D9BCF2; --purple-soft: #33234A;
+    --orange: #FCA453; --orange-ink: #FFC48A; --orange-soft: #402911; --gold: #FCB715; --gold-soft: #3E3010;
+    --good: #6FCF97; --good-soft: #1E3A2A; --bad: #EF7B7B; --bad-soft: #3F2323;
+    --how: #E0AB3D; --result: #7FA8FF; --eval: #C9A6E8;
+    --shadow: 0 1px 2px rgba(0,0,0,.35), 0 10px 28px rgba(0,0,0,.3);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; animation: none !important; } }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font); font-size: 18px; line-height: 1.6; -webkit-font-smoothing: antialiased; display: flex; min-height: 100vh; align-items: stretch; }
+  @media (max-width: 900px) { body { display: block; font-size: 17px; } }
+
+  a { color: var(--purple-ink); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  strong, b { font-weight: 700; }
+  h1, h2, h3, h4 { margin: 0; line-height: 1.2; text-wrap: balance; letter-spacing: -0.01em; color: var(--ink); }
+  h2 { font-size: clamp(26px, 2.6vw, 33px); font-weight: 700; }
+  h3 { font-size: clamp(20px, 1.8vw, 23px); font-weight: 700; }
+  h4 { font-size: 1.05em; font-weight: 700; }
+  p { margin: 0; }
+  ul, ol { margin: 0; padding-left: 1.35em; }
+  li { margin-block: .3em; }
+  li::marker { color: var(--purple); }
+  .ipa { font-family: var(--font-ipa); color: var(--purple-ink); }
+  .en { font-style: italic; }
+  q.tt { quotes: "“" "”"; font-style: italic; color: var(--purple-ink); }
+  q.tt::before, q.tt::after { color: var(--orange); font-style: normal; }
+
+  .eyebrow { font-family: var(--font-cond); font-weight: 700; text-transform: uppercase; letter-spacing: .09em; font-size: .76em; color: var(--orange-ink); }
+  .num, .t { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+
+  /* ---------- rail ---------- */
+  .rail { flex: none; width: var(--rail-w); background: linear-gradient(160deg, #4A2467 0%, #613087 62%, #7A3E9C 100%); color: #F4EAFB; position: sticky; top: 0; align-self: flex-start; height: 100vh; display: flex; flex-direction: column; overflow-y: auto; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .rail { background: linear-gradient(160deg, #2A1440 0%, #3E2058 60%, #52296F 100%); } }
+  :root[data-theme="dark"] .rail { background: linear-gradient(160deg, #2A1440 0%, #3E2058 60%, #52296F 100%); }
+  .rail-brand { padding: 26px 24px 18px; border-bottom: 1px solid rgba(255,255,255,.14); }
+  .rail-kicker { font-family: var(--font-cond); text-transform: uppercase; letter-spacing: .12em; font-size: .74em; color: var(--gold); font-weight: 700; }
+  .rail-title { font-size: 1.5em; font-weight: 900; color: #fff; letter-spacing: -0.01em; line-height: 1.12; margin-top: 4px; }
+  .rail-sub { font-size: .84em; color: #D8C6EA; margin-top: 6px; }
+  .rail-nav { padding: 12px 12px 18px; flex: 1; }
+  .rail-item { margin-bottom: 2px; }
+  .rail-btn { width: 100%; appearance: none; border: 0; background: transparent; cursor: pointer; display: flex; align-items: center; gap: 12px; text-align: left; padding: 11px 12px; border-radius: 10px; color: #EADFF4; font-family: var(--font-cond); font-weight: 700; font-size: 1em; letter-spacing: .01em; border-left: 3px solid transparent; }
+  .rail-btn .idx { flex: none; width: 26px; height: 26px; display: grid; place-items: center; border-radius: 7px; background: rgba(255,255,255,.1); font-family: var(--font-mono); font-size: .78em; color: #E3D2F0; }
+  .rail-btn:hover { background: rgba(255,255,255,.08); }
+  .rail-btn[aria-selected="true"] { background: rgba(255,255,255,.12); border-left-color: var(--gold); color: #fff; }
+  .rail-btn[aria-selected="true"] .idx { background: linear-gradient(135deg, var(--orange), var(--gold)); color: #3A1E00; }
+  .rail-btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 1px; }
+  .rail-group { font-family: var(--font-cond); text-transform: uppercase; letter-spacing: .1em; font-size: .7em; color: #C9B3DF; padding: 12px 12px 4px; }
+  .sub-outline { list-style: none; margin: 0 0 0 38px; padding: 0; display: none; gap: 1px; border-left: 1px solid rgba(255,255,255,.16); }
+  .rail-item.active .sub-outline { display: grid; margin-bottom: 8px; margin-top: 2px; }
+  .sub-outline li { margin: 0; }
+  .sub-outline a { display: block; padding: 5px 0 5px 14px; font-size: .84em; color: #D2BCE6; text-decoration: none; border-left: 2px solid transparent; margin-left: -1px; }
+  .sub-outline a:hover { color: #fff; }
+  .rail-foot { padding: 12px 24px 18px; font-size: .78em; color: #B9A3CF; border-top: 1px solid rgba(255,255,255,.14); }
+  @media (max-width: 900px) {
+    .rail { position: sticky; top: 0; z-index: 30; width: 100%; height: auto; flex-direction: row; align-items: center; overflow: visible; }
+    .rail-brand, .rail-foot, .rail-group { display: none; }
+    .rail-nav { display: flex; padding: 8px 10px; flex: 1; overflow-x: auto; gap: 2px; }
+    .rail-item { margin-bottom: 0; flex: none; }
+    .rail-btn { white-space: nowrap; padding: 10px 12px; border-left: 0; border-bottom: 3px solid transparent; }
+    .rail-btn[aria-selected="true"] { border-left-color: transparent; border-bottom-color: var(--gold); }
+    .sub-outline, .rail-item.active .sub-outline { display: none; }
+  }
+
+  /* ---------- main ---------- */
+  main { flex: 1; min-width: 0; padding: 36px clamp(18px, 4vw, 60px) 90px; max-width: 1520px; }
+  .sheet[hidden] { display: none; }
+  .sheet-head { margin-bottom: 24px; padding-bottom: 18px; border-bottom: 2px solid var(--line); display: flex; flex-wrap: wrap; gap: 10px 24px; align-items: flex-end; justify-content: space-between; }
+  .sheet-head .lead { color: var(--ink-2); max-width: 76ch; margin-top: 8px; font-size: 1.02em; }
+  .sheet-head .prog { font-family: var(--font-mono); font-size: .86em; color: var(--purple-ink); background: var(--purple-soft); padding: 6px 12px; border-radius: 999px; white-space: nowrap; }
+  section.block { margin-block: 36px; scroll-margin-top: 16px; }
+  section.block > h3 { margin-bottom: 14px; padding-left: 14px; border-left: 5px solid var(--orange); }
+  .prose { max-width: 72ch; }
+  .prose.full { max-width: none; }
+  .prose p + p { margin-top: .7em; }
+
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; }
+  .stat { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px 14px; box-shadow: var(--shadow); }
+  .stat .big { font-family: var(--font-mono); font-weight: 700; font-size: 1.9em; line-height: 1.1; color: var(--purple-ink); }
+  .stat .big small { font-family: var(--font); font-size: .5em; font-weight: 500; color: var(--ink-2); margin-left: 4px; }
+  .stat .lbl { margin-top: 6px; color: var(--ink-2); font-size: .9em; }
+
+  .kv { display: grid; grid-template-columns: max-content 1fr; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--surface); }
+  .kv > div { padding: 10px 16px; border-bottom: 1px solid var(--line); }
+  .kv > div:nth-last-child(-n+2) { border-bottom: 0; }
+  .kv .k { background: var(--surface-2); font-family: var(--font-cond); font-weight: 700; color: var(--ink-2); letter-spacing: .02em; }
+  @media (max-width: 560px) { .kv { grid-template-columns: 1fr; } .kv .k { border-bottom: 0; padding-bottom: 2px; } }
+
+  .note { border-radius: var(--radius); padding: 13px 16px; display: flex; gap: 12px; align-items: flex-start; margin-block: 12px; }
+  .note .tag { flex: none; font-family: var(--font-cond); font-weight: 700; text-transform: uppercase; letter-spacing: .08em; font-size: .72em; padding: 4px 9px; border-radius: 6px; margin-top: 4px; }
+  .note.warn { background: var(--orange-soft); } .note.warn .tag { background: var(--orange); color: #fff; }
+  .note.info { background: var(--purple-soft); } .note.info .tag { background: var(--purple); color: #fff; }
+  .note.good { background: var(--good-soft); } .note.good .tag { background: var(--good); color: #fff; }
+  .note p { font-size: .96em; }
+  .note ul { margin: 0; padding-left: 1.1em; font-size: .96em; }
+  .note li { margin-block: .25em; }
+
+  .flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; }
+  .flow5 { grid-template-columns: repeat(3, 1fr); }
+  @media (max-width: 760px) { .flow5 { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 460px) { .flow5 { grid-template-columns: 1fr; } }
+  .flow .step { position: relative; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 16px 14px; box-shadow: var(--shadow); }
+  .flow .step .k { display: inline-block; font-family: var(--font-cond); font-weight: 700; text-transform: uppercase; letter-spacing: .08em; font-size: .72em; color: #3A1E00; background: linear-gradient(135deg, var(--orange), var(--gold)); padding: 3px 9px; border-radius: 6px; margin-bottom: 8px; }
+  .flow .step h4 { margin-bottom: 4px; }
+  .flow .step ul { color: var(--ink-2); font-size: .9em; padding-left: 1.1em; margin: 2px 0 0; }
+  .flow .step li { margin-block: .15em; }
+
+  .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+  .grid-3 > .card, .grid-2 > .card { min-width: 0; }
+  .card .chip { white-space: normal; }
+  @media (max-width: 900px) { .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 560px) { .grid-3 { grid-template-columns: 1fr; } }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px; }
+  .card h4 { margin-bottom: 6px; }
+  .card .eyebrow { display: block; margin-bottom: 6px; }
+  .card ul, .card p { font-size: .95em; }
+  .card p { color: var(--ink-2); }
+
+  .tablewrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+  table { border-collapse: collapse; width: 100%; font-size: .94em; }
+  th, td { text-align: left; vertical-align: top; padding: 10px 13px; border-bottom: 1px solid var(--line); }
+  thead th { background: var(--surface-2); font-family: var(--font-cond); font-weight: 700; letter-spacing: .03em; color: var(--purple-ink); font-size: .88em; text-transform: uppercase; }
+  tbody tr:last-child td { border-bottom: 0; }
+  td.n, th.n { text-align: right; font-family: var(--font-mono); white-space: nowrap; }
+  td ul { margin: 0; padding-left: 1.05em; } td ul li { margin-block: .18em; }
+  @media (max-width: 720px) {
+    table.stack, table.stack tbody, table.stack tr, table.stack td { display: block; width: 100%; }
+    table.stack thead { display: none; }
+    table.stack tr { border-bottom: 6px solid var(--surface-2); padding: 6px 0; }
+    table.stack tr:last-child { border-bottom: 0; }
+    table.stack td { border-bottom: 0; padding: 6px 14px; }
+    table.stack td[data-l]::before { content: attr(data-l); display: block; font-family: var(--font-cond); text-transform: uppercase; letter-spacing: .06em; font-size: .76em; color: var(--muted); margin-bottom: 2px; }
+    table.stack td.n { text-align: left; }
+  }
+
+  /* source labels */
+  .lb { display: inline-block; font-family: var(--font-cond); font-weight: 700; letter-spacing: .08em; font-size: .68em; padding: 2px 7px; border-radius: 5px; vertical-align: middle; text-transform: uppercase; }
+  .lb.src { background: var(--purple-soft); color: var(--purple-ink); }
+  .lb.inf { background: var(--gold-soft); color: #7A4E00; }
+  .lb.ext { background: var(--orange-soft); color: var(--orange-ink); }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .lb.inf { color: var(--gold); } }
+  :root[data-theme="dark"] .lb.inf { color: var(--gold); }
+  .chip { display: inline-block; padding: 3px 10px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line-strong); font-family: var(--font-cond); font-weight: 700; font-size: .8em; letter-spacing: .02em; color: var(--ink-2); white-space: nowrap; }
+  a.chip { text-decoration: none; cursor: pointer; }
+  a.chip:hover { text-decoration: underline; filter: brightness(0.96); }
+  .chip.o { background: var(--orange-soft); border-color: transparent; color: var(--orange-ink); }
+  .chip.p { background: var(--purple-soft); border-color: transparent; color: var(--purple-ink); }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px 8px; }
+
+  /* ---------- lesson plan ---------- */
+  .lp-head { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--surface); }
+  .lp-head > div { padding: 12px 16px; border-bottom: 1px solid var(--line); border-right: 1px solid var(--line); }
+  .lp-head .k { font-family: var(--font-cond); text-transform: uppercase; letter-spacing: .07em; font-size: .74em; color: var(--muted); font-weight: 700; }
+  .lp-head .v { margin-top: 2px; }
+  .aims { border-left: 5px solid var(--gold); background: var(--surface); border-radius: 0 var(--radius) var(--radius) 0; padding: 14px 18px; }
+  .aims .k { font-family: var(--font-cond); text-transform: uppercase; letter-spacing: .07em; font-size: .74em; color: var(--orange-ink); font-weight: 700; }
+  .aims p { margin-top: 4px; }
+  .aims + .aims { margin-top: 10px; }
+
+  table.lp th:nth-child(1) { width: 21%; } table.lp th:nth-child(2) { width: 59%; } table.lp th:nth-child(3) { width: 8%; } table.lp th:nth-child(4) { width: 12%; }
+  table.lp td { font-size: .97em; }
+  table.lp .stage { font-weight: 700; color: var(--ink); }
+  table.lp .aim { display: block; color: var(--ink-2); font-size: .9em; margin-top: 4px; font-style: italic; }
+  table.lp .t { font-weight: 700; color: var(--purple-ink); white-space: nowrap; }
+  table.lp .t small { display: block; font-weight: 500; color: var(--muted); font-size: .8em; }
+  table.lp .ia { font-family: var(--font-cond); font-weight: 700; letter-spacing: .04em; color: var(--ink-2); font-size: .92em; }
+  table.lp ul { padding-left: 1.1em; } table.lp li { margin-block: .22em; }
+  tr.period td { background: linear-gradient(90deg, var(--gold-soft), var(--surface)); font-family: var(--font-cond); font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--orange-ink); font-size: .9em; padding: 9px 13px; }
+  .ccq { background: var(--surface-3); border: 1px dashed var(--line-strong); border-radius: 8px; padding: 8px 12px; margin-top: 6px; font-size: .93em; }
+  .ccq b { color: var(--orange-ink); font-family: var(--font-cond); letter-spacing: .05em; font-size: .85em; text-transform: uppercase; margin-right: 6px; }
+  .board { background: var(--ink); color: #F5EDFA; border-radius: 8px; padding: 10px 14px; margin-top: 6px; font-family: var(--font-mono); font-size: .86em; line-height: 1.5; white-space: pre-wrap; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .board { background: #0F0916; } }
+  :root[data-theme="dark"] .board { background: #0F0916; }
+  .board .u { text-decoration: underline; text-decoration-color: var(--gold); text-decoration-thickness: 2px; }
+  .timeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin: 14px 0 18px; }
+  .timeline > div { background: var(--surface); border: 1px solid var(--line); border-top: 4px solid var(--purple); border-radius: 8px; padding: 10px 12px; font-size: .9em; }
+  .timeline > div:nth-child(2) { border-top-color: var(--orange); } .timeline > div:nth-child(3) { border-top-color: var(--gold); } .timeline > div:nth-child(4) { border-top-color: var(--purple-ink); }
+  .timeline b { display: block; font-family: var(--font-cond); letter-spacing: .05em; text-transform: uppercase; font-size: .84em; color: var(--muted); }
+  @media (max-width: 720px) { .timeline { grid-template-columns: 1fr 1fr; } }
+
+  /* ---------- exercises ---------- */
+  .ex { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); margin-block: 22px; overflow: hidden; scroll-margin-top: 16px; }
+  .ex-head { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; padding: 12px 18px; background: var(--surface-2); border-bottom: 1px solid var(--line); }
+  .ex-no { font-family: var(--font-mono); font-weight: 700; color: #3A1E00; background: linear-gradient(135deg, var(--orange), var(--gold)); padding: 3px 10px; border-radius: 7px; font-size: .84em; }
+  .ex-head h4 { flex: 1 1 200px; font-size: 1.08em; }
+  .ex-type { font-family: var(--font-cond); font-weight: 700; letter-spacing: .05em; text-transform: uppercase; font-size: .74em; color: var(--muted); }
+  .score { font-family: var(--font-mono); font-weight: 700; min-width: 3.2em; text-align: right; color: var(--purple-ink); }
+  .score.full { color: var(--good); }
+  .ex-note { padding: 12px 18px 0; color: var(--ink-2); font-size: .95em; }
+  .ex-note ul { margin: 4px 0 0; padding-left: 1.2em; }
+  .ex-note li { margin-block: .2em; }
+  #r-plan ~ .grid-2 ul.substeps { margin: 0; padding-left: 1.1em; }
+  #r-plan ~ .grid-2 ul.substeps li { margin-block: .3em; }
+  #r-plan ~ .grid-2 ul.substeps li::marker { color: var(--purple); }
+  .ex-body { padding: 14px 18px 6px; }
+  .ex-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; padding: 12px 18px 14px; border-top: 1px solid var(--line); }
+  .ex-foot .src { margin-left: auto; font-size: .8em; color: var(--muted); }
+  .btn { appearance: none; border: 0; border-radius: 9px; padding: 9px 16px; font: inherit; font-family: var(--font-cond); font-weight: 700; font-size: .95em; letter-spacing: .03em; cursor: pointer; background: var(--purple); color: #fff; }
+  .btn:hover { filter: brightness(1.08); }
+  .btn.ghost { background: var(--surface); color: var(--purple-ink); border: 1px solid var(--line-strong); }
+  .btn.sm { padding: 5px 10px; font-size: .84em; }
+  .btn:focus-visible, .chip-w:focus-visible, .gap:focus-visible, .ev:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+  .btn.say { background: var(--orange); }
+  .btn.say::before { content: "▶ "; }
+  .btn.stop { background: var(--surface); color: var(--ink-2); border: 1px solid var(--line-strong); }
+
+  .items { display: grid; gap: 10px; }
+  .items.two { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+  .items.three { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+  .it { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+  .it .lab { font-family: var(--font-mono); font-weight: 700; color: var(--orange-ink); min-width: 1.4em; }
+  .it .q { flex: 1 1 200px; }
+  .it .pic { font-size: 1.6em; line-height: 1; width: 1.4em; text-align: center; }
+  .scr { font-family: var(--font-mono); letter-spacing: .18em; font-weight: 700; color: var(--purple-ink); background: var(--purple-soft); padding: 4px 10px; border-radius: 7px; }
+  input.ans, select.ans, textarea.free { font: inherit; font-size: 1em; padding: 8px 12px; border: 2px solid var(--line-strong); border-radius: 9px; background: var(--bg); color: var(--ink); min-width: 9em; }
+  input.ans.w { min-width: 16em; flex: 1 1 260px; }
+  input.ans.xs { min-width: 5em; width: 7em; }
+  input.ans:focus, select.ans:focus, textarea.free:focus { outline: none; border-color: var(--purple); box-shadow: 0 0 0 4px var(--purple-soft); }
+  textarea.free { width: 100%; min-height: 110px; resize: vertical; line-height: 1.5; }
+  .ok, .mcq.ok, .builder.ok, .gaps.ok, .evid.ok { border-color: var(--good) !important; background: var(--good-soft) !important; }
+  .bad, .mcq.bad, .builder.bad, .gaps.bad, .evid.bad { border-color: var(--bad) !important; background: var(--bad-soft) !important; }
+  .mcq { border: 2px solid var(--line); border-radius: 10px; padding: 10px 14px; }
+  .mcq .stem { font-weight: 700; margin-bottom: 6px; }
+  .mcq label { display: flex; gap: 10px; align-items: flex-start; padding: 5px 4px; border-radius: 6px; cursor: pointer; }
+  .mcq label:hover { background: var(--surface-2); }
+  .mcq input { width: 20px; height: 20px; margin-top: 4px; accent-color: var(--purple); flex: none; }
+  .mcq .o { font-family: var(--font-mono); font-weight: 700; color: var(--purple-ink); }
+
+  .chip-w { appearance: none; border: 2px solid var(--line-strong); background: var(--surface); color: var(--ink); border-radius: 9px; padding: 6px 12px; font: inherit; font-size: .98em; cursor: pointer; }
+  .chip-w:hover { border-color: var(--purple); }
+  .bank, .line { display: flex; flex-wrap: wrap; gap: 8px; min-height: 48px; padding: 8px; border-radius: 10px; }
+  .bank { background: var(--surface-2); }
+  .builder { border: 2px solid var(--line); border-radius: 12px; padding: 8px; margin-block: 8px; }
+  .builder .line { border: 2px dashed var(--line-strong); background: var(--bg); margin-bottom: 8px; }
+  .builder .line:empty::before { content: attr(data-empty); color: var(--muted); font-size: .9em; }
+  .builder .hint { font-size: .86em; color: var(--muted); margin-bottom: 4px; }
+  .bins .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; margin-top: 10px; }
+  .bins .col { border: 2px dashed var(--line-strong); border-radius: 10px; padding: 8px; min-height: 90px; display: flex; flex-wrap: wrap; gap: 8px; align-content: flex-start; background: var(--bg); cursor: pointer; transition: background-color .12s, border-color .12s; }
+  .bins .col:hover { border-color: var(--purple); background: var(--purple-soft); }
+  .bins.armed .col { border-color: var(--gold); border-style: solid; }
+  .bins .col-h { width: 100%; font-family: var(--font-cond); font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--purple-ink); font-size: .88em; padding: 0 4px 4px; cursor: default; }
+  .bins .chip-w.sel { border-color: var(--gold); background: var(--gold-soft); box-shadow: 0 0 0 3px var(--gold-soft); }
+  .bins .chip-w.ok { border-color: var(--good); background: var(--good-soft); }
+  .bins .chip-w.bad { border-color: var(--bad); background: var(--bad-soft); }
+  .bins .col .chip-w { cursor: pointer; }
+  .bins .col .chip-w::after { content: " ↩"; opacity: .55; font-size: .9em; }
+  .gaps { border: 2px solid var(--line); border-radius: 10px; padding: 10px 12px; margin-block: 6px; line-height: 2.2; }
+  .gaps .w { margin: 0 2px; }
+  .gaps .gap { appearance: none; border: 2px dashed var(--line-strong); background: var(--surface-2); border-radius: 6px; min-width: 22px; height: 30px; margin: 0 3px; cursor: pointer; vertical-align: middle; font: inherit; font-size: .9em; padding: 0 5px; color: var(--purple-ink); font-weight: 700; }
+  .gaps .gap.sel { border-style: solid; border-color: var(--purple); background: var(--purple-soft); }
+  .gaps .advsel { font: inherit; font-size: .9em; padding: 4px 8px; border-radius: 7px; border: 2px solid var(--line-strong); background: var(--bg); color: var(--ink); margin-right: 10px; }
+  .evid { border: 2px solid var(--line); border-radius: 10px; padding: 12px 14px; line-height: 2; }
+  .ev { cursor: pointer; padding: 3px 4px; border-radius: 5px; border-bottom: 2px dotted var(--line-strong); }
+  .ev:hover { background: var(--surface-2); }
+  .ev.sel { background: var(--gold-soft); border-bottom: 3px solid var(--orange); }
+  .sample { background: var(--surface-2); border-left: 4px solid var(--gold); border-radius: 8px; padding: 10px 14px; font-size: .95em; margin-top: 10px; }
+  .sample .eyebrow { display: block; margin-bottom: 4px; }
+  .sample p + p { margin-top: 6px; }
+
+  .msgs { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+  .msg { border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; background: var(--surface-3); position: relative; font-size: .97em; }
+  .msg .no { position: absolute; top: -10px; left: 12px; font-family: var(--font-mono); font-weight: 700; font-size: .78em; background: var(--purple); color: #fff; padding: 1px 8px; border-radius: 6px; }
+  .msg.email { font-family: var(--font); } .msg.notice { text-align: center; font-weight: 700; font-size: 1.1em; border: 2px solid var(--ink-2); background: var(--surface); }
+  .msg.sms { font-family: var(--font-mono); font-size: .9em; background: var(--surface-2); border-radius: 18px; }
+  .msg.pad { font-family: "Comic Sans MS", "Segoe Print", cursive; background: repeating-linear-gradient(var(--surface) 0 30px, var(--line) 30px 31px); }
+  .msg.postit { background: var(--gold-soft); border-color: var(--gold); font-family: "Segoe Print", "Comic Sans MS", cursive; transform: rotate(-1deg); }
+  .msg.email .hdr { font-size: .8em; color: var(--muted); border-bottom: 1px solid var(--line); margin-bottom: 6px; padding-bottom: 4px; font-family: var(--font-cond); letter-spacing: .05em; }
+  .msg .sig { display: block; margin-top: 6px; font-weight: 700; }
+
+  .script { background: var(--surface-3); border: 1px solid var(--line); border-radius: 10px; padding: 12px 16px; margin-top: 10px; }
+  .script .sp { font-family: var(--font-cond); font-weight: 700; color: var(--orange-ink); letter-spacing: .04em; }
+  .script p { margin-block: 6px; }
+  details { border: 1px solid var(--line); border-radius: 10px; background: var(--surface); margin-top: 10px; }
+  summary { cursor: pointer; padding: 10px 14px; font-family: var(--font-cond); font-weight: 700; letter-spacing: .03em; color: var(--purple-ink); }
+  details > div { padding: 0 14px 12px; }
+
+  .vcards { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 12px; }
+  .vc { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; font-size: .93em; }
+  .vc .w { font-weight: 700; font-size: 1.12em; }
+  .vc .pos { color: var(--muted); font-size: .86em; margin-left: 6px; }
+  .vc .row { display: grid; grid-template-columns: 7.2em 1fr; gap: 2px 8px; margin-top: 4px; }
+  .vc .row .k { font-family: var(--font-cond); text-transform: uppercase; letter-spacing: .06em; font-size: .74em; color: var(--muted); font-weight: 700; padding-top: 4px; }
+  .vc .row .k.err { color: var(--bad); }
+  .sent { border-left: 4px solid var(--purple); background: var(--surface); border: 1px solid var(--line); border-left-width: 4px; border-radius: 8px; padding: 10px 14px; margin-top: 10px; font-size: .95em; }
+  .sent .o { font-weight: 700; } .sent .vi { color: var(--ink-2); } .sent .kl { margin-top: 4px; }
+  .sent .kl b { font-family: var(--font-cond); text-transform: uppercase; letter-spacing: .06em; font-size: .78em; color: var(--orange-ink); margin-right: 6px; }
+  .frame { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px; }
+  .frame > div { background: var(--surface-2); border-radius: 8px; padding: 8px 10px; font-size: .9em; }
+  .frame b { display: block; font-family: var(--font-cond); text-transform: uppercase; letter-spacing: .06em; font-size: .78em; color: var(--purple-ink); }
+  .frame7 { grid-template-columns: repeat(7, 1fr); }
+  .frame7 .stepno { display: block; text-align: center; font-weight: 700; font-size: 1.25em; line-height: 1; color: var(--orange-ink); margin-bottom: 4px; }
+  .frame7 p { margin: 2px 0 0; color: var(--ink-2); }
+  @media (max-width: 980px) { .frame7 { grid-template-columns: repeat(4, 1fr); } }
+  @media (max-width: 640px) { .frame7 { grid-template-columns: repeat(2, 1fr); } }
+  .frame5 { grid-template-columns: repeat(5, 1fr); }
+  @media (max-width: 980px) { .frame5 { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 640px) { .frame5 { grid-template-columns: repeat(2, 1fr); } }
+
+  .checklist { list-style: none; padding: 0; display: grid; gap: 4px; }
+  .checklist li { margin: 0; }
+  .checklist label { display: flex; gap: 11px; align-items: flex-start; padding: 7px 10px; border-radius: 8px; cursor: pointer; }
+  .checklist label:hover { background: var(--surface-2); }
+  .checklist input { width: 21px; height: 21px; margin: 3px 0 0; accent-color: var(--purple); flex: none; }
+  .checklist input:checked + span { color: var(--muted); text-decoration: line-through; text-decoration-color: var(--line-strong); }
+
+  .letters { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; min-height: 56px; }
+  .letter { display: grid; place-items: center; min-width: 58px; padding: 6px 8px; border-radius: 9px; background: var(--surface-2); border: 1px solid var(--line); }
+  .letter b { font-size: 1.3em; color: var(--purple-ink); } .letter i { font-style: normal; font-size: .8em; color: var(--ink-2); }
+  .abc { display: grid; grid-template-columns: repeat(auto-fill, minmax(88px, 1fr)); gap: 6px; }
+  .abc div { text-align: center; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 6px 4px; font-size: .9em; }
+  .abc b { display: block; font-size: 1.25em; color: var(--purple-ink); }
+
+  .obs-grid { display: grid; grid-template-columns: 1.1fr 2fr 2fr; gap: 8px; }
+  .obs-grid textarea { min-height: 70px; }
+  @media (max-width: 720px) { .obs-grid { grid-template-columns: 1fr; } }
+  .obs-row-h { font-family: var(--font-cond); text-transform: uppercase; letter-spacing: .06em; font-size: .78em; color: var(--muted); font-weight: 700; }
+
+  @media print {
+    .rail { display: none; }
+    .sheet[hidden] { display: block !important; }
+    .sheet { break-before: page; }
+    body { display: block; font-size: 12pt; background: #fff; }
+    .btn { display: none; }
+  }
+
+  /* ---------- B2 output pack additions ---------- */
+  main { max-width: 1520px; }
+  .tiers { display: grid; gap: 10px; }
+  .tier { border: 1px solid var(--line); border-radius: 10px; background: var(--surface); overflow: hidden; }
+  .tier-h { display: flex; align-items: center; gap: 10px; padding: 8px 14px; font-family: var(--font-cond); font-weight: 700; letter-spacing: .06em; text-transform: uppercase; font-size: .8em; }
+  .tier-h small { font-family: var(--font); font-weight: 400; text-transform: none; letter-spacing: 0; font-size: 1em; color: var(--ink-2); }
+  .tier.core .tier-h { background: var(--purple-soft); color: var(--purple-ink); }
+  .tier.adv .tier-h { background: var(--orange-soft); color: var(--orange-ink); }
+  .tier.col .tier-h { background: var(--gold-soft); color: #7A4E00; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .tier.col .tier-h { color: var(--gold); } }
+  :root[data-theme="dark"] .tier.col .tier-h { color: var(--gold); }
+  .vt { width: 100%; border-collapse: collapse; font-size: .95em; }
+  .vt td { padding: 7px 14px; border-top: 1px solid var(--line); vertical-align: top; }
+  .vt td:first-child { width: 34%; font-weight: 600; }
+  .vt td:nth-child(2) { color: var(--ink-2); width: 24%; }
+  .vt .ipa { font-weight: 400; font-size: .9em; margin-left: 6px; }
+  .vt i { color: var(--ink-2); }
+  .vt tr.cluster td { background: var(--surface-2); font-family: var(--font-cond); font-weight: 700; letter-spacing: .05em; text-transform: uppercase; font-size: .78em; color: var(--purple-ink); padding: 7px 14px; border-top: 1px solid var(--line-strong); }
+  .vt tr.cluster:first-child td { border-top: 0; }
+  .core-words { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px 10px; padding: 10px 14px; }
+  .core-words > span { display: block; background: var(--surface-2); border-radius: 7px; padding: 6px 10px; line-height: 1.5; }
+  @media (max-width: 640px) { .core-words { grid-template-columns: 1fr; } }
+  .dot { color: var(--purple); font-weight: 700; margin-right: 3px; }
+  .rule-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; padding: 0 14px 12px; }
+  .rule-card { background: var(--surface-2); border-radius: 10px; padding: 12px 14px; text-align: center; }
+  .rule-card .ic { display: block; font-size: 1.9em; line-height: 1; margin-bottom: 6px; }
+  .rule-card b { font-family: var(--font-cond); letter-spacing: .06em; color: var(--purple-ink); font-size: 1.05em; }
+  .rule-card p { margin: 5px 0 3px; font-size: .87em; color: var(--ink-2); line-height: 1.35; }
+  .rule-card i { font-size: .85em; color: var(--ink); }
+  @media (max-width: 640px) { .rule-cards { grid-template-columns: 1fr; } }
+  .lead-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 12px 0; }
+  .lead-card { background: var(--surface-2); border-radius: 12px; overflow: hidden; }
+  .lead-card .li-photo { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; background: var(--surface-3); }
+  .lead-card .li-body { padding: 14px 16px; }
+  .lead-card b { display: block; font-family: var(--font-cond); font-size: .98em; color: var(--purple-ink); line-height: 1.3; }
+  .lead-card .ask { margin-top: 9px; padding-top: 9px; border-top: 1px dashed var(--line-strong); font-size: .9em; font-style: italic; color: var(--ink); }
+  @media (max-width: 900px) { .lead-cards { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .lead-cards { grid-template-columns: 1fr; } }
+  .li-hint { margin-top: 9px; font-size: .85em; }
+  .li-hint summary { cursor: pointer; color: var(--orange-ink); font-weight: 700; font-family: var(--font-cond); letter-spacing: .02em; }
+  .li-hint p { margin: 6px 0 0; color: var(--ink-2); line-height: 1.45; }
+  .li-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 12px 0; }
+  .li-card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; display: flex; flex-direction: column; gap: 6px; }
+  .li-card .li-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+  .li-card .li-go { font-family: var(--font-cond); font-weight: 700; font-size: .82em; letter-spacing: .03em; color: var(--orange-ink); text-decoration: none; white-space: nowrap; }
+  .li-card .li-go:hover { text-decoration: underline; }
+  .li-card b { font-family: var(--font-cond); color: var(--purple-ink); font-size: 1em; line-height: 1.3; }
+  .li-card .ask { font-style: italic; font-size: .92em; color: var(--ink-2); }
+  .li-card input.ans { width: 100%; min-width: 0; box-sizing: border-box; }
+  .li-card .li-foot { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-size: .85em; color: var(--muted); flex-wrap: wrap; }
+  .li-card .li-foot label { display: inline-flex; align-items: center; gap: 6px; color: var(--ink-2); cursor: pointer; }
+  .li-card .li-n { font-family: var(--font-mono); font-weight: 700; color: var(--purple-ink); }
+  .li-card.weak { border-color: var(--gold); box-shadow: 0 0 0 2px var(--gold-soft) inset; }
+  .li-sum { display: flex; gap: 8px 18px; flex-wrap: wrap; margin: 10px 0 4px; font-family: var(--font-cond); font-weight: 700; color: var(--purple-ink); }
+  .li-sum .n { font-family: var(--font-mono); font-size: 1.25em; margin-right: 4px; }
+  .li-sum .n.full { color: var(--good); }
+  @media (max-width: 640px) { .li-grid { grid-template-columns: 1fr; } }
+  .use { background: linear-gradient(90deg, var(--gold-soft), var(--surface)); border-left: 4px solid var(--gold); padding: 10px 14px; border-radius: 0 10px 10px 0; margin-top: 10px; }
+  .use b { font-family: var(--font-cond); text-transform: uppercase; letter-spacing: .06em; font-size: .78em; color: var(--orange-ink); margin-right: 8px; }
+  .group-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; margin-bottom: 10px; }
+  .group-head .why { color: var(--ink-2); font-size: .95em; }
+  .mind { display: none; grid-template-columns: repeat(3, 1fr); gap: 10px; align-items: center; margin: 10px 0 14px; }
+  .mind .c { grid-column: 2; grid-row: 2; background: var(--purple); color: #fff; border-radius: 14px; padding: 14px; text-align: center; font-weight: 700; line-height: 1.3; }
+  .mind .p { background: var(--surface); border: 2px solid var(--line-strong); border-radius: 999px; padding: 10px 14px; text-align: center; font-size: .92em; }
+  @media (max-width: 700px) { .mind { display: grid; grid-template-columns: 1fr 1fr; } .mind .c { grid-column: 1 / -1; grid-row: auto; } .cue-card { display: none; } }
+  /* VSTEP-style cue-card diagram: topic hub + 6 radiating prompts, drawn like the real Part 2 word cue card */
+  .cue-card { position: relative; width: 100%; padding-bottom: 52%; margin: 14px 0 18px; }
+  .cue-card svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+  .cue-card svg line { stroke: var(--line-strong); stroke-width: 2; }
+  .cue-node, .cue-topic { position: absolute; transform: translate(-50%, -50%); text-align: center; }
+  .cue-node { width: 21%; background: var(--surface); border: 2px solid var(--line-strong); border-radius: 999px; padding: 9px 12px; font-size: .82em; line-height: 1.25; box-shadow: var(--shadow); }
+  .cue-list { background: var(--surface); border: 2px solid var(--line-strong); border-radius: 12px; padding: 14px 18px; margin: 12px 0 16px; max-width: 560px; }
+  .cue-list h4 { margin-bottom: 6px; }
+  .cue-list ul { margin: 0; padding-left: 1.2em; }
+  .cue-list .tail { margin-top: 8px; color: var(--ink-2); font-size: .95em; }
+  .cue-topic { width: 27%; background: var(--purple); color: #fff; border-radius: 16px; padding: 14px 16px; font-weight: 700; font-size: .92em; line-height: 1.28; box-shadow: var(--shadow); z-index: 1; }
+  .timer { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 10px 0; }
+  .part-sticky { position: sticky; top: 0; z-index: 6; background: var(--bg); padding-top: 8px; padding-bottom: 6px; margin-bottom: 6px; }
+  @media (max-width: 900px) { .part-sticky { top: 54px; } }
+  .timer .tdisp { font-family: var(--font-mono); font-weight: 700; font-size: 1.6em; color: var(--purple-ink); min-width: 3.4em; }
+  .timer.done .tdisp { color: var(--bad); }
+  .model { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px 20px; line-height: 1.75; }
+  .model p + p { margin-top: .7em; }
+  .model mark { background: var(--gold-soft); color: inherit; padding: 0 3px; border-radius: 3px; font-weight: 600; }
+  .step-tag { display: inline-block; font-family: var(--font-cond); font-weight: 700; font-size: .68em; letter-spacing: .06em; text-transform: uppercase; color: #fff; padding: 2px 8px; border-radius: 5px; margin-right: 6px; vertical-align: 1px; white-space: nowrap; }
+  .step-tag.point { background: var(--purple); }
+  .step-tag.why { background: var(--orange); }
+  .step-tag.how { background: var(--how); }
+  .step-tag.example { background: var(--good); }
+  .step-tag.result { background: var(--result); }
+  .step-tag.limitation { background: var(--bad); }
+  .step-tag.counter { background: var(--bad); }
+  .step-tag.evaluation { background: var(--eval); }
+  .qa .a { line-height: 1.9; }
+  .model p.step { margin-block: 8px; }
+  .model .wcnt { display: block; margin-top: 8px; font-size: .82em; color: var(--muted); font-family: var(--font-mono); }
+  .fn { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 10px; }
+  .fn .card h4 { color: var(--purple-ink); font-size: 1em; }
+  .fn .card ul { padding-left: 1.1em; font-size: .93em; }
+  .fn .card p.ex { color: var(--orange-ink); margin-top: 8px; padding-top: 8px; border-top: 1px dashed var(--line); }
+  .qa { border: 1px solid var(--line); border-radius: 10px; background: var(--surface); padding: 12px 16px; margin-top: 10px; }
+  .qa .q { font-weight: 700; color: var(--purple-ink); }
+  .qa .a { margin-top: 4px; color: var(--ink); font-size: .96em; }
+  .qa .a mark { background: var(--gold-soft); padding: 0 3px; border-radius: 3px; }
+  .upg td:first-child { color: var(--muted); }
+  .upg td:first-child s { text-decoration-color: var(--bad); }
+  .upg td:nth-child(2) { font-weight: 600; }
+  .upg mark { background: var(--gold-soft); color: inherit; padding: 0 3px; border-radius: 3px; font-weight: 700; }
+  .plan { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 10px; }
+  .plan textarea.free { min-height: 90px; }
+  .plan label { display: block; font-family: var(--font-cond); font-weight: 700; letter-spacing: .04em; font-size: .86em; color: var(--ink-2); margin-bottom: 4px; }
+</style>
+</head>
+<body>
+
+
+<aside class="rail" aria-label="Mục lục">
+  <div class="rail-brand">
+    <div class="rail-kicker">Tiếng Anh B2 · Cao học HVQY · Objective First</div>
+    <div class="rail-title">Unit 1<br>Fashion matters</div>
+  </div>
+  <nav class="rail-nav" id="rail-nav" role="tablist" aria-label="Sheets"></nav>
+</aside>
+
+<main data-key="b2-unit-1-fashion-matters">
+
+<!-- ================= SHEET 1: LEAD-IN ================= -->
+<article class="sheet" id="leadin" role="tabpanel" data-title="Lead-in">
+  <div class="sheet-head">
+    <div>
+      <span class="eyebrow">Sheet 1 / 8 · Lead-in · Trước khi vào bài</span>
+      <h2>Trước khi vào bài</h2>
+    </div>
+  </div>
+
+  <section class="block">
+    <h3 id="li-a1">Hoạt động 1 · Quần áo và vẻ ngoài trong đời làm nghề của bạn</h3>
+    <div class="timer"><span class="tdisp">3:00</span><button class="btn sm" type="button" data-sec="180">Thảo luận cặp 3'</button><button class="btn sm stop tstop" type="button">⏹</button><span style="color:var(--muted);font-size:.9em">Nhìn 6 tình huống, trả lời câu hỏi tiếng Anh dưới mỗi ảnh. Không có đúng – sai.</span></div>
+    <div class="lead-cards">
+      <div class="lead-card"><img class="li-photo" src="img/leadin-1.jpg" alt="Ba bác sĩ mặc áo blouse trắng đi buồng, khám cho một bệnh nhân" loading="lazy"><div class="li-body"><b>Đi buồng buổi sáng — ba bác sĩ, một bệnh nhân</b><div class="ask">"What do the doctors on your ward usually wear, and why?"</div><details class="li-hint"><summary>Gợi ý trả lời</summary><p>Most of them wear a white coat over smart but comfortable clothes. Patients expect it, and it presents a professional image — although on a hot day it isn't the most practical thing to wear.</p></details></div></div>
+      <div class="lead-card"><img class="li-photo" src="img/leadin-2.jpg" alt="Kíp mổ mặc đồ phẫu thuật xanh, đang giúp nhau thắt áo" loading="lazy"><div class="li-body"><b>Trước ca mổ — kíp phẫu thuật thay đồ</b><div class="ask">"Why do surgeons change into scrubs before an operation?"</div><details class="li-hint"><summary>Gợi ý trả lời</summary><p>Scrubs are clean, loose-fitting and easy to put on and take off, so they cut down the risk of infection. Nobody is allowed into theatre in their own clothes.</p></details></div></div>
+      <div class="lead-card"><img class="li-photo" src="img/leadin-3.jpg" alt="Một sĩ quan quân y trình bày tại hội nghị y khoa quốc tế" loading="lazy"><div class="li-body"><b>Hội nghị quốc tế — bạn là người trình bày</b><div class="ask">"You're presenting at an international conference next month. What will you wear — and what would you never wear?"</div><details class="li-hint"><summary>Gợi ý trả lời</summary><p>I'd go for a dark suit, a plain shirt and comfortable shoes, because first impressions count. I wouldn't be seen dead in trainers or a T-shirt on stage.</p></details></div></div>
+      <div class="lead-card"><img class="li-photo" src="img/leadin-4.jpg" alt="Bác sĩ nghe phổi cho một bệnh nhân nam mặc áo xanh giản dị" loading="lazy"><div class="li-body"><b>Phòng khám — bệnh nhân mới bước vào</b><div class="ask">"Describe what this patient is wearing. Does a patient's appearance tell you anything useful?"</div><details class="li-hint"><summary>Gợi ý trả lời</summary><p>He's casually dressed in a plain blue top. Appearance can be a clue: a patient who looks scruffy and untidy when they used to be well-dressed may be depressed or unwell.</p></details></div></div>
+      <div class="lead-card"><img class="li-photo" src="img/leadin-5.jpg" alt="Người mẫu rất gầy trình diễn trên sàn catwalk" loading="lazy"><div class="li-body"><b>Bệnh nhân 16 tuổi muốn gầy như người mẫu</b><div class="ask">"A 16-year-old patient wants to be as thin as the models she follows online. What would you say to her?"</div><details class="li-hint"><summary>Gợi ý trả lời</summary><p>I'd explain that catwalk models are far thinner than is healthy, that those images set unrealistic standards, and that being slimmer doesn't mean being more attractive.</p></details></div></div>
+      <div class="lead-card"><img class="li-photo" src="img/leadin-6.jpg" alt="Ba chiếc túi xách nhái nhãn hiệu bị hải quan thu giữ" loading="lazy"><div class="li-body"><b>Đồng nghiệp khoe túi "hàng hiệu" mua ở chợ</b><div class="ask">"A colleague shows you a 'designer' bag she bought for 500,000 VND at a market. Would you buy one? Why / why not?"</div><details class="li-hint"><summary>Gợi ý trả lời</summary><p>No, I wouldn't. It's a knock-off: it looks as good as the real thing, but it's illegal, it's probably badly made, and the fake trade damages the genuine brands.</p></details></div></div>
+    </div>
+    <p style="font-size:.78em;color:var(--muted);margin-top:4px">Ảnh 5: Christopher Macsurak, CC BY 2.0 (Wikimedia Commons). Ảnh 1, 2, 3, 4, 6: public domain (NIH, U.S. Army, U.S. Navy, U.S. CBP — Wikimedia Commons).</p>
+  </section>
+
+  <section class="block">
+    <h3 id="li-a2">Hoạt động 2 · Bạn đã có bao nhiêu từ cho 6 nhóm?</h3>
+    <div class="timer"><span class="tdisp">5:00</span><button class="btn sm" type="button" data-sec="300">Brainstorm 5'</button><button class="btn sm stop tstop" type="button">⏹</button><span style="color:var(--muted);font-size:.9em">Với mỗi nhóm, gõ mọi từ / cụm tiếng Anh bạn nghĩ ra (cách nhau bằng dấu phẩy). Tick <b>3 nhóm bạn yếu nhất</b>. Ngày 7 làm lại và so số từ.</span></div>
+    <div class="li-grid">
+      <div class="li-card"><div class="li-top"><span class="chip p">Group 1</span><a class="li-go" href="#g1" data-go="g1">Mở nhóm →</a></div><b>Mặc gì — trang phục, giày dép, chất liệu</b><p class="ask">What are the people around you wearing right now?</p><input class="ans" id="li-g1" placeholder="từ 1, từ 2, …" aria-label="Group 1"><details class="li-hint"><summary>Gợi ý từ</summary><p>suit · sweatshirt · jeans · jacket · T-shirt · polo shirt · top · shorts · dress · jumper · shirt · tie · shawl · outfit · gear · boots · sandals · trainers · high-heeled shoes · flip flops · bracelet · earrings · necklace · ring · hood · helmet · hat · baseball cap · woollen · leather · cotton · silk · polyester · suede · fur · striped · faded · knitted · sparkly · second-hand · open-necked · short-sleeved · V-neck · knee-length · handmade</p></details><div class="li-foot"><span class="li-n">0 từ</span><label><input type="checkbox" id="li-w1"> nhóm mình yếu</label></div></div>
+      <div class="li-card"><div class="li-top"><span class="chip p">Group 2</span><a class="li-go" href="#g2" data-go="g2">Mở nhóm →</a></div><b>Trông thế nào — vẻ ngoài &amp; phong cách</b><p class="ask">How would you describe a colleague's style in three words?</p><input class="ans" id="li-g2" placeholder="từ 1, từ 2, …" aria-label="Group 2"><details class="li-hint"><summary>Gợi ý từ</summary><p>casual · smart · stylish · comfortable · elegant · practical · outrageous · fashionable · untidy · scruffy · tatty · classy · sophisticated · laid-back · fashion-conscious · ordinary · cool · look smart · casually dressed · dressed up for a special event · good taste · image · bright colours · in comparison</p></details><div class="li-foot"><span class="li-n">0 từ</span><label><input type="checkbox" id="li-w2"> nhóm mình yếu</label></div></div>
+      <div class="li-card"><div class="li-top"><span class="chip p">Group 3</span><a class="li-go" href="#g3" data-go="g3">Mở nhóm →</a></div><b>Làm gì với quần áo — phrasal verbs</b><p class="ask">What do you do with clothes — from the shop to the wardrobe?</p><input class="ans" id="li-g3" placeholder="từ 1, từ 2, …" aria-label="Group 3"><details class="li-hint"><summary>Gợi ý từ</summary><p>dress up · slip on · pull on · put on · take off · try on · put together · stand out · fit in with · keep up with · take back · save up · cut down · go out · add to · get away with · go up · go on · go for · go back · go over · go ahead · wake up · go clubbing</p></details><div class="li-foot"><span class="li-n">0 từ</span><label><input type="checkbox" id="li-w3"> nhóm mình yếu</label></div></div>
+      <div class="li-card"><div class="li-top"><span class="chip p">Group 4</span><a class="li-go" href="#g4" data-go="g4">Mở nhóm →</a></div><b>Thời trang quan trọng đến đâu — thái độ</b><p class="ask">How important is fashion to you — and how would you say so in English?</p><input class="ans" id="li-g4" placeholder="từ 1, từ 2, …" aria-label="Group 4"><details class="li-hint"><summary>Gợi ý từ</summary><p>I prefer to wear … · What I absolutely love is … · I wouldn't be seen dead in … · … isn't really my scene · I don't really mind what I wear · clothes are important to me · my image is really important to me · I favour the casual look · comfortable as well as stylish · I'm not a suit man · (the least) fashion-conscious · get away with casual stuff</p></details><div class="li-foot"><span class="li-n">0 từ</span><label><input type="checkbox" id="li-w4"> nhóm mình yếu</label></div></div>
+      <div class="li-card"><div class="li-top"><span class="chip p">Group 5</span><a class="li-go" href="#g5" data-go="g5">Mở nhóm →</a></div><b>So sánh &amp; lựa chọn</b><p class="ask">Trainers or leather shoes for a ward round — how many ways can you compare them?</p><input class="ans" id="li-g5" placeholder="từ 1, từ 2, …" aria-label="Group 5"><details class="li-hint"><summary>Gợi ý từ</summary><p>-er than · more … than · the most … · the -est · less … than · the least … · not as … as · a bit / slightly / a lot / much / far + comparative · by far / easily + superlative · more commonly · less seriously · better · worse</p></details><div class="li-foot"><span class="li-n">0 từ</span><label><input type="checkbox" id="li-w5"> nhóm mình yếu</label></div></div>
+      <div class="li-card"><div class="li-top"><span class="chip p">Group 6</span><a class="li-go" href="#g6" data-go="g6">Mở nhóm →</a></div><b>Ngành thời trang — vấn đề &amp; quan điểm</b><p class="ask">What is wrong with the fashion industry, in your view?</p><input class="ans" id="li-g6" placeholder="từ 1, từ 2, …" aria-label="Group 6"><details class="li-hint"><summary>Gợi ý từ</summary><p>the fashion industry · fashion houses · supermodels · underweight models · the catwalk · designer labels · brands · luxury items · counterfeit goods · knock-offs · imitation goods · fake designer goods · the genuine product · cheap copies · illegal activity · market stalls · value for money · free advertising · fight back · damage the brands · reduce sales · high-tech solutions · the least achievable figure · look like supermodels</p></details><div class="li-foot"><span class="li-n">0 từ</span><label><input type="checkbox" id="li-w6"> nhóm mình yếu</label></div></div>
+    </div>
+    <div class="li-sum"><span><span class="n" id="li-sum-words">0</span>từ đã có</span><span><span class="n" id="li-sum-weak">0/3</span>nhóm yếu đã chọn</span></div>
+  </section>
+</article>
+
+<!-- ================= SHEET 2: LỘ TRÌNH ================= -->
+<article class="sheet" id="route" role="tabpanel" data-title="Lộ trình" hidden>
+  <div class="sheet-head">
+    <div>
+      <span class="eyebrow">Sheet 2 / 8 · Fashion · appearance · comparison</span>
+      <h2>Lộ trình Unit 1 — 8 tiết</h2>
+      <p class="lead">Đích: kỳ thi B2 cuối học phần (định dạng VSTEP — đề chính thức CK2/CH 2026). Câu hỏi Part 1 "Let's talk about fashion" trong đề chính thức trùng đúng ba câu hỏi mở đầu Unit 1 (SB tr. 10).</p>
+    </div>
+  </div>
+
+  <section class="block">
+    <h3 id="r-goal">Mục tiêu đầu ra</h3>
+    <div class="grid-3">
+      <div class="card"><span class="eyebrow">Speaking · Part 1 · Social interaction</span><p>Trả lời 6 câu hỏi về thời trang và trang phục đi làm, mỗi câu ≤ 30 giây, 2–3 mệnh đề, ít nhất 1 collocation chủ đề.</p></div>
+      <div class="card"><span class="eyebrow">Speaking · Part 2 · Solution discussion</span><p>Chọn 1 trong 3 phương án và bảo vệ trong 2–2,5 phút với ≥ 3 cấu trúc so sánh (comparative + adverb of degree, <i>not as … as</i>, superlative) và 1 câu nhượng bộ.</p></div>
+      <div class="card"><span class="eyebrow">Speaking · Part 3 · Topic development</span><p>Nói 2,5–3 phút theo sơ đồ 3 nhánh + ý riêng, đủ Point → Why → Example → Counter → Evaluation, ≥ 6 cụm chủ đề; trả lời 2 câu hỏi mở rộng.</p></div>
+      <div class="card"><span class="eyebrow">Writing · Task 1 · Email</span><p>Email ≥ 120 từ trả lời đủ 3 ý của bạn, giọng thân mật, ≥ 4 cụm chủ đề, ≥ 2 câu so sánh.</p></div>
+      <div class="card"><span class="eyebrow">Writing · Task 2 · Essay</span><p>Essay ≥ 250 từ nêu quan điểm, 4–5 đoạn, ≥ 6 cụm chủ đề, ≥ 3 cấu trúc so sánh / adverb of degree, 1 câu nhượng bộ.</p></div>
+      <div class="card"><span class="eyebrow">Từ vựng &amp; so sánh</span><p>Dùng chủ động 57 cụm B2 trong 6 nhóm (quiz ≥ 13/16 sau 7 ngày) và viết đúng ≥ 10/14 câu key word transformations về so sánh.</p></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h3 id="r-map">Các kiến thức cần nhớ</h3>
+    <div class="grid-3">
+      <div class="card"><span class="eyebrow">Speaking Part 1 · 3'</span><p>Sở thích, thói quen ăn mặc, lý do ngắn.</p><div class="chips" style="margin-top:8px"><a class="chip p" href="#g1" data-go="g1">Group 1 mặc gì</a><a class="chip p" href="#g2" data-go="g2">Group 2 trông thế nào</a><a class="chip p" href="#g4" data-go="g4">Group 4 thái độ</a><a class="chip o" href="#c-fn" data-go="c-fn">chunks ý kiến · sở thích · lý do</a><a class="chip o" href="#s-p1" data-go="s-p1">Sheet 5 · Part 1</a></div></div>
+      <div class="card"><span class="eyebrow">Speaking Part 2 · 4'</span><p>So sánh 3 phương án, chọn 1, giải thích.</p><div class="chips" style="margin-top:8px"><a class="chip p" href="#g1" data-go="g1">Group 1</a><a class="chip p" href="#g5" data-go="g5">Group 5 so sánh &amp; lựa chọn</a><a class="chip o" href="#c-fn" data-go="c-fn">chunks so sánh · lựa chọn · nhượng bộ</a><a class="chip o" href="#s-p2" data-go="s-p2">Sheet 5 · Part 2</a></div></div>
+      <div class="card"><span class="eyebrow">Speaking Part 3 · 5'</span><p>Vẻ ngoài trong nghề nghiệp; ngành thời trang lợi hay hại.</p><div class="chips" style="margin-top:8px"><a class="chip p" href="#g2" data-go="g2">Group 2</a><a class="chip p" href="#g4" data-go="g4">Group 4</a><a class="chip p" href="#g6" data-go="g6">Group 6 ngành thời trang</a><a class="chip o" href="#c-frame" data-go="c-frame">khung 5 bước</a><a class="chip o" href="#s-p3" data-go="s-p3">Sheet 5 · Part 3</a></div></div>
+      <div class="card"><span class="eyebrow">Writing Task 1 · email</span><p>Khuyên bạn mặc gì đi hội nghị; thời tiết; có nên mua suit mới.</p><div class="chips" style="margin-top:8px"><a class="chip p" href="#g1" data-go="g1">Group 1</a><a class="chip p" href="#g2" data-go="g2">Group 2</a><a class="chip p" href="#g5" data-go="g5">Group 5</a><a class="chip o" href="#c-fn" data-go="c-fn">chunks đề xuất · khuyên</a><a class="chip o" href="#w-t1" data-go="w-t1">Sheet 6 · Task 1</a></div></div>
+      <div class="card"><span class="eyebrow">Writing Task 2 · essay</span><p>Ngành thời trang và sức khoẻ, lòng tự trọng của người trẻ.</p><div class="chips" style="margin-top:8px"><a class="chip p" href="#g5" data-go="g5">Group 5</a><a class="chip p" href="#g6" data-go="g6">Group 6</a><a class="chip o" href="#c-fn" data-go="c-fn">chunks nhượng bộ · đánh giá</a><a class="chip o" href="#w-t2" data-go="w-t2">Sheet 6 · Task 2</a></div></div>
+      <div class="card"><span class="eyebrow">Listening · Reading (SB tr. 10–13)</span><p>Nhận ra phrasal verbs trong lời nói tự nhiên; so sánh trong bài báo.</p><div class="chips" style="margin-top:8px"><a class="chip p" href="#g3" data-go="g3">Group 3 phrasal verbs</a><a class="chip p" href="#g5" data-go="g5">Group 5</a><a class="chip o" href="#x-2" data-go="x-2">Bài 2</a><a class="chip o" href="#x-6" data-go="x-6">Bài 6</a><a class="chip o" href="#x-7" data-go="x-7">Bài 7</a></div></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h3 id="r-plan">Kế hoạch 2 buổi (8 tiết × 45')</h3>
+    <div class="grid-2">
+      <div class="card"><span class="eyebrow">Buổi 1 · 4 tiết · 1.1 Fashion matters (SB tr. 10–11) · nói được</span>
+        <div class="tablewrap" style="border:0"><table>
+          <tbody>
+            <tr><td class="t" style="width:14%">20'</td><td><ul class="substeps"><li>Sheet 1 · Hoạt động 1: 6 tình huống, cặp 3'</li><li>Hoạt động 2: gõ từ đã biết cho 6 nhóm, tick 3 nhóm yếu</li><li>Sheet 2: đọc 6 mục tiêu</li></ul></td></tr>
+            <tr><td class="t">40'</td><td><ul class="substeps"><li>Group 1 và Group 2: Core → Nâng cao → Collocations</li><li>SB tr. 10 bài 2–3: tả người trong ảnh 1a–4b theo cặp</li><li>Bài 1 Sheet 7 (phân loại)</li></ul></td></tr>
+            <tr><td class="t">15'</td><td><ul class="substeps"><li>SB tr. 10 bài 6: nghe CD 1.02–1.03, nối 5 người nói với ảnh</li><li>Đối chiếu đáp án theo cặp</li></ul></td></tr>
+            <tr><td class="t">40'</td><td><ul class="substeps"><li>Group 3: 3 thẻ quy tắc + 24 phrasal verbs; SB tr. 11 bài 7 và 9</li><li>Bài 2 Sheet 7 (tìm phrasal verb trong lời người nói)</li><li>Bài 3 Sheet 7 (= SB bài 8, làm trên trang)</li><li>Bài 4 Sheet 7 (trật tự từ)</li></ul></td></tr>
+            <tr><td class="t">20'</td><td><ul class="substeps"><li>Group 4: cách nói thái độ với thời trang</li><li>Sheet 4: chunks 1–4 (ý kiến, sở thích, lý do, ví dụ)</li></ul></td></tr>
+            <tr><td class="t">35'</td><td><ul class="substeps"><li>Sheet 5 · Part 1: 6 câu, cặp, bấm giờ 30"/câu</li><li>Đổi vai; tự chấm checklist</li></ul></td></tr>
+            <tr><td class="t">10'</td><td><ul class="substeps"><li>Quiz Sheet 8, câu 1–8, không nhìn bài</li><li>Bài về nhà: Bài 5 Sheet 7; ghi 5 cụm vào sổ cá nhân</li></ul></td></tr>
+          </tbody></table></div></div>
+      <div class="card"><span class="eyebrow">Buổi 2 · 4 tiết · 1.2 Comparison (SB tr. 12–13) + Exam folder 1 (tr. 14–15) · viết được</span>
+        <div class="tablewrap" style="border:0"><table>
+          <tbody>
+            <tr><td class="t" style="width:14%">10'</td><td><ul class="substeps"><li>Nói lại 3 câu Part 1 không nhìn bài (bạn hỏi – bạn đáp)</li><li>Quiz Sheet 8, câu 1–8 lần 2</li></ul></td></tr>
+            <tr><td class="t">30'</td><td><ul class="substeps"><li>Group 5: 6 thẻ quy tắc so sánh; SB tr. 12 bài 1–3, Grammar extra; tr. 13 bài 5</li><li>Bài 6 Sheet 7 (= SB tr. 12 bài 4 + Grammar extra, làm trên trang)</li></ul></td></tr>
+            <tr><td class="t">20'</td><td><ul class="substeps"><li>Group 6: bài báo <i>Fashion knock-offs</i> (SB tr. 13 bài 6–7)</li><li>Bài 5 Sheet 7 chữa nhanh</li></ul></td></tr>
+            <tr><td class="t">15'</td><td><ul class="substeps"><li>Sheet 4: chunks 5–9, bảng nâng cấp B1 → B2, khung 5 bước</li></ul></td></tr>
+            <tr><td class="t">20'</td><td><ul class="substeps"><li>Sheet 5 · Part 2: tình huống A theo cặp, 1' chuẩn bị + 2–2,5' nói</li><li>Bạn nghe đếm cấu trúc so sánh</li></ul></td></tr>
+            <tr><td class="t">25'</td><td><ul class="substeps"><li>Sheet 5 · Part 3: đề A hoặc B, nhóm 3 (nói – hỏi mở rộng – chấm)</li></ul></td></tr>
+            <tr><td class="t">15'</td><td><ul class="substeps"><li>Exam folder 1 (SB tr. 14–15): đọc Exam advice</li><li>Bài 7 Sheet 7 (key word transformations)</li></ul></td></tr>
+            <tr><td class="t">25'</td><td><ul class="substeps"><li>Sheet 6 · Task 1: viết email 20' theo planner</li><li>Đổi bài, chấm 5 ô checklist</li></ul></td></tr>
+            <tr><td class="t">10'</td><td><ul class="substeps"><li>Sheet 6 · Task 2: dàn ý 5 đoạn + đoạn mở trên lớp</li><li>Ở nhà: phần còn lại của essay, Bài 8, Bài 9, Part 2 tình huống B (ghi âm)</li></ul></td></tr>
+            <tr><td class="t">10'</td><td><ul class="substeps"><li>Quiz Sheet 8 đủ 16 câu</li><li>Bảng kiểm mastery; lịch ôn ngày 1 – 3 – 7</li></ul></td></tr>
+          </tbody></table></div></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h3 id="r-method">Cách học một nhóm từ</h3>
+    <div class="flow flow5">
+      <div class="step"><span class="k">1</span><h4>Đọc to phần Core</h4><ul><li>Bạn đã gặp những từ này trong SB</li><li>Kiểm tra trọng âm: <i>comfortable, sophisticated</i></li></ul></div>
+      <div class="step"><span class="k">2</span><h4>Chọn 5 cụm Nâng cao</h4><ul><li>Không học tất cả</li><li>Chọn cụm bạn sẽ dùng khi nói về mình</li></ul></div>
+      <div class="step"><span class="k">3</span><h4>Che cột nghĩa</h4><ul><li>Nhìn cụm tiếng Anh → nói nghĩa</li><li>Nhìn nghĩa → nói cụm</li></ul></div>
+      <div class="step"><span class="k">4</span><h4>Viết một câu về mình</h4><ul><li>Một câu thật về bạn, khoa của bạn, bệnh nhân của bạn</li><li>Dùng 2 cụm vừa học</li></ul></div>
+      <div class="step"><span class="k">5</span><h4>Nói 30 giây</h4><ul><li>Bấm giờ, nói câu đó + 2 câu nữa</li><li>Ghi âm, nghe lại</li></ul></div>
+    </div>
+  </section>
+</article>
+
+<!-- ================= SHEET 3: TỪ VỰNG THEO NHÓM ================= -->
+<article class="sheet" id="vocab" role="tabpanel" data-title="Từ vựng theo nhóm" hidden>
+  <div class="sheet-head">
+    <div>
+      <span class="eyebrow">Sheet 3 / 8 · 6 nhóm từ vựng · Fashion matters</span>
+      <h2>Từ vựng chủ đề Fashion &amp; Appearance</h2>
+      <p class="lead">● = từ có trong SB Unit 1 (tr. 10–15, đáp án tr. 199–200). Các dòng còn lại là ngôn ngữ B2 mở rộng; ví dụ lấy từ đời sống bệnh viện, phòng khám, hội nghị.</p>
+    </div>
+  </div>
+
+  <!-- Group 1 -->
+  <section class="block">
+    <div class="group-head"><h3 id="g1">Group 1 · Mặc gì — trang phục, giày dép, chất liệu</h3><span class="why">What are they wearing?</span></div>
+    <div class="tiers">
+      <div class="tier core"><div class="tier-h">Core · SB Unit 1</div>
+        <div class="core-words"><span><span class="dot">●</span>suit</span><span><span class="dot">●</span>sweatshirt</span><span><span class="dot">●</span>jeans</span><span><span class="dot">●</span>jacket</span><span><span class="dot">●</span>T-shirt</span><span><span class="dot">●</span>polo shirt</span><span><span class="dot">●</span>top</span><span><span class="dot">●</span>shorts</span><span><span class="dot">●</span>dress</span><span><span class="dot">●</span>jumper</span><span><span class="dot">●</span>shirt</span><span><span class="dot">●</span>tie</span><span><span class="dot">●</span>shawl</span><span><span class="dot">●</span>outfit</span><span><span class="dot">●</span>gear (biker gear)</span><span><span class="dot">●</span>boots</span><span><span class="dot">●</span>sandals</span><span><span class="dot">●</span>trainers</span><span><span class="dot">●</span>high-heeled shoes</span><span><span class="dot">●</span>flip flops</span><span><span class="dot">●</span>bracelet</span><span><span class="dot">●</span>earrings</span><span><span class="dot">●</span>necklace</span><span><span class="dot">●</span>ring</span><span><span class="dot">●</span>hood</span><span><span class="dot">●</span>helmet</span><span><span class="dot">●</span>hat</span><span><span class="dot">●</span>baseball cap</span><span><span class="dot">●</span>woollen</span><span><span class="dot">●</span>leather</span><span><span class="dot">●</span>cotton</span><span><span class="dot">●</span>silk</span><span><span class="dot">●</span>polyester</span><span><span class="dot">●</span>suede <span class="ipa">/sweɪd/</span></span><span><span class="dot">●</span>fur</span><span><span class="dot">●</span>striped</span><span><span class="dot">●</span>faded</span><span><span class="dot">●</span>knitted</span><span><span class="dot">●</span>sparkly</span><span><span class="dot">●</span>second-hand</span><span><span class="dot">●</span>open-necked</span><span><span class="dot">●</span>short-sleeved</span><span><span class="dot">●</span>V-neck</span><span><span class="dot">●</span>knee-length</span><span><span class="dot">●</span>handmade</span></div></div>
+      <div class="tier adv"><div class="tier-h">Nâng cao · B2</div>
+        <table class="vt"><tbody>
+          <tr class="cluster"><td colspan="3">Trang phục nơi làm việc</td></tr>
+          <tr><td>wear a white coat (over …)</td><td>mặc áo blouse trắng (bên ngoài …)</td><td><i>On the ward round, every doctor has to wear a white coat over their own clothes.</i></td></tr>
+          <tr><td>change into scrubs</td><td>thay sang bộ đồ phẫu thuật / đồ y tế</td><td><i>Surgeons change into scrubs before they go into theatre.</i></td></tr>
+          <tr><td>wear a uniform</td><td>mặc đồng phục</td><td><i>Nurses at our hospital wear a light-blue uniform.</i></td></tr>
+          <tr class="cluster"><td colspan="3">Kiểu dáng &amp; chất lượng</td></tr>
+          <tr><td>loose-fitting / tight-fitting</td><td>rộng, thoải mái / ôm sát</td><td><i>Loose-fitting cotton trousers are far more comfortable on a twelve-hour shift.</i></td></tr>
+          <tr><td>plain / patterned</td><td>trơn / có hoạ tiết</td><td><i>A plain shirt looks more professional than a patterned one at a conference.</i></td></tr>
+          <tr><td>badly made ● / well-made</td><td>may kỹ / may cẩu thả</td><td><i>The jacket was so badly made that I took it back the next day.</i></td></tr>
+        </tbody></table></div>
+      <div class="tier col"><div class="tier-h">Collocations</div>
+        <table class="vt"><tbody>
+          <tr><td>be dressed in + clothes ●</td><td>đang mặc … (mô tả)</td><td><i>The patient was dressed in a hospital gown and a pair of slippers.</i></td></tr>
+          <tr><td>go with (something)</td><td>hợp với (màu, món đồ khác)</td><td><i>That bright tie doesn't really go with a white coat.</i></td></tr>
+          <tr><td>suit somebody</td><td>hợp với ai (trông đẹp)</td><td><i>Dark colours suit you much better than bright ones.</i></td></tr>
+          <tr><td>fit somebody</td><td>vừa cỡ ai</td><td><i>The scrubs they gave me didn't fit — the trousers were far too long.</i></td></tr>
+          <tr><td>a pair of + jeans / trousers / shoes ●</td><td>một cái / một đôi</td><td><i>I keep a spare pair of trousers in my locker in case of emergencies.</i></td></tr>
+        </tbody></table></div>
+    </div>
+  </section>
+
+  <!-- Group 2 -->
+  <section class="block">
+    <div class="group-head"><h3 id="g2">Group 2 · Trông thế nào — vẻ ngoài &amp; phong cách</h3><span class="why">How do they look?</span></div>
+    <div class="tiers">
+      <div class="tier core"><div class="tier-h">Core · SB Unit 1</div>
+        <div class="core-words"><span><span class="dot">●</span>casual</span><span><span class="dot">●</span>smart</span><span><span class="dot">●</span>stylish</span><span><span class="dot">●</span>comfortable <span class="ipa">/ˈkʌmftəbl/</span></span><span><span class="dot">●</span>elegant</span><span><span class="dot">●</span>practical</span><span><span class="dot">●</span>outrageous <span class="ipa">/aʊtˈreɪdʒəs/</span></span><span><span class="dot">●</span>fashionable</span><span><span class="dot">●</span>untidy</span><span><span class="dot">●</span>scruffy</span><span><span class="dot">●</span>tatty</span><span><span class="dot">●</span>classy</span><span><span class="dot">●</span>sophisticated <span class="ipa">/səˈfɪstɪkeɪtɪd/</span></span><span><span class="dot">●</span>laid-back</span><span><span class="dot">●</span>fashion-conscious</span><span><span class="dot">●</span>ordinary</span><span><span class="dot">●</span>cool</span><span><span class="dot">●</span>look smart</span><span><span class="dot">●</span>casually dressed</span><span><span class="dot">●</span>dressed up for a special event</span><span><span class="dot">●</span>good taste (in ties)</span><span><span class="dot">●</span>image</span><span><span class="dot">●</span>bright colours</span><span><span class="dot">●</span>in comparison</span></div></div>
+      <div class="tier adv"><div class="tier-h">Nâng cao · B2</div>
+        <table class="vt"><tbody>
+          <tr class="cluster"><td colspan="3">Ấn tượng chung</td></tr>
+          <tr><td>well-dressed</td><td>ăn mặc đẹp, chỉnh tề</td><td><i>The new consultant is always well-dressed, even after a night on call.</i></td></tr>
+          <tr><td>presentable</td><td>tươm tất, coi được</td><td><i>You don't need a suit — just look presentable when you meet the patient's family.</i></td></tr>
+          <tr><td>old-fashioned</td><td>lỗi mốt, kiểu cũ</td><td><i>My father's suits are a bit old-fashioned, but they're beautifully made.</i></td></tr>
+          <tr class="cluster"><td colspan="3">Phong cách</td></tr>
+          <tr><td>trendy</td><td>hợp mốt, thời thượng</td><td><i>Younger doctors tend to wear trendier glasses than the professors.</i></td></tr>
+          <tr><td>dress sense (U)</td><td>gu ăn mặc</td><td><i>My sister has far better dress sense than I do.</i></td></tr>
+          <tr><td>smart-casual</td><td>lịch sự nhưng không quá trang trọng</td><td><i>The conference dinner is smart-casual, so leave the tie at home.</i></td></tr>
+        </tbody></table></div>
+      <div class="tier col"><div class="tier-h">Collocations</div>
+        <table class="vt"><tbody>
+          <tr><td>make an effort to look good ●</td><td>cố gắng để trông đẹp</td><td><i>As a doctor, I make an effort to look good because patients notice everything.</i></td></tr>
+          <tr><td>take (a lot of / little) trouble with your clothes ●</td><td>chăm chút / ít chăm chút quần áo</td><td><i>Since he became head of department, he has taken a lot more trouble with his clothes.</i></td></tr>
+          <tr><td>present a (professional) image ●</td><td>thể hiện hình ảnh …</td><td><i>A clean white coat presents a professional image to patients.</i></td></tr>
+          <tr><td>stand out in a crowd ●</td><td>nổi bật giữa đám đông</td><td><i>With her bright red hair, she always stands out in a crowd.</i></td></tr>
+          <tr><td>create a good impression</td><td>tạo ấn tượng tốt</td><td><i>Neat clothes create a good impression before you say a single word.</i></td></tr>
+        </tbody></table></div>
+    </div>
+  </section>
+
+  <!-- Group 3 -->
+  <section class="block">
+    <div class="group-head"><h3 id="g3">Group 3 · Làm gì với quần áo — phrasal verbs</h3><span class="why">What do you do with clothes — and with money?</span></div>
+    <div class="tiers">
+      <div class="tier core"><div class="tier-h">Core · SB Unit 1 · tr. 11</div>
+        <div class="rule-cards">
+          <div class="rule-card"><span class="ic">🔀</span><b>TRẬT TỰ TỪ</b><p>Tân ngữ là danh từ: đứng sau hoặc chen giữa. Tân ngữ là đại từ: <b>luôn</b> chen giữa.</p><i>I tried on the red jacket. · I tried the red jacket on. · I tried it on.</i></div>
+          <div class="rule-card"><span class="ic">🔗</span><b>3 TỪ — KHÔNG TÁCH</b><p>Phrasal verb ba từ không bao giờ tách rời.</p><i>get away with casual stuff · keep up with the latest fashions · fit in with my colleagues</i></div>
+          <div class="rule-card"><span class="ic">⏮</span><b>QUÁ KHỨ BẤT QUY TẮC</b><p>Nhiều phrasal verb chứa động từ bất quy tắc — lỗi hay gặp trong bài thi.</p><i>I took off my coat (không phải taked off) · slipped on · went out · stood out</i></div>
+        </div>
+        <div class="core-words"><span><span class="dot">●</span>dress up — mặc đẹp hơn thường ngày</span><span><span class="dot">●</span>slip on — mặc / xỏ nhanh</span><span><span class="dot">●</span>pull on — kéo mặc vào</span><span><span class="dot">●</span>put on</span><span><span class="dot">●</span>take off</span><span><span class="dot">●</span>try on — mặc thử</span><span><span class="dot">●</span>put together (an outfit) — phối đồ</span><span><span class="dot">●</span>stand out — nổi bật</span><span><span class="dot">●</span>fit in with — hoà hợp với</span><span><span class="dot">●</span>keep up with — theo kịp</span><span><span class="dot">●</span>take back — trả lại (đồ đã mua)</span><span><span class="dot">●</span>save up (for) — dành dụm tiền</span><span><span class="dot">●</span>cut down (on) — cắt giảm</span><span><span class="dot">●</span>go out — đi chơi</span><span><span class="dot">●</span>add to — thêm vào</span><span><span class="dot">●</span>get away with — làm mà không bị chê trách</span><span><span class="dot">●</span>go up — tăng (giá)</span><span><span class="dot">●</span>go on — xảy ra</span><span><span class="dot">●</span>go for — chọn</span><span><span class="dot">●</span>go back — quay lại</span><span><span class="dot">●</span>go over — rà soát</span><span><span class="dot">●</span>go ahead — cứ làm đi</span><span><span class="dot">●</span>wake up</span><span><span class="dot">●</span>go clubbing — đi bar / vũ trường</span></div></div>
+      <div class="tier adv"><div class="tier-h">Nâng cao · B2</div>
+        <table class="vt"><tbody>
+          <tr><td>wear out</td><td>mòn, rách vì dùng nhiều</td><td><i>I wore out two pairs of trainers during my first year on the wards.</i></td></tr>
+          <tr><td>splash out (on)</td><td>vung tiền mua (một món)</td><td><i>Once a year I splash out on a really good pair of shoes.</i></td></tr>
+        </tbody></table></div>
+      <div class="tier col"><div class="tier-h">Collocations</div>
+        <table class="vt"><tbody>
+          <tr><td>go shopping for clothes ●</td><td>đi mua sắm quần áo</td><td><i>I go shopping for clothes about twice a year, usually before Tết.</i></td></tr>
+          <tr><td>buy (clothes) online ●</td><td>mua trên mạng</td><td><i>I buy most of my clothes online because hospital shifts leave no time for shops.</i></td></tr>
+          <tr><td>keep up with the latest fashions ●</td><td>theo kịp mốt mới nhất</td><td><i>Medical students rarely have the money to keep up with the latest fashions.</i></td></tr>
+          <tr><td>a real bargain ●</td><td>món hời thật sự</td><td><i>This coat was a real bargain — half price in the January sales.</i></td></tr>
+          <tr><td>spend a fortune on clothes</td><td>tiêu cả đống tiền vào quần áo</td><td><i>My cousin spends a fortune on clothes she wears only once.</i></td></tr>
+        </tbody></table></div>
+    </div>
+  </section>
+
+  <!-- Group 4 -->
+  <section class="block">
+    <div class="group-head"><h3 id="g4">Group 4 · Thời trang quan trọng đến đâu — thái độ</h3><span class="why">How important is fashion to you?</span></div>
+    <div class="tiers">
+      <div class="tier core"><div class="tier-h">Core · SB Unit 1 · tr. 10, 199–200</div>
+        <div class="core-words"><span><span class="dot">●</span>I prefer to wear …</span><span><span class="dot">●</span>What I absolutely love is …</span><span><span class="dot">●</span>I wouldn't be seen dead in …</span><span><span class="dot">●</span>… isn't really my scene</span><span><span class="dot">●</span>I don't really mind what I wear</span><span><span class="dot">●</span>clothes are important to me</span><span><span class="dot">●</span>my image is really important to me</span><span><span class="dot">●</span>I favour the casual look</span><span><span class="dot">●</span>comfortable as well as stylish</span><span><span class="dot">●</span>I'm not a suit man</span><span><span class="dot">●</span>(the least) fashion-conscious person I know</span><span><span class="dot">●</span>I can get away with casual stuff</span></div></div>
+      <div class="tier adv"><div class="tier-h">Nâng cao · B2</div>
+        <table class="vt"><tbody>
+          <tr><td>be into fashion</td><td>thích, quan tâm thời trang</td><td><i>I'm not really into fashion, but I like clothes that fit well.</i></td></tr>
+          <tr><td>follow the latest trends</td><td>chạy theo xu hướng</td><td><i>Teenage patients often follow the latest trends they see on TikTok.</i></td></tr>
+          <tr><td>put comfort first</td><td>ưu tiên sự thoải mái</td><td><i>On a 24-hour shift I put comfort first and wear trainers.</i></td></tr>
+          <tr><td>express your personality</td><td>thể hiện cá tính</td><td><i>For many young people, clothes are a way to express their personality.</i></td></tr>
+          <tr><td>it's a matter of personal taste</td><td>chuyện gu của mỗi người</td><td><i>Whether a white coat looks good is a matter of personal taste.</i></td></tr>
+        </tbody></table></div>
+      <div class="tier col"><div class="tier-h">Collocations</div>
+        <table class="vt"><tbody>
+          <tr><td>dress for the occasion</td><td>ăn mặc phù hợp với dịp</td><td><i>At a medical conference you should dress for the occasion: smart, not showy.</i></td></tr>
+          <tr><td>judge people by their appearance</td><td>đánh giá người khác qua vẻ ngoài</td><td><i>Patients shouldn't judge doctors by their appearance, but many of them do.</i></td></tr>
+          <tr><td>care about your appearance</td><td>quan tâm đến vẻ ngoài</td><td><i>Caring about your appearance is not the same as being vain.</i></td></tr>
+        </tbody></table></div>
+    </div>
+  </section>
+
+  <!-- Group 5 -->
+  <section class="block">
+    <div class="group-head"><h3 id="g5">Group 5 · So sánh &amp; lựa chọn</h3><span class="why">Which is better — and which would you choose?</span></div>
+    <div class="tiers">
+      <div class="tier core"><div class="tier-h">Core · SB Unit 1 · tr. 12–13, Grammar folder tr. 188</div>
+        <div class="rule-cards">
+          <div class="rule-card"><span class="ic">📏</span><b>-ER / MORE</b><p>1 âm tiết: <b>-er / the -est</b>. Dài hơn: <b>more / the most</b>. Chính tả: <i>slim → slimmer, big → bigger, dirty → dirtier, skinny → the skinniest</i>. Một số 2 âm tiết dùng cả hai: <i>simple, common, likely, narrow, pleasant, polite</i>.</p><i>younger than · more casual than · the most outrageous</i></div>
+          <div class="rule-card"><span class="ic">⚠️</span><b>BẤT QUY TẮC</b><p>Không thêm -er, không thêm more.</p><i>good – better – the best · bad – worse – the worst · far – farther / further – the farthest / furthest · old – older / elder – the oldest / eldest</i></div>
+          <div class="rule-card"><span class="ic">📉</span><b>LESS / THE LEAST</b><p>Chiều ngược của more / the most, dùng với mọi tính từ.</p><i>less serious than · less expensive than · the least achievable figure · the least fashion-conscious person I know</i></div>
+          <div class="rule-card"><span class="ic">⚖️</span><b>NOT AS … AS</b><p>So sánh không bằng; <i>not so … as</i> hiếm gặp hơn.</p><i>Sally is not as tall as her brother. · These shoes don't look as comfortable as the flip flops.</i></div>
+          <div class="rule-card"><span class="ic">🎚️</span><b>ADVERBS OF DEGREE</b><p>Trước comparative: <b>a bit · slightly · a little · a lot · much · far · rather · a great deal</b>. Trước superlative: <b>by far · easily · much · quite</b>.</p><i>a lot bigger than mine · slightly better value · by far the most creative student · easily the cleverest person</i></div>
+          <div class="rule-card"><span class="ic">🏃</span><b>SO SÁNH TRẠNG TỪ</b><p>Trạng từ dài: <b>more / less + adv</b>. Trạng từ ngắn: -er.</p><i>more commonly · more readily available · less seriously · less exclusively · better · worse · faster · harder</i></div>
+        </div></div>
+      <div class="tier adv"><div class="tier-h">Mẫu so sánh · B2</div>
+        <table class="vt"><tbody>
+          <tr><td>one of the most … + plural ●</td><td>một trong những … nhất</td><td><i>Vietnam is one of the most fashion-conscious countries in the region.</i></td></tr>
+          <tr><td>by far the most … ●</td><td>… nhất, hơn hẳn</td><td><i>Trainers are by far the most practical footwear for a ward round.</i></td></tr>
+          <tr><td>twice as … as / half as … as</td><td>gấp đôi / bằng một nửa</td><td><i>A designer bag can cost twice as much as a good-quality copy.</i></td></tr>
+          <tr><td>nowhere near as … as</td><td>kém xa</td><td><i>A knock-off is nowhere near as well-made as the genuine product.</i></td></tr>
+          <tr><td>the more …, the more / the less …</td><td>càng … càng …</td><td><i>The more I earn, the less I seem to care about labels.</i></td></tr>
+        </tbody></table></div>
+      <div class="tier col"><div class="tier-h">Collocations</div>
+        <table class="vt"><tbody>
+          <tr><td>weigh up the options</td><td>cân nhắc các lựa chọn</td><td><i>Before buying a suit, I weigh up the options: price, fit and how often I'll wear it.</i></td></tr>
+          <tr><td>the best option would be to …</td><td>lựa chọn tốt nhất là</td><td><i>For a hospital dress code, the best option would be to ban rings and bracelets.</i></td></tr>
+          <tr><td>it depends on …</td><td>tuỳ vào …</td><td><i>Whether I dress up depends on who I'm meeting that day.</i></td></tr>
+          <tr><td>(good) value for money ●</td><td>đáng đồng tiền</td><td><i>A plain cotton shirt from the market is often better value for money than a designer one.</i></td></tr>
+        </tbody></table></div>
+    </div>
+  </section>
+
+  <!-- Group 6 -->
+  <section class="block">
+    <div class="group-head"><h3 id="g6">Group 6 · Ngành thời trang — vấn đề &amp; quan điểm</h3><span class="why">What is wrong with the fashion industry, and what should be done?</span></div>
+    <div class="tiers">
+      <div class="tier core"><div class="tier-h">Core · SB Unit 1 · tr. 12–13</div>
+        <div class="core-words"><span><span class="dot">●</span>the fashion industry</span><span><span class="dot">●</span>fashion houses</span><span><span class="dot">●</span>supermodels</span><span><span class="dot">●</span>underweight models</span><span><span class="dot">●</span>the catwalk</span><span><span class="dot">●</span>designer labels</span><span><span class="dot">●</span>brands</span><span><span class="dot">●</span>luxury items</span><span><span class="dot">●</span>counterfeit goods <span class="ipa">/ˈkaʊntəfɪt/</span></span><span><span class="dot">●</span>knock-offs</span><span><span class="dot">●</span>imitation goods</span><span><span class="dot">●</span>fake designer goods</span><span><span class="dot">●</span>the genuine product <span class="ipa">/ˈdʒenjuɪn/</span></span><span><span class="dot">●</span>cheap copies</span><span><span class="dot">●</span>an illegal activity</span><span><span class="dot">●</span>market stalls</span><span><span class="dot">●</span>street markets</span><span><span class="dot">●</span>free advertising</span><span><span class="dot">●</span>fight back</span><span><span class="dot">●</span>damage the brands</span><span><span class="dot">●</span>reduce sales</span><span><span class="dot">●</span>high-tech solutions</span><span><span class="dot">●</span>the least achievable figure</span><span><span class="dot">●</span>look like supermodels</span></div></div>
+      <div class="tier adv"><div class="tier-h">Nâng cao · B2</div>
+        <table class="vt"><tbody>
+          <tr class="cluster"><td colspan="3">Thời trang &amp; sức khoẻ</td></tr>
+          <tr><td>body image (U)</td><td>hình ảnh cơ thể (trong mắt chính mình)</td><td><i>Fashion advertising has a powerful effect on teenagers' body image.</i></td></tr>
+          <tr><td>self-esteem (U)</td><td>lòng tự trọng, tự tin về bản thân</td><td><i>Constant comparison with models can damage a young patient's self-esteem.</i></td></tr>
+          <tr><td>an eating disorder</td><td>rối loạn ăn uống</td><td><i>We see more eating disorders in girls who want to look like catwalk models.</i></td></tr>
+          <tr class="cluster"><td colspan="3">Thời trang &amp; xã hội</td></tr>
+          <tr><td>set unrealistic standards</td><td>đặt ra chuẩn mực phi thực tế</td><td><i>Fashion houses set unrealistic standards that almost nobody can reach.</i></td></tr>
+          <tr><td>fast fashion (U)</td><td>thời trang nhanh, giá rẻ</td><td><i>Fast fashion is cheap for the buyer but expensive for the environment.</i></td></tr>
+          <tr><td>peer pressure (U)</td><td>áp lực từ bạn bè</td><td><i>Peer pressure pushes students to buy labels they can't afford.</i></td></tr>
+        </tbody></table></div>
+      <div class="tier col"><div class="tier-h">Collocations</div>
+        <table class="vt"><tbody>
+          <tr><td>have a negative impact on</td><td>có ảnh hưởng tiêu cực đến</td><td><i>Counterfeit goods have a negative impact on jobs in the fashion industry.</i></td></tr>
+          <tr><td>there's no getting away from the fact that ●</td><td>không thể phủ nhận rằng</td><td><i>There's no getting away from the fact that most of us have bought a fake at some point.</i></td></tr>
+          <tr><td>raise awareness of</td><td>nâng cao nhận thức về</td><td><i>Doctors can raise awareness of the health risks of extreme dieting.</i></td></tr>
+          <tr><td>ban somebody from + -ing</td><td>cấm ai làm gì</td><td><i>Some countries have banned agencies from using underweight models.</i></td></tr>
+          <tr><td>put pressure on somebody to …</td><td>gây áp lực buộc ai …</td><td><i>Advertising puts pressure on young women to be as thin as possible.</i></td></tr>
+        </tbody></table></div>
+    </div>
+  </section>
+</article>
+
+<!-- ================= SHEET 4: CHUNKS & MẪU CÂU ================= -->
+<article class="sheet" id="chunks" role="tabpanel" data-title="Chunks &amp; mẫu câu" hidden>
+  <div class="sheet-head">
+    <div>
+      <span class="eyebrow">Sheet 4 / 8 · Ngôn ngữ chức năng</span>
+      <h2>Chunks nối ý &amp; khung trả lời</h2>
+    </div>
+  </div>
+
+  <section class="block">
+    <h3 id="c-fn">9 chức năng · 27 chunks</h3>
+    <div class="fn">
+      <div class="card"><h4>1 · Nêu ý kiến</h4><ul><li>In my view, … / Personally, I think …</li><li>As far as I'm concerned, …</li><li>I'd say (that) …</li></ul><p class="ex"><i>In my view, a white coat still creates a good impression.</i></p></div>
+      <div class="card"><h4>2 · Sở thích &amp; ưu tiên</h4><ul><li>I prefer X to Y. / I'd rather + V than + V.</li><li>What I really love is …</li><li>Given the choice, I'd …</li></ul><p class="ex"><i>Given the choice, I'd rather wear scrubs than a suit all day.</i></p></div>
+      <div class="card"><h4>3 · Lý do</h4><ul><li>The main reason is that …</li><li>…, mainly because …</li><li>That's why …</li></ul><p class="ex"><i>I buy most of my clothes online, mainly because I finish work so late.</i></p></div>
+      <div class="card"><h4>4 · Ví dụ</h4><ul><li>for instance / for example</li><li>such as</li><li>Take …, for example.</li></ul><p class="ex"><i>Take my ward, for example: nobody wears jewellery on duty.</i></p></div>
+      <div class="card"><h4>5 · So sánh &amp; đối lập</h4><ul><li>whereas / while</li><li>compared to / in comparison with</li><li>On the other hand, …</li></ul><p class="ex"><i>Trainers are practical, whereas high heels look elegant.</i></p></div>
+      <div class="card"><h4>6 · Nhượng bộ</h4><ul><li>Although / Even though …</li><li>Admittedly, … However, …</li><li>Despite + N / -ing</li></ul><p class="ex"><i>Admittedly, knock-offs are cheap. However, they're illegal.</i></p></div>
+      <div class="card"><h4>7 · Đánh giá &amp; kết luận</h4><ul><li>On balance, …</li><li>All things considered, …</li><li>The benefits far outweigh the drawbacks.</li></ul><p class="ex"><i>On balance, a strict dress code does more good than harm.</i></p></div>
+      <div class="card"><h4>8 · Đề xuất &amp; khuyên</h4><ul><li>If I were you, I'd …</li><li>It would be a good idea to …</li><li>The best way to … is to …</li></ul><p class="ex"><i>If I were you, I'd go for something smart-casual.</i></p></div>
+      <div class="card"><h4>9 · Lựa chọn &amp; quyết định</h4><ul><li>I'd go for …</li><li>Out of the three options, …</li><li>I've decided on … because …</li></ul><p class="ex"><i>Out of the three options, I'd go for the tailored suit.</i></p></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h3 id="c-upgrade">Nâng cấp câu B1 → B2 (8 mẫu)</h3>
+    <div class="tablewrap"><table class="upg stack">
+      <thead><tr><th style="width:38%">B1</th><th>B2</th></tr></thead>
+      <tbody>
+        <tr><td data-l="B1">I <mark>like</mark> casual clothes.</td><td data-l="B2">I'm <mark>much more comfortable in</mark> casual clothes <mark>than in</mark> a suit.</td></tr>
+        <tr><td data-l="B1">Fashion is <mark>not important for me</mark>.</td><td data-l="B2">I'm <mark>not really into</mark> fashion — I <mark>put comfort first</mark>.</td></tr>
+        <tr><td data-l="B1">This shirt is <mark>more cheap</mark>.</td><td data-l="B2">This shirt is <mark>slightly cheaper</mark> — <mark>far less expensive</mark> than the designer one.</td></tr>
+        <tr><td data-l="B1">She <mark>wears nice clothes</mark>.</td><td data-l="B2">She's always <mark>well-dressed</mark> and <mark>takes a lot of trouble with her clothes</mark>.</td></tr>
+        <tr><td data-l="B1">Fake bags <mark>are bad</mark>.</td><td data-l="B2"><mark>There's no getting away from the fact that</mark> fake bags are illegal and <mark>damage the genuine brands</mark>.</td></tr>
+        <tr><td data-l="B1"><mark>I think</mark> a uniform <mark>is good</mark>.</td><td data-l="B2"><mark>On balance, I'd say</mark> a uniform is <mark>by far the most practical option</mark>.</td></tr>
+        <tr><td data-l="B1">I <mark>bring it back</mark> to the shop.</td><td data-l="B2">I <mark>took it back</mark> to the shop because it was <mark>badly made</mark>.</td></tr>
+        <tr><td data-l="B1">Models are <mark>very thin and it is not good for</mark> girls.</td><td data-l="B2">Underweight models <mark>set unrealistic standards</mark> that <mark>damage</mark> teenage girls' <mark>body image</mark>.</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section class="block">
+    <h3 id="c-frame">Khung trả lời B2 — 5 bước</h3>
+    <p class="prose full" style="margin-bottom:10px">Câu hỏi mẫu: <b>"Should hospitals have a strict dress code for doctors?"</b></p>
+    <div class="frame frame7 frame5">
+      <div><span class="stepno">1</span><b>Point</b><p>I think hospitals need a clear dress code.</p></div>
+      <div><span class="stepno">2</span><b>Why</b><p>Patients judge us by our appearance before we say a word.</p></div>
+      <div><span class="stepno">3</span><b>Example</b><p>Take jewellery, for instance — rings carry bacteria, so our ward bans them.</p></div>
+      <div><span class="stepno">4</span><b>Counter</b><p>Admittedly, staff should still be able to express their personality off duty.</p></div>
+      <div><span class="stepno">5</span><b>Evaluation</b><p>On balance, a simple, practical code creates a good impression without being a slave to rules.</p></div>
+    </div>
+    <div class="note info"><span class="tag">Dùng ở đâu</span><ul>
+      <li><b>Part 1:</b> Point + Why (+ Example) — 2–3 mệnh đề.</li>
+      <li><b>Part 2:</b> Point (phương án bạn chọn) + Why + Counter (hai phương án còn lại kém ở đâu) + Evaluation.</li>
+      <li><b>Part 3:</b> đủ 5 bước cho mỗi nhánh của sơ đồ; Counter + Evaluation là chỗ phân biệt B1 và B2.</li>
+      <li><b>Essay:</b> mỗi đoạn thân = Point + Why + Example; cả bài = Position → Reason 1 → Reason 2 → Counter → Evaluation.</li>
+    </ul></div>
+  </section>
+
+  <section class="block">
+    <h3 id="c-errors">7 lỗi hay gặp (Corpus spot SB tr. 11–12 + trật tự từ)</h3>
+    <div class="tablewrap"><table class="stack">
+      <thead><tr><th style="width:36%">Lỗi</th><th style="width:30%">Sửa</th><th>Ghi nhớ</th></tr></thead>
+      <tbody>
+        <tr><td data-l="Lỗi"><s>What are the better clothes to wear at the camp?</s></td><td data-l="Sửa">What are <b>the best</b> clothes to wear at the camp?</td><td data-l="Ghi nhớ">So sánh trong cả một nhóm → superlative, không phải comparative.</td></tr>
+        <tr><td data-l="Lỗi"><s>He is famouser than all the others.</s></td><td data-l="Sửa">He is <b>more famous</b> than all the others.</td><td data-l="Ghi nhớ">Tính từ 2 âm tiết trở lên (trừ -y): more / the most.</td></tr>
+        <tr><td data-l="Lỗi"><s>I'd like a much more better one.</s></td><td data-l="Sửa">I'd like a <b>much better</b> one.</td><td data-l="Ghi nhớ">better / worse đã là comparative — không thêm more.</td></tr>
+        <tr><td data-l="Lỗi"><s>It's more easy to get there. You look thiner.</s></td><td data-l="Sửa">It's <b>easier</b> to get there. You look <b>thinner</b>.</td><td data-l="Ghi nhớ">-y → -ier; nguyên âm + phụ âm cuối → gấp đôi phụ âm.</td></tr>
+        <tr><td data-l="Lỗi"><s>This is even worser than before.</s></td><td data-l="Sửa">This is even <b>worse</b> than before.</td><td data-l="Ghi nhớ">bad – worse – the worst.</td></tr>
+        <tr><td data-l="Lỗi"><s>I taked off my coat and sat down.</s></td><td data-l="Sửa">I <b>took off</b> my coat and sat down.</td><td data-l="Ghi nhớ">Động từ trong phrasal verb vẫn bất quy tắc: took · went · stood · put.</td></tr>
+        <tr><td data-l="Lỗi"><s>I tried on it but it didn't fit.</s></td><td data-l="Sửa">I <b>tried it on</b> but it didn't fit.</td><td data-l="Ghi nhớ">Đại từ làm tân ngữ luôn đứng giữa động từ và trạng từ.</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+</article>
+
+<!-- ================= SHEET 5: SPEAKING ================= -->
+<article class="sheet" id="speaking" role="tabpanel" data-title="Speaking P1–P3" hidden>
+  <div class="sheet-head">
+    <div>
+      <span class="eyebrow">Sheet 5 / 8 · Speaking 12 phút · định dạng đề CK2/CH 2026</span>
+      <h2>Speaking</h2>
+      <p class="lead">Part 1 Social interaction 3' · Part 2 Solution discussion 4' · Part 3 Topic development 5'. Câu 1–3 của Part 1 là câu hỏi thật trong đề chính thức (Test 9) và cũng là ba câu mở đầu Unit 1.</p>
+    </div>
+  </div>
+
+  <section class="block">
+    <div class="part-sticky">
+      <h3 id="s-p1">Part 1 · Social interaction — 2 chủ đề, 6 câu hỏi, ≤ 30 giây mỗi câu</h3>
+      <div class="timer"><span class="tdisp">0:30</span><button class="btn sm" type="button" data-sec="30">30"</button><button class="btn sm ghost" type="button" data-sec="180">Cả Part 1 · 3'</button><button class="btn sm stop tstop" type="button">⏹</button><span style="color:var(--muted);font-size:.9em">Trả lời = <span class="step-tag point">Point</span> + <span class="step-tag why">Why</span> (+ <span class="step-tag example">Example</span>).</span></div>
+    </div>
+    <h4 style="margin:10px 0 4px">Let's talk about fashion.</h4>
+    <div class="qa"><p class="q">1 · How important is fashion to you?</p><p class="a"><span class="step-tag point">Point</span>To be honest, I'm <mark>not really into fashion</mark>. <span class="step-tag why">Why</span>My job means I <mark>put comfort first</mark> — I'm in a white coat most of the day. <span class="step-tag example">Example</span>Outside work, though, I do <mark>make an effort to look good</mark>, especially at conferences and family weddings.</p></div>
+    <div class="qa"><p class="q">2 · What sort of clothes do you prefer to wear?</p><p class="a"><span class="step-tag point">Point</span><mark>I prefer to wear</mark> casual clothes, such as <mark>loose-fitting</mark> cotton trousers and a <mark>plain</mark> shirt. <span class="step-tag why">Why</span>They <mark>suit me</mark>, and they're <mark>comfortable as well as stylish</mark>. <span class="step-tag example">Example</span><mark>What I really love is</mark> a <mark>well-made</mark> shirt that <mark>fits</mark> properly — and I <mark>wear out</mark> a pair of trainers every year because I'm on my feet all day.</p></div>
+    <div class="qa"><p class="q">3 · Do you ever have to wear things you don't really like? If so, when, and why?</p><p class="a"><span class="step-tag point">Point</span>Yes — my army uniform in summer, and a tie at formal dinners. <span class="step-tag why">Why</span>I'm not keen on either, but you have to <mark>dress for the occasion</mark>. <span class="step-tag example">Example</span>Admittedly the uniform is a bit <mark>old-fashioned</mark>, but <mark>it depends on</mark> the event: at a graduation ceremony it looks exactly right.</p></div>
+    <h4 style="margin:18px 0 4px">Let's talk about clothes at work.</h4>
+    <div class="qa"><p class="q">4 · What do you usually wear to work?</p><p class="a"><span class="step-tag point">Point</span>On the wards I'm <mark>dressed in a white coat</mark> over a shirt and dark trousers; in theatre I change into <mark>scrubs</mark>. <span class="step-tag why">Why</span>The coat <mark>presents a professional image</mark>, and patients expect it. <span class="step-tag example">Example</span>I keep a spare <mark>pair of trousers</mark> in my locker in case something gets stained.</p></div>
+    <div class="qa"><p class="q">5 · Do you think doctors should wear a uniform? Why?</p><p class="a"><span class="step-tag point">Point</span><mark>I'd say</mark> yes, at least on the wards. <span class="step-tag why">Why</span><mark>The main reason is that</mark> patients can tell who's who, and a <mark>uniform</mark> <mark>creates a good impression</mark>. <span class="step-tag counter">Counter</span><mark>On the other hand</mark>, a uniform that doesn't <mark>fit</mark> properly looks scruffy, so hospitals need to buy good ones.</p></div>
+    <div class="qa"><p class="q">6 · How do you choose what to wear for an important event?</p><p class="a"><span class="step-tag point">Point</span>I <mark>weigh up the options</mark> the night before. <span class="step-tag why">Why</span><mark>It depends on</mark> who I'm meeting: for a conference <mark>I'd go for</mark> a dark suit, for a family wedding something more colourful. <span class="step-tag example">Example</span>If I'm not sure, I try two outfits on and ask my wife — she has <mark>far better dress sense</mark> than I do.</p></div>
+    <div class="ex" id="sp-p1">
+      <div class="ex-head"><span class="ex-no">Luyện</span><h4>Viết câu trả lời của bạn cho 3 câu bất kỳ — mỗi câu 2–3 mệnh đề, ít nhất 1 collocation</h4><span class="ex-type">Free</span><span class="score" data-score></span></div>
+      <div class="ex-body">
+        <div class="plan">
+          <div><label>Câu số …</label><textarea class="free" id="sp-p1-1" placeholder="To be honest, I'm not really into … because …"></textarea></div>
+          <div><label>Câu số …</label><textarea class="free" id="sp-p1-2" placeholder="I prefer to wear … They … as well as …"></textarea></div>
+          <div><label>Câu số …</label><textarea class="free" id="sp-p1-3" placeholder="It depends on … For instance, …"></textarea></div>
+        </div>
+        <ul class="checklist" style="margin-top:12px">
+          <li><label><input type="checkbox" id="sp-p1-c1"><span>Mỗi câu ≤ 30 giây, 2–3 mệnh đề, không trả lời một từ</span></label></li>
+          <li><label><input type="checkbox" id="sp-p1-c2"><span>Mỗi câu có Point + Why</span></label></li>
+          <li><label><input type="checkbox" id="sp-p1-c3"><span>Mỗi câu có ≥ 1 collocation chủ đề (Group 1, 2, 4)</span></label></li>
+          <li><label><input type="checkbox" id="sp-p1-c4"><span>Có 1 ví dụ thật từ công việc hoặc đời sống của bạn</span></label></li>
+        </ul>
+      </div>
+      <div class="ex-foot"><button class="btn ghost reset" type="button">Làm lại</button><span class="src">Cặp: A hỏi – B trả lời – đổi vai; bấm giờ 30"/câu</span></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="part-sticky">
+      <h3 id="s-p2">Part 2 · Solution discussion — 1 tình huống, 3 phương án, chọn 1 và bảo vệ</h3>
+      <div class="timer"><span class="tdisp">2:30</span><button class="btn sm ghost" type="button" data-sec="60">Chuẩn bị 1'</button><button class="btn sm" type="button" data-sec="150">Nói 2'30"</button><button class="btn sm stop tstop" type="button">⏹</button><span style="color:var(--muted);font-size:.9em">Khung: <span class="step-tag point">Point</span> <span class="step-tag why">Why</span> <span class="step-tag counter">Counter</span> <span class="step-tag evaluation">Evaluation</span></span></div>
+    </div>
+    <h4 style="margin:10px 0 4px">Tình huống A</h4>
+    <div class="card" style="margin-bottom:12px"><span class="eyebrow">Situation</span><p style="color:var(--ink)">Your hospital is choosing a new dress code for doctors. Three options are suggested: <b>a traditional white coat</b>, <b>hospital scrubs for everyone</b>, or <b>smart everyday clothes with a name badge</b>. Which option would you choose?</p></div>
+    <details open><summary>Câu trả lời mẫu — tình huống A (≈ 225 từ, 2 phút)</summary><div class="model">
+      <p class="step"><span class="step-tag point">Point</span><mark>Out of the three options, I'd go for</mark> scrubs for everyone, and I'll explain why.</p>
+      <p class="step"><span class="step-tag why">Why</span><mark>The main reason is</mark> hygiene. <mark>Scrubs</mark> are <mark>loose-fitting</mark>, they're washed by the hospital every day, and they're <mark>by far the most practical option</mark> when you're on your feet for twelve hours. They're also <mark>much cheaper</mark> for staff than a wardrobe of smart clothes, and nobody has to <mark>weigh up the options</mark> every morning — you just put them on.</p>
+      <p class="step"><span class="step-tag counter">Counter</span><mark>Admittedly</mark>, a <mark>white coat</mark> <mark>presents a more professional image</mark>, and many patients still expect it. <mark>However</mark>, coats are worn for days, so they're <mark>nowhere near as</mark> clean <mark>as</mark> scrubs. Smart everyday clothes with a name badge look friendly and let people <mark>express their personality</mark>, but they're <mark>the least practical</mark> choice: a silk blouse or a good pair of trousers is ruined the first time a patient is sick on it, and staff would end up <mark>spending a fortune on clothes</mark>.</p>
+      <p class="step"><span class="step-tag evaluation">Evaluation</span><mark>On balance, I've decided on</mark> scrubs <mark>because</mark> they're <mark>twice as</mark> practical <mark>as</mark> the other two options and only <mark>slightly less</mark> smart. <mark>The best option would be to</mark> give everyone two sets in the same colour, so the team looks <mark>well-dressed</mark> and, more importantly, safe. Patients might need a little time to get used to it, but in my experience they care far more about how they're treated than about what we wear.</p>
+      <span class="wcnt">Point → Why → Counter (2 phương án còn lại) → Evaluation · 6 cấu trúc so sánh · 15 cụm chủ đề · 225 từ</span>
+    </div></details>
+    <h4 style="margin:18px 0 4px">Tình huống B</h4>
+    <div class="card" style="margin-bottom:12px"><span class="eyebrow">Situation</span><p style="color:var(--ink)">A friend of yours has been invited to a wedding but has very little money. Three things she can do: <b>buy a new outfit online</b>, <b>rent a designer dress for the day</b>, or <b>wear something she already has and add new accessories</b>. What would you advise her to do?</p></div>
+    <details><summary>Câu trả lời mẫu — tình huống B (≈ 235 từ, 2 phút)</summary><div class="model">
+      <p class="step"><span class="step-tag point">Point</span><mark>Given the choice, I'd</mark> advise her to <mark>go for</mark> the third option — wear something she already has and add new accessories — and I'll explain why.</p>
+      <p class="step"><span class="step-tag why">Why</span>It's <mark>a lot cheaper than</mark> the other two, and a <mark>stylish</mark> necklace or a new <mark>pair of shoes</mark> can change the look of an outfit completely. She could <mark>splash out on</mark> one good item instead of a whole outfit — in my experience, people notice accessories far more than the dress itself. Weddings in Vietnam last for hours, so comfort matters <mark>a lot more than</mark> people think.</p>
+      <p class="step"><span class="step-tag counter">Counter</span><mark>Admittedly</mark>, buying online is convenient and there's a huge choice. <mark>However</mark>, it's the riskiest option: the dress might not <mark>fit</mark>, it might be <mark>badly made</mark>, and there's no time to <mark>take it back</mark> before the wedding. Renting a designer dress sounds <mark>elegant</mark>, and it's <mark>far less expensive than</mark> buying one, but she'd worry all evening about spilling something on it — <mark>nowhere near as</mark> relaxing <mark>as</mark> wearing her own clothes, and not much fun at a party.</p>
+      <p class="step"><span class="step-tag evaluation">Evaluation</span><mark>All things considered</mark>, the third option is the best <mark>value for money</mark>: she'd look <mark>presentable</mark>, she wouldn't <mark>spend a fortune</mark>, and she'd feel <mark>comfortable as well as stylish</mark>, which is what matters at a wedding. If she really wants something new, <mark>the best option would be to</mark> <mark>save up</mark> and buy one <mark>well-made</mark> dress after the wedding, when the sales start.</p>
+    </div></details>
+    <div class="ex" id="sp-p2">
+      <div class="ex-head"><span class="ex-no">Luyện</span><h4>Lập dàn ý 4 bước cho tình huống A hoặc B, rồi bấm giờ nói 2–2,5 phút</h4><span class="ex-type">Planner</span><span class="score" data-score></span></div>
+      <div class="ex-body">
+        <div class="plan">
+          <div><label>Point — phương án bạn chọn</label><textarea class="free" id="sp-p2-1" placeholder="Out of the three options, I'd go for …"></textarea></div>
+          <div><label>Why — 2 lý do, có so sánh</label><textarea class="free" id="sp-p2-2" placeholder="The main reason is … It's far more … than …"></textarea></div>
+          <div><label>Counter — 2 phương án còn lại kém ở đâu</label><textarea class="free" id="sp-p2-3" placeholder="Admittedly, … However, … nowhere near as … as …"></textarea></div>
+          <div><label>Evaluation</label><textarea class="free" id="sp-p2-4" placeholder="On balance, … The best option would be to …"></textarea></div>
+        </div>
+        <ul class="checklist" style="margin-top:12px">
+          <li><label><input type="checkbox" id="sp-p2-c1"><span>Nói được 2–2,5 phút, nêu rõ phương án chọn ngay câu đầu</span></label></li>
+          <li><label><input type="checkbox" id="sp-p2-c2"><span>≥ 3 cấu trúc so sánh: comparative + adverb of degree · <i>not as … as</i> · superlative</span></label></li>
+          <li><label><input type="checkbox" id="sp-p2-c3"><span>Nhắc đến cả 2 phương án còn lại và nói vì sao kém hơn</span></label></li>
+          <li><label><input type="checkbox" id="sp-p2-c4"><span>Có 1 câu nhượng bộ (Admittedly / Although) và 1 câu kết (On balance / All things considered)</span></label></li>
+          <li><label><input type="checkbox" id="sp-p2-c5"><span>≥ 6 cụm chủ đề (Group 1, 2, 5)</span></label></li>
+        </ul>
+      </div>
+      <div class="ex-foot"><button class="btn ghost reset" type="button">Làm lại</button><span class="src">Bạn nghe đếm số cấu trúc so sánh · ghi âm bằng điện thoại</span></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="part-sticky">
+      <h3 id="s-p3">Part 3 · Topic development — nói 2,5–3 phút theo sơ đồ, rồi trả lời câu hỏi mở rộng</h3>
+      <div class="timer"><span class="tdisp">3:00</span><button class="btn sm ghost" type="button" data-sec="60">Chuẩn bị 1'</button><button class="btn sm" type="button" data-sec="180">Nói 3'</button><button class="btn sm ghost" type="button" data-sec="120">Hỏi mở rộng 2'</button><button class="btn sm stop tstop" type="button">⏹</button><span style="color:var(--muted);font-size:.9em">Khung: <span class="step-tag point">Point</span> <span class="step-tag why">Why</span> <span class="step-tag example">Example</span> <span class="step-tag counter">Counter</span> <span class="step-tag evaluation">Evaluation</span></span></div>
+    </div>
+    <h4 style="margin:10px 0 4px">Đề A</h4>
+    <div class="cue-card">
+      <svg viewBox="0 0 1000 520" preserveAspectRatio="none">
+        <line x1="500" y1="260" x2="500" y2="62"></line>
+        <line x1="500" y1="260" x2="860" y2="260"></line>
+        <line x1="500" y1="260" x2="500" y2="458"></line>
+        <line x1="500" y1="260" x2="140" y2="260"></line>
+      </svg>
+      <div class="cue-topic" style="left:50%;top:50%">Topic: Appearance matters in professional life.</div>
+      <div class="cue-node" style="left:50%;top:12%">First impressions</div>
+      <div class="cue-node" style="left:86%;top:50%">Your own ideas</div>
+      <div class="cue-node" style="left:50%;top:88%">Dress codes at work</div>
+      <div class="cue-node" style="left:14%;top:50%">Personal style</div>
+    </div>
+    <div class="mind">
+      <div class="p">First impressions</div><div class="p">Dress codes at work</div>
+      <div class="c">Topic: Appearance matters in professional life.</div>
+      <div class="p">Personal style</div><div class="p">Your own ideas</div>
+    </div>
+    <div class="note info"><span class="tag">Hỏi mở rộng</span><ul><li>Is it fair to judge people by how they dress?</li><li>Should hospitals have a strict dress code for doctors?</li><li>Do people take more trouble with their appearance now than in the past?</li></ul></div>
+    <details open><summary>Câu trả lời mẫu — đề A (≈ 295 từ, 2,5 phút)</summary><div class="model">
+      <p class="step"><span class="step-tag point">Point</span>I'd like to argue that appearance matters a great deal in professional life. I'll look at first impressions, dress codes and personal style, and then finish with an idea of my own.</p>
+      <p class="step"><span class="step-tag why">Why</span>First, first impressions. Whether we like it or not, people <mark>judge others by their appearance</mark> in the first few seconds. In my job this is obvious: a doctor who is <mark>well-dressed</mark> and looks <mark>presentable</mark> <mark>creates a good impression</mark> before saying a word, <mark>whereas</mark> one who looks <mark>scruffy</mark> makes patients nervous. <mark>As far as I'm concerned</mark>, that's why I <mark>make an effort to look good</mark> every day.</p>
+      <p class="step"><span class="step-tag example">Example</span>Secondly, dress codes. Most hospitals have one, and <mark>in my view</mark> they're a good thing. <mark>Take my ward, for example</mark>: we're <mark>banned from wearing</mark> rings, bracelets or long sleeves, <mark>mainly because</mark> jewellery carries bacteria. A dress code also <mark>presents a professional image</mark> — patients can see who's a doctor and who's a visitor — and it <mark>cuts down</mark> the risk of infection, which matters far more than fashion in a hospital.</p>
+      <p class="step"><span class="step-tag counter">Counter</span><mark>On the other hand</mark>, personal style still has a place. Clothes are a way to <mark>express your personality</mark>, and a team where everyone looks identical can seem cold. <mark>Admittedly</mark>, there's a limit: an <mark>outrageous</mark> outfit is <mark>nowhere near as</mark> reassuring <mark>as</mark> a <mark>plain</mark>, <mark>well-made</mark> one when you're ill.</p>
+      <p class="step"><span class="step-tag evaluation">Evaluation</span>My own idea is that at work appearance is a matter of trust, not trends — you don't have to <mark>follow the latest trends</mark> to <mark>look smart</mark>. <mark>On balance, I'd say</mark> the benefits of <mark>caring about your appearance</mark> <mark>far outweigh the drawbacks</mark>: it <mark>takes a little trouble</mark> every morning, but it makes you far easier to trust. <mark>Compared to</mark> ten years ago, people <mark>take a lot more trouble with</mark> their appearance at work, and I think that's a good thing.</p>
+      <span class="wcnt">3 nhánh + ý riêng · 5 bước · 22 cụm chủ đề · 295 từ</span>
+    </div></details>
+    <div class="qa"><p class="q">Hỏi mở rộng · Is it fair to judge people by how they dress?</p><p class="a"><span class="step-tag point">Point</span><mark>Personally, I think</mark> it's not entirely fair — clothes are partly <mark>a matter of personal taste</mark> — but it's human nature. <span class="step-tag why">Why</span>We can't help forming an impression in seconds. <span class="step-tag counter">Counter</span><mark>However</mark>, a good doctor learns to look past a patient's <mark>tatty</mark> clothes. <span class="step-tag evaluation">Evaluation</span>So we should be aware of it rather than pretend it doesn't happen.</p></div>
+    <div class="qa"><p class="q">Hỏi mở rộng · Should hospitals have a strict dress code for doctors?</p><p class="a"><span class="step-tag point">Point</span>A clear one, yes — a strict one, not necessarily. <span class="step-tag why">Why</span><mark>The main reason is</mark> hygiene: no rings, no long sleeves, clean <mark>scrubs</mark> or a clean <mark>white coat</mark>. <span class="step-tag counter">Counter</span><mark>Although</mark> some colleagues find rules annoying, patients feel safer. <span class="step-tag evaluation">Evaluation</span><mark>On balance</mark>, a short list of practical rules is <mark>far better than</mark> a long list of fashion rules.</p></div>
+
+    <h4 style="margin:18px 0 4px">Đề B</h4>
+    <div class="cue-card">
+      <svg viewBox="0 0 1000 520" preserveAspectRatio="none">
+        <line x1="500" y1="260" x2="500" y2="62"></line>
+        <line x1="500" y1="260" x2="860" y2="260"></line>
+        <line x1="500" y1="260" x2="500" y2="458"></line>
+        <line x1="500" y1="260" x2="140" y2="260"></line>
+      </svg>
+      <div class="cue-topic" style="left:50%;top:50%">Topic: The fashion industry does more harm than good.</div>
+      <div class="cue-node" style="left:50%;top:12%">Body image and health</div>
+      <div class="cue-node" style="left:86%;top:50%">Your own ideas</div>
+      <div class="cue-node" style="left:50%;top:88%">Counterfeit goods</div>
+      <div class="cue-node" style="left:14%;top:50%">Fast fashion and the environment</div>
+    </div>
+    <div class="mind">
+      <div class="p">Body image and health</div><div class="p">Counterfeit goods</div>
+      <div class="c">Topic: The fashion industry does more harm than good.</div>
+      <div class="p">Fast fashion and the environment</div><div class="p">Your own ideas</div>
+    </div>
+    <div class="note info"><span class="tag">Hỏi mở rộng</span><ul><li>Would you ever buy a knock-off? Why / why not?</li><li>Should governments ban agencies from using underweight models?</li><li>How does fashion advertising affect young people?</li></ul></div>
+    <details><summary>Câu trả lời mẫu — đề B (≈ 290 từ, 2,5 phút)</summary><div class="model">
+      <p class="step"><span class="step-tag point">Point</span>I partly agree with this statement, and I'll explain why from a medical point of view first.</p>
+      <p class="step"><span class="step-tag why">Why</span>The most serious problem is <mark>body image</mark>. Fashion houses design their clothes for the youngest and skinniest models, so teenagers grow up comparing themselves with <mark>the least achievable figure</mark>. This <mark>sets unrealistic standards</mark> and <mark>puts pressure on young women to</mark> be as thin as possible. In our clinic we see more <mark>eating disorders</mark> than we did ten years ago, and low <mark>self-esteem</mark> is often part of the picture. <mark>Despite</mark> knowing that the photos are edited, most of my young patients still feel the pressure.</p>
+      <p class="step"><span class="step-tag example">Example</span>Secondly, <mark>counterfeit goods</mark>. <mark>Knock-offs</mark> are now <mark>far more readily available than</mark> they used to be — on <mark>market stalls</mark> and online — and they <mark>have a negative impact on</mark> the <mark>genuine</mark> brands, <mark>reducing their sales</mark>. <mark>There's no getting away from the fact that</mark> buying a fake supports an <mark>illegal activity</mark>, even if the bag looks as good as the real thing.</p>
+      <p class="step"><span class="step-tag example">Example</span>Thirdly, <mark>fast fashion</mark>. Cheap clothes are worn a few times and thrown away, which is <mark>a lot worse</mark> for the environment than buying one <mark>well-made</mark> jacket that lasts for years. It's cheap for the buyer but expensive for the planet.</p>
+      <p class="step"><span class="step-tag counter">Counter</span><mark>Admittedly</mark>, the industry also does good: it's <mark>one of the most important employers</mark> in the world, and clothes let people <mark>express their personality</mark>. My own idea is that the answer is regulation, not blame — governments could <mark>ban agencies from using</mark> underweight models, and doctors can <mark>raise awareness of</mark> the health risks.</p>
+      <p class="step"><span class="step-tag evaluation">Evaluation</span><mark>On balance</mark>, though, <mark>I'd say</mark> that at the moment the harm <mark>slightly</mark> outweighs the good, especially for young people. If the industry used models of different sizes and <mark>fought back</mark> against the fakes, the balance would change.</p>
+    </div></details>
+    <div class="qa"><p class="q">Hỏi mở rộng · Would you ever buy a knock-off?</p><p class="a"><span class="step-tag point">Point</span>Honestly, I did once, when I was a student. <span class="step-tag why">Why</span>It was <mark>a real bargain</mark>, and it looked exactly like <mark>the genuine product</mark>. <span class="step-tag counter">Counter</span>But it <mark>wore out</mark> within a month, and now I'd rather <mark>save up for</mark> one <mark>well-made</mark> item. <span class="step-tag evaluation">Evaluation</span>So no — not any more.</p></div>
+    <div class="qa"><p class="q">Hỏi mở rộng · How does fashion advertising affect young people?</p><p class="a"><span class="step-tag point">Point</span><mark>In my view</mark>, it affects them more than they realise. <span class="step-tag why">Why</span>Adverts <mark>set unrealistic standards</mark>: the models are younger and thinner than almost anyone in real life. <span class="step-tag counter">Counter</span><mark>On the other hand</mark>, some brands now use models of different sizes, which is a step in the right direction. <span class="step-tag evaluation">Evaluation</span>So the picture is slowly improving, but <mark>peer pressure</mark> on social media is still <mark>a lot stronger than</mark> any advert.</p></div>
+    <div class="ex" id="sp-p3">
+      <div class="ex-head"><span class="ex-no">Luyện</span><h4>Chọn đề A hoặc B: viết 1 câu cho mỗi nhánh, rồi nói 2,5–3 phút và trả lời 2 câu hỏi mở rộng</h4><span class="ex-type">Planner</span><span class="score" data-score></span></div>
+      <div class="ex-body">
+        <div class="plan">
+          <div><label>Point — quan điểm chung</label><textarea class="free" id="sp-p3-1" placeholder="I'd like to argue that … / I partly agree that …"></textarea></div>
+          <div><label>Nhánh 1 · Why + Example</label><textarea class="free" id="sp-p3-2" placeholder="First, … The main reason is that … Take …, for example."></textarea></div>
+          <div><label>Nhánh 2 · Why + Example</label><textarea class="free" id="sp-p3-3" placeholder="Secondly, … For instance, …"></textarea></div>
+          <div><label>Nhánh 3 + ý riêng · Counter + Evaluation</label><textarea class="free" id="sp-p3-4" placeholder="Admittedly, … My own idea is that … On balance, …"></textarea></div>
+        </div>
+        <ul class="checklist" style="margin-top:12px">
+          <li><label><input type="checkbox" id="sp-p3-c1"><span>Nói 2,5–3 phút, không dừng quá 3 giây</span></label></li>
+          <li><label><input type="checkbox" id="sp-p3-c2"><span>Chạm đủ 3 nhánh của sơ đồ + 1 ý riêng</span></label></li>
+          <li><label><input type="checkbox" id="sp-p3-c3"><span>Đủ 5 bước: Point → Why → Example → Counter → Evaluation</span></label></li>
+          <li><label><input type="checkbox" id="sp-p3-c4"><span>≥ 6 cụm chủ đề (Group 2, 4, 6)</span></label></li>
+          <li><label><input type="checkbox" id="sp-p3-c5"><span>Trả lời 2 câu hỏi mở rộng, mỗi câu có Point + Why + Counter</span></label></li>
+        </ul>
+      </div>
+      <div class="ex-foot"><button class="btn ghost reset" type="button">Làm lại</button><span class="src">Nhóm 3: A nói – B hỏi mở rộng – C đếm cụm chủ đề và câu nhượng bộ</span></div>
+    </div>
+  </section>
+</article>
+
+<!-- ================= SHEET 6: WRITING ================= -->
+<article class="sheet" id="writing" role="tabpanel" data-title="Writing T1–T2" hidden>
+  <div class="sheet-head">
+    <div>
+      <span class="eyebrow">Sheet 6 / 8 · Writing 60 phút · Task 1 email (10 điểm) · Task 2 essay (20 điểm)</span>
+      <h2>Writing</h2>
+    </div>
+  </div>
+
+  <section class="block">
+    <h3 id="w-t1">Task 1 · Email — 20 phút, ít nhất 120 từ</h3>
+    <div class="card" style="margin-bottom:14px"><span class="eyebrow">Đề</span>
+      <p style="color:var(--ink)">You have received an email from your friend Anna, a doctor from the UK, who will attend an international medical conference in Hanoi next month. Read part of her email:</p>
+      <div class="msg email" style="margin:10px 0"><p>… I've never been to a conference in Vietnam. What should I wear for the presentations, and what about the conference dinner? Is it still hot in Hanoi in October? And do you think it's worth buying a new suit for the trip? …</p></div>
+      <p style="color:var(--ink)"><b>Write an email of reply to Anna, and:</b></p>
+      <ul style="margin:4px 0 0"><li>advise her what to wear for the conference sessions,</li><li>tell her about the weather and the conference dinner,</li><li>give your opinion on buying a new suit.</li></ul>
+      <p style="color:var(--ink);margin-top:8px">You should write <b>at least 120 words</b>. Do not include your name or addresses.</p>
+    </div>
+    <div class="grid-2">
+      <div class="card"><span class="eyebrow">Bố cục 5 phần</span><ul>
+        <li><b>Mở:</b> phản hồi tin của bạn (<i>Great to hear you're coming to …!</i>)</li><li><b>Ý 1 — mặc gì:</b> <i>I'd go for … / smart but practical / dress for the occasion</i></li><li><b>Ý 2 — thời tiết &amp; tiệc:</b> 2 câu so sánh (<i>much cooler than … / far more comfortable than …</i>) + <i>smart-casual</i></li><li><b>Ý 3 — có nên mua suit:</b> <i>If I were you, I'd … / not worth spending a fortune on …</i></li><li><b>Kết:</b> đề nghị giúp, <i>Let me know …</i></li></ul></div>
+      <div class="card"><span class="eyebrow">Ngôn ngữ khuyên nhủ (thân mật)</span><ul><li>If I were you, I'd … · You could always … · I'd go for …</li><li>It's worth + -ing / It isn't worth + -ing</li><li>… is far more comfortable than … · much cooler than …</li><li>a well-made … that fits you is always better than …</li><li>Let me know … · I'll meet you at …</li></ul></div>
+    </div>
+    <details open style="margin-top:14px"><summary>Bài mẫu Task 1 (≈ 170 từ)</summary><div class="model">
+      <p>Hi Anna,</p>
+      <p>Great to hear you're coming to Hanoi! For the conference sessions, <mark>I'd go for</mark> something smart but practical: a <mark>plain</mark> shirt or blouse with dark trousers, and comfortable shoes, because the venue is huge and you'll be on your feet all day. Most Vietnamese doctors <mark>dress for the occasion</mark>, so trainers wouldn't <mark>create a good impression</mark>.</p>
+      <p>October is <mark>much cooler than</mark> the summer — around 25 degrees — but it can be humid, so <mark>loose-fitting</mark> cotton is <mark>far more comfortable than</mark> polyester. The conference dinner is <mark>smart-casual</mark>: a dress or a jacket is fine, and nobody will be in a tie.</p>
+      <p>As for the suit, I don't think it's worth <mark>spending a fortune on</mark> a new one. <mark>If I were you, I'd</mark> bring the one you already have and add a good <mark>pair of shoes</mark> — a <mark>well-made</mark> suit that <mark>fits you</mark> is always better than a <mark>trendy</mark> one that doesn't, and dark colours <mark>go with</mark> everything.</p>
+      <p>Let me know your flight details and I'll meet you at the airport.</p>
+      <p>Best wishes,</p>
+      <span class="wcnt">3 ý đủ · 13 cụm chủ đề · 3 câu so sánh · giọng thân mật · 171 từ</span>
+    </div></details>
+    <div class="ex" id="wr-t1">
+      <div class="ex-head"><span class="ex-no">Viết</span><h4>Email của bạn — đổi thành phố, mùa và lời khuyên theo kinh nghiệm của bạn</h4><span class="ex-type">≥ 120 từ</span><span class="score" data-score></span></div>
+      <div class="ex-body">
+        <textarea class="free" id="wr-t1-text" style="min-height:220px" placeholder="Hi Anna,&#10;&#10;Great to hear …"></textarea>
+        <p style="margin-top:6px;font-size:.9em;color:var(--muted)">Số từ: <span class="wc" data-for="wr-t1-text">0</span> / ≥ 120</p>
+        <ul class="checklist" style="margin-top:10px">
+          <li><label><input type="checkbox" id="wr-t1-c1"><span>Đủ 3 ý: mặc gì · thời tiết và tiệc · có nên mua suit</span></label></li>
+          <li><label><input type="checkbox" id="wr-t1-c2"><span>≥ 4 cụm chủ đề (Group 1, 2, 4)</span></label></li>
+          <li><label><input type="checkbox" id="wr-t1-c3"><span>≥ 2 câu so sánh có adverb of degree (<i>much / far / a lot / slightly</i>)</span></label></li>
+          <li><label><input type="checkbox" id="wr-t1-c4"><span>Có <i>If I were you</i> / <i>I'd go for</i> / <i>It isn't worth</i></span></label></li>
+          <li><label><input type="checkbox" id="wr-t1-c5"><span>Mở – kết đúng giọng email thân mật; ≥ 120 từ; không có tên, địa chỉ</span></label></li>
+        </ul>
+      </div>
+      <div class="ex-foot"><button class="btn ghost reset" type="button">Làm lại</button><span class="src">Đổi bài với bạn: chấm 5 ô trên</span></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h3 id="w-t2">Task 2 · Essay — 40 phút, ít nhất 250 từ</h3>
+    <div class="card" style="margin-bottom:14px"><span class="eyebrow">Đề</span>
+      <p style="color:var(--ink)">Some people believe that the fashion industry has a harmful effect on young people's health and self-esteem.</p>
+      <p style="color:var(--ink);margin-top:8px"><b>To what extent do you agree or disagree?</b></p>
+      <p style="color:var(--ink);margin-top:8px">Write an essay to express your point of view. Give reasons for your answer and include any relevant examples from your knowledge or experience. You should write <b>at least 250 words</b>.</p>
+    </div>
+    <div class="grid-2">
+      <div class="card"><span class="eyebrow">Dàn ý 5 đoạn</span><ul>
+        <li><b>Mở (40–50 từ):</b> bối cảnh + quan điểm (<i>I largely agree, although …</i>)</li><li><b>Thân 1 — sức khoẻ (70–80):</b> body image → unrealistic standards → eating disorders, self-esteem; ví dụ từ phòng khám</li><li><b>Thân 2 — tiền &amp; hàng giả (60–70):</b> fast fashion, peer pressure, counterfeit goods</li><li><b>Nhượng bộ (50–60):</b> <i>Admittedly, …</i> express your personality · <i>the more …, the less …</i></li><li><b>Kết (40–50):</b> <i>On balance, …</i> + 2 giải pháp (ban … from · raise awareness of)</li></ul></div>
+      <div class="card"><span class="eyebrow">Ngôn ngữ quan điểm — nhượng bộ — đánh giá</span><ul>
+        <li>Some people believe that … and I largely agree, although …</li>
+        <li>The most serious harm is to …</li>
+        <li>This sets unrealistic standards and puts pressure on … to …</li>
+        <li>A second problem is …</li>
+        <li>… has a negative impact on …</li>
+        <li>Admittedly, … also does some good.</li>
+        <li>The more …, the less …</li>
+        <li>On balance, I believe the harm outweighs the benefits.</li>
+        <li>Governments should ban … from … · … should raise awareness of …</li>
+      </ul></div>
+    </div>
+    <details open style="margin-top:14px"><summary>Bài mẫu Task 2 (≈ 290 từ)</summary><div class="model">
+      <p>Fashion has never been more visible: teenagers see hundreds of images of models every day on their phones. Some people believe that the industry damages young people's health and <mark>self-esteem</mark>, and I largely agree, although the picture is more complicated than it seems.</p>
+      <p>The most serious harm is to <mark>body image</mark>. Fashion houses still design their clothes for the youngest and skinniest models, so the "ideal" figure that young people compare themselves with is <mark>the least achievable</mark> one. This <mark>sets unrealistic standards</mark> and <mark>puts pressure on</mark> teenagers, girls in particular, <mark>to</mark> be as thin as possible. <mark>The more</mark> time they spend looking at those images, <mark>the worse</mark> they feel about their own bodies. As a doctor, I see the results: <mark>eating disorders</mark> are <mark>far more common than</mark> they were a decade ago, and low self-esteem is often part of the picture.</p>
+      <p>A second problem is money. <mark>Fast fashion</mark> and <mark>peer pressure</mark> push students to <mark>follow the latest trends</mark>, <mark>spending a fortune on clothes</mark> they wear a few times. <mark>Counterfeit goods</mark> make this worse: a <mark>knock-off</mark> looks as good as <mark>the genuine product</mark>, but buying it supports an <mark>illegal activity</mark> and <mark>has a negative impact on</mark> the real brands.</p>
+      <p><mark>Admittedly</mark>, fashion also does some good. Clothes are a way to <mark>express your personality</mark>, and <mark>caring about your appearance</mark> is not the same as being vain. <mark>The more</mark> the industry uses models of different sizes, <mark>the less</mark> harmful its message becomes, and some brands are already doing this.</p>
+      <p><mark>On balance</mark>, I believe the harm currently outweighs the benefits. Governments should <mark>ban agencies from using</mark> underweight models, and doctors and schools should <mark>raise awareness of</mark> the risks, so that young people can enjoy fashion without paying for it with their health.</p>
+      <span class="wcnt">5 đoạn · quan điểm rõ từ đoạn mở · 17 cụm chủ đề · 5 cấu trúc so sánh · 1 đoạn nhượng bộ · 288 từ</span>
+    </div></details>
+    <div class="ex" id="wr-t2">
+      <div class="ex-head"><span class="ex-no">Viết</span><h4>Dàn ý và bài essay của bạn</h4><span class="ex-type">≥ 250 từ</span><span class="score" data-score></span></div>
+      <div class="ex-body">
+        <div class="plan">
+          <div><label>Mở — bối cảnh + quan điểm</label><textarea class="free" id="wr-t2-1" placeholder="Some people believe that … I largely agree, although …"></textarea></div>
+          <div><label>Thân 1 — sức khoẻ + ví dụ</label><textarea class="free" id="wr-t2-2" placeholder="The most serious harm is to … This sets unrealistic standards …"></textarea></div>
+          <div><label>Thân 2 — tiền, hàng giả</label><textarea class="free" id="wr-t2-3" placeholder="A second problem is … has a negative impact on …"></textarea></div>
+          <div><label>Nhượng bộ + Kết — giải pháp</label><textarea class="free" id="wr-t2-4" placeholder="Admittedly, … On balance, … should ban … from … · raise awareness of …"></textarea></div>
+        </div>
+        <p style="margin-top:12px"><b>Bài hoàn chỉnh</b></p>
+        <textarea class="free" id="wr-t2-text" style="min-height:300px" placeholder="Fashion has never been more visible …"></textarea>
+        <p style="margin-top:6px;font-size:.9em;color:var(--muted)">Số từ: <span class="wc" data-for="wr-t2-text">0</span> / ≥ 250</p>
+        <ul class="checklist" style="margin-top:10px">
+          <li><label><input type="checkbox" id="wr-t2-c1"><span>Nêu rõ mức độ đồng ý ngay đoạn mở và giữ nhất quán đến kết</span></label></li>
+          <li><label><input type="checkbox" id="wr-t2-c2"><span>4–5 đoạn; mỗi đoạn thân có câu chủ đề + lý do + 1 ví dụ</span></label></li>
+          <li><label><input type="checkbox" id="wr-t2-c3"><span>≥ 6 cụm chủ đề (Group 4, 6)</span></label></li>
+          <li><label><input type="checkbox" id="wr-t2-c4"><span>≥ 3 cấu trúc so sánh / adverb of degree (<i>far more … than · the least … · the more …, the less …</i>)</span></label></li>
+          <li><label><input type="checkbox" id="wr-t2-c5"><span>Có 1 đoạn nhượng bộ (Admittedly / However) và câu kết On balance; ≥ 250 từ</span></label></li>
+        </ul>
+      </div>
+      <div class="ex-foot"><button class="btn ghost reset" type="button">Làm lại</button><span class="src">Viết đoạn mở + thân 1 trên lớp (20'), hoàn thiện ở nhà</span></div>
+    </div>
+  </section>
+</article>
+
+<!-- ================= SHEET 7: LUYỆN TẬP CHỦ ĐỘNG ================= -->
+<article class="sheet" id="practice" role="tabpanel" data-title="Luyện tập chủ động" hidden>
+  <div class="sheet-head">
+    <div>
+      <span class="eyebrow">Sheet 7 / 8</span>
+      <h2>Luyện tập — 9 bài tương tác</h2>
+    </div>
+    <div class="prog" data-prog>0 bài đã kiểm tra</div>
+  </div>
+
+  <section class="block">
+    <h3 id="x-1">Bài 1 · Xếp từ vào đúng nhóm (SB tr. 10 bài 2)</h3>
+    <div class="ex" id="fx-1">
+      <div class="ex-head"><span class="ex-no">Bài 1</span><h4>Chạm một từ, rồi chạm vào cột: Quần áo · Giày dép · Trang sức – mũ nón · Chất liệu</h4><span class="ex-type">Phân loại</span><span class="score" data-score></span></div>
+      <div class="ex-body">
+        <div class="bins" data-cats="Quần áo|Giày dép|Trang sức – mũ nón|Chất liệu" data-items="suit:Quần áo,sweatshirt:Quần áo,jeans:Quần áo,polo shirt:Quần áo,jumper:Quần áo,shawl:Quần áo,boots:Giày dép,sandals:Giày dép,trainers:Giày dép,flip flops:Giày dép,high-heeled shoes:Giày dép,bracelet:Trang sức – mũ nón,earrings:Trang sức – mũ nón,necklace:Trang sức – mũ nón,helmet:Trang sức – mũ nón,baseball cap:Trang sức – mũ nón,hood:Trang sức – mũ nón,woollen:Chất liệu,leather:Chất liệu,suede:Chất liệu,silk:Chất liệu,polyester:Chất liệu,cotton:Chất liệu,fur:Chất liệu"></div>
+      </div>
+      <div class="ex-foot"><button class="btn check" type="button">Kiểm tra</button><button class="btn ghost reveal" type="button">Đáp án</button><button class="btn ghost reset" type="button">Làm lại</button></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h3 id="x-2">Bài 2 · Tìm phrasal verb trong lời người nói (SB tr. 10–11, script tr. 199–200)</h3>
+    <div class="ex" id="fx-2">
+      <div class="ex-head"><span class="ex-no">Bài 2</span><h4>Đọc (hoặc nghe) đoạn trích, chạm vào cụm từ có nghĩa như câu hỏi</h4><span class="ex-type">Evidence</span><span class="score" data-score></span></div>
+      <div class="ex-body">
+        <p class="q">a · Speaker 2 — Which phrasal verb means <i>reduce</i>?</p>
+        <div class="chips" style="margin:6px 0"><button class="btn say sm" type="button" data-text="I started working this year, so I'm able to get new clothes more regularly than before, when I had to save up for months. My mum thinks I should cut down the amount I spend on clothes, but my image is really important to me: if someone sees me in something once, I don't like to go out in it again. I always dress up when I go clubbing, and I try to keep up with the latest fashions.">Nghe</button><button class="btn sm stop" type="button">⏹</button></div>
+        <div class="evid" data-a="k2"><span class="ev" data-k="k1">save up</span> for months … My mum thinks I should <span class="ev" data-k="k2">cut down</span> the amount I spend on clothes, but my image is really important to me: if someone sees me in something once, I don't like to <span class="ev" data-k="k3">go out</span> in it again. I always <span class="ev" data-k="k4">dress up</span> when I go clubbing, and I try to <span class="ev" data-k="k5">keep up with</span> the latest fashions.</div>
+        <p class="q" style="margin-top:14px">b · Speaker 3 — Which phrase means <i>be easy to see or notice</i>?</p>
+        <div class="chips" style="margin:6px 0"><button class="btn say sm" type="button" data-text="Shopping for clothes isn't really my scene. I'm the least fashion-conscious person I know! I've got two pairs of jeans and I wear them mostly with a sweatshirt. I have got one favourite T-shirt, which a girlfriend gave me. She said she gave it to me so I would always stand out in a crowd!">Nghe</button><button class="btn sm stop" type="button">⏹</button></div>
+        <div class="evid" data-a="k3">Shopping for clothes <span class="ev" data-k="k1">isn't really my scene</span>. I'm <span class="ev" data-k="k2">the least fashion-conscious</span> person I know! I've got two pairs of jeans and I wear them mostly with a sweatshirt. I have got one favourite T-shirt, which a girlfriend gave me. She said she gave it to me so I would always <span class="ev" data-k="k3">stand out</span> in a crowd!</div>
+        <p class="q" style="margin-top:14px">c · Speaker 4 — Which phrasal verb means <i>create something by combining different things</i>?</p>
+        <div class="chips" style="margin:6px 0"><button class="btn say sm" type="button" data-text="My clothes have to be comfortable, make me feel relaxed as soon as I slip them on. I often put together outfits from stuff I find in street markets — they're less expensive that way. Second-hand clothes can be real bargains, and usually they've hardly been worn. I'll change the look of my clothes quite frequently, you know, swap buttons, dye something a different colour.">Nghe</button><button class="btn sm stop" type="button">⏹</button></div>
+        <div class="evid" data-a="k2">My clothes have to be comfortable, make me feel relaxed as soon as I <span class="ev" data-k="k1">slip them on</span>. I often <span class="ev" data-k="k2">put together</span> outfits from stuff I find in street markets — they're less expensive that way. Second-hand clothes can be real bargains, and usually they've hardly been worn. I'll <span class="ev" data-k="k3">change the look</span> of my clothes quite frequently, you know, <span class="ev" data-k="k4">swap buttons</span>, dye something a different colour.</div>
+        <p class="q" style="margin-top:14px">d · Speaker 5 — Which phrasal verb means <i>return something to the shop</i>?</p>
+        <div class="chips" style="margin:6px 0"><button class="btn say sm" type="button" data-text="My friends take far less trouble with clothes than I do. As my job involves dealing with people, I have to make an effort to look good all the time. I go shopping for clothes about once a month, though if I see something by chance, I'm quite likely to go for it there and then. I did take a jacket back last week, but that was because it was badly made.">Nghe</button><button class="btn sm stop" type="button">⏹</button></div>
+        <div class="evid" data-a="k4">My friends <span class="ev" data-k="k1">take far less trouble with</span> clothes than I do. As my job involves dealing with people, I have to <span class="ev" data-k="k2">make an effort</span> to look good all the time. I go shopping for clothes about once a month, though if I see something by chance, I'm quite likely to <span class="ev" data-k="k3">go for</span> it there and then. I did <span class="ev" data-k="k4">take a jacket back</span> last week, but that was because it was badly made.</div>
+      </div>
+      <div class="ex-foot"><button class="btn check" type="button">Kiểm tra</button><button class="btn ghost reveal" type="button">Đáp án</button><button class="btn ghost reset" type="button">Làm lại</button><span class="src">Đoạn trích rút gọn từ script SB tr. 199–200 · nút Nghe dùng giọng đọc của trình duyệt</span></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h3 id="x-3">Bài 3 · Phrasal verbs với <i>go</i> (SB tr. 11 bài 8)</h3>
+    <div class="ex" id="fx-3">
+      <div class="ex-head"><span class="ex-no">Bài 3</span><h4>Chọn tiểu từ đúng cho mỗi câu</h4><span class="ex-type">Chọn</span><span class="score" data-score></span></div>
+      <div class="ex-body">
+        <div class="items two">
+          <div class="it"><span class="lab">1</span><span class="q">The prices of leather bags have gone <select class="ans" data-a="up" aria-label="1"><option value="">…</option><option>up</option><option>on</option><option>over</option><option>ahead</option></select> a lot recently.</span></div>
+          <div class="it"><span class="lab">2</span><span class="q">Why are you looking at me like that? What's going <select class="ans" data-a="on" aria-label="2"><option value="">…</option><option>on</option><option>up</option><option>for</option><option>back</option></select>?</span></div>
+          <div class="it"><span class="lab">3</span><span class="q">The design company went <select class="ans" data-a="for" aria-label="3"><option value="">…</option><option>for</option><option>over</option><option>in</option><option>ahead</option></select> the applicant with the best portfolio.</span></div>
+          <div class="it"><span class="lab">4</span><span class="q">I went <select class="ans" data-a="back" aria-label="4"><option value="">…</option><option>back</option><option>ahead</option><option>for</option><option>in</option></select> to the same shoe shop but there were no more pairs in my size.</span></div>
+          <div class="it"><span class="lab">5</span><span class="q">You'll need to go <select class="ans" data-a="over" aria-label="5"><option value="">…</option><option>over</option><option>for</option><option>ahead</option><option>up</option></select> all the figures in the report to check they're correct.</span></div>
+          <div class="it"><span class="lab">6</span><span class="q">Can I wear your necklace tonight? — Sure, go <select class="ans" data-a="ahead" aria-label="6"><option value="">…</option><option>ahead</option><option>back</option><option>in</option><option>for</option></select>!</span></div>
+        </div>
+      </div>
+      <div class="ex-foot"><button class="btn check" type="button">Kiểm tra</button><button class="btn ghost reveal" type="button">Đáp án</button><button class="btn ghost reset" type="button">Làm lại</button></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h3 id="x-4">Bài 4 · Trật tự từ với phrasal verbs và adverbs of degree</h3>
+    <div class="ex" id="fx-4">
+      <div class="ex-head"><span class="ex-no">Bài 4</span><h4>Xếp từ thành câu đúng; đặt trạng từ vào đúng vị trí</h4><span class="ex-type">Order</span><span class="score" data-score></span></div>
+      <div class="ex-body">
+        <p class="sent"><b>a</b> Tân ngữ là đại từ → đứng giữa động từ và trạng từ.</p><div class="builder" data-a="I tried it on in the shop."></div>
+        <p class="sent"><b>b</b> Kể lại việc trả hàng.</p><div class="builder" data-a="She took them back the next day."></div>
+        <p class="sent"><b>c</b> Mệnh lệnh trước khi vào phòng mổ (tân ngữ là đại từ).</p><div class="builder" data-a="Take them off before you go into theatre."></div>
+        <p class="sent"><b>d</b> Đặt trạng từ vào đúng chỗ: <span class="ipa">far</span> (trước comparative)</p><div class="gaps" data-s="Trainers are more practical than heels on a ward round." data-a="2" data-adv="far" data-opts="far|a bit|slightly|much"></div>
+        <p class="sent"><b>e</b> Đặt trạng từ vào đúng chỗ: <span class="ipa">by far</span> (trước superlative)</p><div class="gaps" data-s="This is the most comfortable pair of shoes I own." data-a="2" data-adv="by far" data-opts="by far|easily|much"></div>
+      </div>
+      <div class="ex-foot"><button class="btn check" type="button">Kiểm tra</button><button class="btn ghost reveal" type="button">Đáp án</button><button class="btn ghost reset" type="button">Làm lại</button></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h3 id="x-5">Bài 5 · Câu nào đúng và tự nhiên nhất? (Corpus spot SB tr. 11–12 + Sheet 4)</h3>
+    <div class="ex" id="fx-5">
+      <div class="ex-head"><span class="ex-no">Bài 5</span><h4>Chọn câu đúng ngữ pháp và tự nhiên ở trình độ B2</h4><span class="ex-type">MCQ</span><span class="score" data-score></span></div>
+      <div class="ex-body">
+        <div class="items two">
+          <div class="mcq" data-a="B"><div class="stem">1 · famous</div>
+            <label><input type="radio" name="fx5-1" value="A"><span><span class="o">A</span> He is famouser than all the others in the film.</span></label>
+            <label><input type="radio" name="fx5-1" value="B"><span><span class="o">B</span> He is more famous than all the others in the film.</span></label>
+            <label><input type="radio" name="fx5-1" value="C"><span><span class="o">C</span> He is the more famous than all the others in the film.</span></label></div>
+          <div class="mcq" data-a="B"><div class="stem">2 · good</div>
+            <label><input type="radio" name="fx5-2" value="A"><span><span class="o">A</span> I would like to buy a much more better one.</span></label>
+            <label><input type="radio" name="fx5-2" value="B"><span><span class="o">B</span> I would like to buy a much better one.</span></label>
+            <label><input type="radio" name="fx5-2" value="C"><span><span class="o">C</span> I would like to buy a more better one.</span></label></div>
+          <div class="mcq" data-a="C"><div class="stem">3 · easy</div>
+            <label><input type="radio" name="fx5-3" value="A"><span><span class="o">A</span> It's now more easy to get there.</span></label>
+            <label><input type="radio" name="fx5-3" value="B"><span><span class="o">B</span> It's now easyer to get there.</span></label>
+            <label><input type="radio" name="fx5-3" value="C"><span><span class="o">C</span> It's now easier to get there.</span></label></div>
+          <div class="mcq" data-a="A"><div class="stem">4 · "I like casual clothes." — bản B2 tự nhiên nhất</div>
+            <label><input type="radio" name="fx5-4" value="A"><span><span class="o">A</span> I'm much more comfortable in casual clothes than in a suit.</span></label>
+            <label><input type="radio" name="fx5-4" value="B"><span><span class="o">B</span> I prefer casual clothes more than a suit.</span></label>
+            <label><input type="radio" name="fx5-4" value="C"><span><span class="o">C</span> Casual clothes are more better for me than a suit.</span></label></div>
+          <div class="mcq" data-a="B"><div class="stem">5 · "Fashion is not important for me." — bản B2 tự nhiên nhất</div>
+            <label><input type="radio" name="fx5-5" value="A"><span><span class="o">A</span> I'm not interesting in fashion — comfort is the first for me.</span></label>
+            <label><input type="radio" name="fx5-5" value="B"><span><span class="o">B</span> I'm not really into fashion — I put comfort first.</span></label>
+            <label><input type="radio" name="fx5-5" value="C"><span><span class="o">C</span> I don't care fashion — I prefer comfortable.</span></label></div>
+          <div class="mcq" data-a="B"><div class="stem">6 · try on + it</div>
+            <label><input type="radio" name="fx5-6" value="A"><span><span class="o">A</span> I tried on it, but it didn't fit.</span></label>
+            <label><input type="radio" name="fx5-6" value="B"><span><span class="o">B</span> I tried it on, but it didn't fit.</span></label>
+            <label><input type="radio" name="fx5-6" value="C"><span><span class="o">C</span> I tried it on, but it didn't fit to me.</span></label></div>
+        </div>
+      </div>
+      <div class="ex-foot"><button class="btn check" type="button">Kiểm tra</button><button class="btn ghost reveal" type="button">Đáp án</button><button class="btn ghost reset" type="button">Làm lại</button></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h3 id="x-6">Bài 6 · Dạng so sánh của tính từ (SB tr. 12 bài 4 + Grammar extra)</h3>
+    <div class="ex" id="fx-6">
+      <div class="ex-head"><span class="ex-no">Bài 6</span><h4>Gõ dạng comparative hoặc superlative của tính từ trong ngoặc; câu i–j gõ adverb of degree (<i>a bit / a great deal / much</i>)</h4><span class="ex-type">Điền</span><span class="score" data-score></span></div>
+      <div class="ex-body">
+        <div class="items">
+          <div class="it"><span class="lab">a</span><span class="q">Have you painted this room recently? Everything's looking a lot <input class="ans" data-a="brighter" aria-label="a" placeholder="bright"> than before.</span></div>
+          <div class="it"><span class="lab">b</span><span class="q">Out of all my friends, Jake wears <input class="ans w" data-a="the most outrageous|the brightest" aria-label="b" placeholder="outrageous / bright"> clothes — take his handmade plastic coat, for example!</span></div>
+          <div class="it"><span class="lab">c</span><span class="q">Don't dress up for the club tonight — everyone's looking <input class="ans" data-a="more casual" aria-label="c" placeholder="casual"> there nowadays.</span></div>
+          <div class="it"><span class="lab">d</span><span class="q">You can't put those disgusting jeans on again — they're <input class="ans" data-a="the dirtiest" aria-label="d" placeholder="dirty"> pair I've ever seen!</span></div>
+          <div class="it"><span class="lab">e</span><span class="q">I'm a bit worried about Sally. She doesn't eat a thing and so she's getting <input class="ans" data-a="thinner" aria-label="e" placeholder="thin"> than ever.</span></div>
+          <div class="it"><span class="lab">f</span><span class="q">My brother has <input class="ans" data-a="the worst" aria-label="f" placeholder="bad"> taste in ties ever — awful designs in really odd colours!</span></div>
+          <div class="it"><span class="lab">g</span><span class="q">There's no way you can fit into my shoes — your feet are a lot <input class="ans" data-a="bigger" aria-label="g" placeholder="big"> than mine!</span></div>
+          <div class="it"><span class="lab">h</span><span class="q">Market stalls often offer slightly <input class="ans" data-a="better" aria-label="h" placeholder="good"> value for money than shops.</span></div>
+          <div class="it"><span class="lab">i</span><span class="q">This ring is only <input class="ans xs" data-a="a bit" aria-label="i1" placeholder="…"> more expensive and it's <input class="ans xs" data-a="much|a great deal" aria-label="i2" placeholder="…"> nicer than the others.</span></div>
+          <div class="it"><span class="lab">j</span><span class="q">Tracksuits may be <input class="ans xs" data-a="a bit|a great deal|much" aria-label="j1" placeholder="…"> warmer, but shorts are <input class="ans xs" data-a="much" aria-label="j2" placeholder="…"> the best for running in, whatever the weather.</span></div>
+        </div>
+      </div>
+      <div class="ex-foot"><button class="btn check" type="button">Kiểm tra</button><button class="btn ghost reveal" type="button">Đáp án</button><button class="btn ghost reset" type="button">Làm lại</button></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h3 id="x-7">Bài 7 · Key word transformations (SB tr. 13 bài 8 + Exam folder 1 tr. 15)</h3>
+    <div class="ex" id="fx-7">
+      <div class="ex-head"><span class="ex-no">Bài 7</span><h4>Viết lại câu thứ hai cùng nghĩa câu thứ nhất, dùng từ in hoa, 2–5 từ (kể cả từ in hoa)</h4><span class="ex-type">Điền</span><span class="score" data-score></span></div>
+      <div class="ex-note">Cách làm (Exam advice, SB tr. 14):<ul><li>Đọc kỹ câu 1; nghĩ xem từ in hoa hay đi với cấu trúc nào</li><li>Điền, rồi đếm từ: 2–5, dạng rút gọn <i>don't</i> tính là 2 từ</li><li>Đọc lại câu 2: cùng nghĩa chưa? đúng ngữ pháp chưa?</li></ul></div>
+      <div class="ex-body">
+        <div class="items">
+          <div class="it"><span class="lab">1</span><span class="q">These sunglasses cost a bit less than my last pair. <span class="scr">WERE</span><br>These sunglasses <input class="ans w" data-a="were a bit cheaper|were a bit less expensive|were slightly cheaper|were a little cheaper|were slightly less expensive|were a little less expensive" aria-label="1"> than my last pair.</span></div>
+          <div class="it"><span class="lab">2</span><span class="q">Coco Chanel was an extremely talented designer. <span class="scr">MOST</span><br>Coco Chanel was one of <input class="ans w" data-a="the most talented designers" aria-label="2"> in the world.</span></div>
+          <div class="it"><span class="lab">3</span><span class="q">I preferred you with curlier hair. <span class="scr">STRAIGHT</span><br>I preferred your hair when it wasn't <input class="ans w" data-a="as straight as it" aria-label="3"> is now.</span></div>
+          <div class="it"><span class="lab">4</span><span class="q">This shoe shop is the cheapest one I've found. <span class="scr">EXPENSIVE</span><br>This shoe shop is <input class="ans w" data-a="the least expensive of|less expensive than" aria-label="4"> all the ones I've found.</span></div>
+          <div class="it"><span class="lab">5</span><span class="q">Suzanne's host at the dinner party wasn't as elegantly dressed as she was. <span class="scr">MORE</span><br>At the dinner party, Suzanne was far <input class="ans w" data-a="more elegantly dressed than" aria-label="5"> her host.</span></div>
+          <div class="it"><span class="lab">6</span><span class="q">It takes much less time to travel by train than by car. <span class="scr">LOT</span><br>Travelling by train <input class="ans w" data-a="is a lot quicker than|is a lot faster than" aria-label="6"> travelling by car.</span></div>
+          <div class="it"><span class="lab">7</span><span class="q">Harry wears smarter clothes now he has a girlfriend. <span class="scr">LESS</span><br>Harry dressed <input class="ans w" data-a="less smartly when" aria-label="7"> he didn't have a girlfriend.</span></div>
+          <div class="it"><span class="lab">8</span><span class="q">That model is only 17 — I thought she was older. <span class="scr">AS</span><br>That model is not <input class="ans w" data-a="as old as" aria-label="8"> I thought.</span></div>
+          <div class="it"><span class="lab">9</span><span class="q">'A club has just opened in Leeds,' said Maria to Sally. <span class="scr">TOLD</span><br>Maria <input class="ans w" data-a="told Sally about a new" aria-label="9"> club in Leeds.</span></div>
+          <div class="it"><span class="lab">10</span><span class="q">I returned the dress to the shop because it was badly made. <span class="scr">TOOK</span><br>Because the dress was badly made, I <input class="ans w" data-a="took it back|took the dress back" aria-label="10"> to the shop.</span></div>
+          <div class="it"><span class="lab">11</span><span class="q">Some shops try really hard to help you. <span class="scr">EFFORT</span><br>Some shops really <input class="ans w" data-a="make an effort" aria-label="11"> to help you.</span></div>
+          <div class="it"><span class="lab">12</span><span class="q">Fifty years ago, cars were slower than they are nowadays. <span class="scr">AS</span><br>Fifty years ago, cars <input class="ans w" data-a="were not as fast as|weren't as fast as" aria-label="12"> they are nowadays.</span></div>
+          <div class="it"><span class="lab">13</span><span class="q">It's a lot easier to learn a language by visiting the country where it's spoken. <span class="scr">MUCH</span><br>You can learn a language <input class="ans w" data-a="much more easily if|much more easily when" aria-label="13"> you visit the country where it's spoken.</span></div>
+          <div class="it"><span class="lab">14</span><span class="q">For me, Stella McCartney is doing a lot more interesting work than other designers today. <span class="scr">FAR</span><br>For me, Stella McCartney is by <input class="ans w" data-a="far the most interesting" aria-label="14"> designer working today.</span></div>
+        </div>
+      </div>
+      <div class="ex-foot"><button class="btn check" type="button">Kiểm tra</button><button class="btn ghost reveal" type="button">Đáp án</button><button class="btn ghost reset" type="button">Làm lại</button><span class="src">Đáp án theo SB tr. 200</span></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h3 id="x-8">Bài 8 · Viết 5 câu so sánh hai lựa chọn</h3>
+    <div class="ex" id="fx-8">
+      <div class="ex-head"><span class="ex-no">Bài 8</span><h4>So sánh áo blouse trắng với đồ scrubs (hoặc trainers với giày da) cho ca trực 12 giờ</h4><span class="ex-type">Free</span></div>
+      <div class="ex-note">5 câu, mỗi câu một cấu trúc:<ul><li>comparative + adverb of degree (<i>far / much / a lot / slightly</i>)</li><li><i>not as … as</i> hoặc <i>nowhere near as … as</i></li><li>superlative với <i>by far</i> hoặc <i>easily</i></li><li>1 câu nhượng bộ (<i>Admittedly, … However, …</i>)</li><li>1 câu kết (<i>On balance, … / The best option would be to …</i>)</li></ul></div>
+      <div class="ex-body">
+        <textarea class="free" id="fx-8-text" style="min-height:160px" placeholder="Scrubs are far more practical than a white coat when …"></textarea>
+        <p style="margin-top:6px;font-size:.9em;color:var(--muted)">Số từ: <span class="wc" data-for="fx-8-text">0</span></p>
+        <div class="sample" hidden><span class="eyebrow">Mẫu</span><p>Scrubs are <b>far more practical than</b> a white coat when you're on your feet for twelve hours. A coat that has been worn for three days is <b>nowhere near as</b> clean <b>as</b> scrubs that are washed every night. For hygiene, scrubs are <b>easily the safest</b> option. <b>Admittedly</b>, a white coat presents a more professional image, and older patients still expect it. <b>On balance</b>, though, <b>the best way to</b> keep everyone happy <b>is to</b> wear scrubs on the wards and keep the coat for the clinic.</p></div>
+      </div>
+      <div class="ex-foot"><button class="btn ghost reveal" type="button">Xem mẫu</button><button class="btn ghost reset" type="button">Làm lại</button><span class="src">Đổi bài với bạn: đếm đủ 5 cấu trúc</span></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h3 id="x-9">Bài 9 · Áp dụng — nói chuyện với bệnh nhân 16 tuổi muốn gầy như người mẫu</h3>
+    <div class="ex" id="fx-9">
+      <div class="ex-head"><span class="ex-no">Bài 9</span><h4>Viết 5–6 câu bạn sẽ nói với em, bằng tiếng Anh đơn giản nhưng đúng B2</h4><span class="ex-type">Áp dụng · Free</span></div>
+      <div class="ex-note">Dùng ít nhất:<ul><li>2 cụm Group 6 (<i>body image · set unrealistic standards · put pressure on · self-esteem</i>)</li><li>1 cấu trúc so sánh (<i>far thinner than … / not as … as …</i>)</li><li>1 chunk nhượng bộ (<i>Admittedly / Even though</i>)</li><li>1 chunk khuyên (<i>If I were you / It would be a good idea to</i>)</li></ul></div>
+      <div class="ex-body">
+        <textarea class="free" id="fx-9-text" style="min-height:160px" placeholder="I understand why you want to look like them, but …"></textarea>
+        <p style="margin-top:6px;font-size:.9em;color:var(--muted)">Số từ: <span class="wc" data-for="fx-9-text">0</span></p>
+        <div class="sample" hidden><span class="eyebrow">Mẫu</span><p>I understand why you want to look like them, but catwalk models are <b>far thinner than</b> is healthy — most of them are underweight. Those photos <b>set unrealistic standards</b>: they're edited, and the industry <b>puts pressure on</b> girls to be as thin as possible. <b>Even though</b> you feel that being slimmer would make you happier, it's usually the other way round — dieting like that damages your <b>self-esteem</b> and your health. <b>If I were you</b>, I'd stop comparing yourself with the images on your phone and focus on feeling strong. <b>It would be a good idea to</b> come back next month with your mum so we can talk about eating well together.</p></div>
+      </div>
+      <div class="ex-foot"><button class="btn ghost reveal" type="button">Xem mẫu</button><button class="btn ghost reset" type="button">Làm lại</button><span class="src">Nói to 1 phút trước khi viết</span></div>
+    </div>
+  </section>
+</article>
+
+<!-- ================= SHEET 8: ÔN TẬP & BẢNG KIỂM ================= -->
+<article class="sheet" id="review" role="tabpanel" data-title="Ôn tập &amp; bảng kiểm" hidden>
+  <div class="sheet-head">
+    <div>
+      <span class="eyebrow">Sheet 8 / 8 · Lịch ôn 1‑3‑7 · Sổ cá nhân · Mastery</span>
+      <h2>Nhớ lại — không nhìn bài</h2>
+    </div>
+    <div class="prog" data-prog>0 bài đã kiểm tra</div>
+  </div>
+
+  <section class="block">
+    <h3 id="v-quiz">Quiz 16 cụm</h3>
+    <div class="ex" id="rv-q1">
+      <div class="ex-head"><span class="ex-no">Quiz</span><h4>Gõ cụm tiếng Anh theo nghĩa và gợi ý dạng từ (chấp nhận các cách nói tương đương)</h4><span class="ex-type">Điền</span><span class="score" data-score></span></div>
+      <div class="ex-body">
+        <div class="items two">
+          <div class="it"><span class="lab">1</span><span class="q">dành dụm tiền cho việc sau này <i>(phrasal verb, 2 từ)</i></span><input class="ans" data-a="save up" aria-label="1"></div>
+          <div class="it"><span class="lab">2</span><span class="q">mặc đẹp hơn thường ngày <i>(phrasal verb, 2 từ)</i></span><input class="ans" data-a="dress up" aria-label="2"></div>
+          <div class="it"><span class="lab">3</span><span class="q">theo kịp (thứ thay đổi nhanh) <i>(phrasal verb, 3 từ)</i></span><input class="ans" data-a="keep up with" aria-label="3"></div>
+          <div class="it"><span class="lab">4</span><span class="q">trả lại đồ đã mua <i>(phrasal verb, 2 từ)</i></span><input class="ans" data-a="take back|take it back|take something back|take sth back" aria-label="4"></div>
+          <div class="it"><span class="lab">5</span><span class="q">cố gắng để trông đẹp <i>(verb + noun + to-infinitive)</i></span><input class="ans" data-a="make an effort to look good|make an effort" aria-label="5"></div>
+          <div class="it"><span class="lab">6</span><span class="q">nổi bật giữa đám đông <i>(phrasal verb + prepositional phrase)</i></span><input class="ans" data-a="stand out in a crowd|stand out" aria-label="6"></div>
+          <div class="it"><span class="lab">7</span><span class="q">ưu tiên sự thoải mái <i>(verb + noun + adverb)</i></span><input class="ans" data-a="put comfort first" aria-label="7"></div>
+          <div class="it"><span class="lab">8</span><span class="q">ăn mặc phù hợp với dịp <i>(verb + preposition + noun)</i></span><input class="ans" data-a="dress for the occasion" aria-label="8"></div>
+          <div class="it"><span class="lab">9</span><span class="q">hợp với ai — trông đẹp trên người ai <i>(verb, 1 từ)</i></span><input class="ans" data-a="suit" aria-label="9"></div>
+          <div class="it"><span class="lab">10</span><span class="q">áo blouse trắng của bác sĩ <i>(noun, 2 từ)</i></span><input class="ans" data-a="white coat|a white coat|lab coat|a lab coat" aria-label="10"></div>
+          <div class="it"><span class="lab">11</span><span class="q">… nhất, hơn hẳn <i>(adverb phrase + superlative)</i></span><input class="ans" data-a="by far the most|by far|by far the|easily the most|easily" aria-label="11"></div>
+          <div class="it"><span class="lab">12</span><span class="q">kém xa (so sánh không bằng) <i>(4 từ + adj + as)</i></span><input class="ans" data-a="nowhere near as … as|nowhere near as|nowhere near as ... as" aria-label="12"></div>
+          <div class="it"><span class="lab">13</span><span class="q">hàng giả, hàng nhái nhãn hiệu <i>(noun, 2 từ hoặc 1 từ ghép)</i></span><input class="ans" data-a="counterfeit goods|knock-offs|knock-off|knockoffs|imitation goods|fake designer goods|fake goods" aria-label="13"></div>
+          <div class="it"><span class="lab">14</span><span class="q">đặt ra chuẩn mực phi thực tế <i>(verb + adj + noun)</i></span><input class="ans" data-a="set unrealistic standards" aria-label="14"></div>
+          <div class="it"><span class="lab">15</span><span class="q">có ảnh hưởng tiêu cực đến <i>(verb + adj + noun + preposition)</i></span><input class="ans" data-a="have a negative impact on|have a negative effect on" aria-label="15"></div>
+          <div class="it"><span class="lab">16</span><span class="q">đánh giá người khác qua vẻ ngoài <i>(verb + people + by + …)</i></span><input class="ans" data-a="judge people by their appearance|judge people by appearance|judge others by their appearance" aria-label="16"></div>
+        </div>
+      </div>
+      <div class="ex-foot"><button class="btn check" type="button">Kiểm tra</button><button class="btn ghost reveal" type="button">Đáp án</button><button class="btn ghost reset" type="button">Làm lại</button><span class="src">Ngày 1 ___ · Ngày 3 ___ · Ngày 7 ___</span></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h3 id="v-schedule">Lịch ôn 1‑3‑7</h3>
+    <div class="flow">
+      <div class="step"><span class="k">Ngày 0</span><h4>Học trên lớp</h4><ul><li>6 nhóm, 3 phần Speaking, 2 bài Writing</li><li>Quiz câu 1–8 cuối buổi 1, đủ 16 câu cuối buổi 2</li></ul></div>
+      <div class="step"><span class="k">Ngày 1</span><h4>Quiz + nói 3'</h4><ul><li>Quiz 16 câu, không nhìn bài</li><li>Nói lại Part 2 tình huống A không nhìn dàn ý; nói tình huống B lần đầu; ghi âm</li></ul></div>
+      <div class="step"><span class="k">Ngày 3</span><h4>Che cột nghĩa</h4><ul><li>Mỗi nhóm: nhìn nghĩa → nói cụm; nhìn cụm → nói nghĩa</li><li>Viết lại 5 câu về mình theo trí nhớ</li><li>Làm lại Bài 7 (key word transformations)</li></ul></div>
+      <div class="step"><span class="k">Ngày 7</span><h4>Đo lại và chuyển chủ đề</h4><ul><li>Sheet 1 Hoạt động 2: gõ lại từ đã biết cho 6 nhóm, không nhìn, so với số ngày 0</li><li>Quiz lần 3</li><li>Nói 3' đề mới: <i>"Should medical students wear a uniform at university?"</i> — dùng cùng khung 5 bước và chunks</li></ul></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h3 id="v-bank">Sổ cụm từ cá nhân</h3>
+    <div class="note info"><span class="tag">Cách dùng</span><p>Ghi tối đa 20 cụm bạn <b>chắc chắn sẽ dùng</b> trong phòng thi, mỗi cụm kèm một câu về chính bạn.</p></div>
+    <textarea class="free" id="rv-bank" style="min-height:200px;margin-top:12px" placeholder="1. put comfort first — On a 24-hour shift I put comfort first and wear trainers.&#10;2. …"></textarea>
+    <div class="chips" style="margin-top:8px"><button class="btn ghost copy sm" type="button" data-for="rv-bank">Sao chép sổ</button></div>
+  </section>
+
+  <section class="block">
+    <h3 id="v-mastery">Mastery checklist</h3>
+    <ul class="checklist">
+      <li><label><input type="checkbox" id="rm-1"><span>Tôi trả lời được 6 câu hỏi Part 1 về thời trang và trang phục đi làm, mỗi câu ≤ 30 giây, 2–3 mệnh đề, ít nhất 1 collocation chủ đề.</span></label></li>
+      <li><label><input type="checkbox" id="rm-2"><span>Tôi chọn được 1 trong 3 phương án và bảo vệ trong 2–2,5 phút với ≥ 3 cấu trúc so sánh và 1 câu nhượng bộ.</span></label></li>
+      <li><label><input type="checkbox" id="rm-3"><span>Tôi nói được 2,5–3 phút theo sơ đồ 3 nhánh + ý riêng, đủ Point → Why → Example → Counter → Evaluation, ≥ 6 cụm chủ đề, và trả lời được 2 câu hỏi mở rộng.</span></label></li>
+      <li><label><input type="checkbox" id="rm-4"><span>Tôi viết được email ≥ 120 từ trả lời đủ 3 ý, giọng thân mật, ≥ 4 cụm chủ đề, ≥ 2 câu so sánh.</span></label></li>
+      <li><label><input type="checkbox" id="rm-5"><span>Tôi viết được essay ≥ 250 từ nêu quan điểm, 4–5 đoạn, ≥ 6 cụm chủ đề, ≥ 3 cấu trúc so sánh, 1 câu nhượng bộ.</span></label></li>
+      <li><label><input type="checkbox" id="rm-6"><span>Sau 7 ngày tôi vẫn đạt ≥ 13/16 quiz và ≥ 10/14 câu key word transformations.</span></label></li>
+    </ul>
+  </section>
+</article>
+
+
+</main>
+
+<script>
+(function () {
+  const STR = { words: 'từ', checked: 'bài đã kiểm tra', putInto: 'Xếp vào', binsHint: 'Chạm để chọn, rồi chạm vào cột muốn xếp', orderHint: 'Chạm vào từ theo đúng thứ tự:', builderEmpty: 'Chạm vào từ bên dưới để xếp câu…', adverb: 'Trạng từ', position: 'vị trí', copied: 'Đã sao chép', noSpeech: 'Trình duyệt không hỗ trợ đọc', timeUp: 'Hết giờ' };
+  'use strict';
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+  const store = {
+    get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} },
+    del(k) { try { localStorage.removeItem(k); } catch (e) {} }
+  };
+  const lite = s => (s || '').toLowerCase().replace(/[’‘]/g, "'").replace(/[“”]/g, '"').replace(/\s+/g, ' ').trim();
+  const norm = s => lite(s).replace(/\s*([.,!?;:])\s*/g, '$1').replace(/[.!?;:]+$/g, '').replace(/\s+/g, ' ').trim();
+
+  /* ---------- rail / sheets ---------- */
+  const KEY = ($('main') && $('main').dataset.key) || 'lesson';
+  const sheets = $$('.sheet');
+  const nav = $('#rail-nav');
+  const groups = { 0: 'Mở đầu', 2: 'Ngôn ngữ', 4: 'Đầu ra', 6: 'Luyện & ôn' };
+  sheets.forEach((s, i) => {
+    if (groups[i] !== undefined) { const g = document.createElement('div'); g.className = 'rail-group'; g.textContent = groups[i]; nav.appendChild(g); }
+    const item = document.createElement('div'); item.className = 'rail-item';
+    const subs = $$('section.block > h3[id]', s).map(h => `<li><a href="#${h.id}">${h.textContent.replace(/\s*(Source|Inference|Extension)\s*$/, '')}</a></li>`).join('');
+    item.innerHTML = `<button class="rail-btn" role="tab" type="button" aria-selected="false"><span class="idx">${i + 1}</span><span>${s.dataset.title}</span></button><ul class="sub-outline">${subs}</ul>`;
+    nav.appendChild(item);
+    $('.rail-btn', item).addEventListener('click', () => show(i, true));
+    $$('.sub-outline a', item).forEach(a => a.addEventListener('click', e => {
+      e.preventDefault(); show(i, false);
+      const t = document.getElementById(a.getAttribute('href').slice(1));
+      if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }));
+  });
+  function show(i, top) {
+    sheets.forEach((s, j) => { s.hidden = j !== i; });
+    $$('.rail-item').forEach((it, j) => { it.classList.toggle('active', j === i); $('.rail-btn', it).setAttribute('aria-selected', j === i ? 'true' : 'false'); });
+    store.set(KEY + ':sheet', String(i));
+    if (top) window.scrollTo({ top: 0 });
+  }
+  $$('a[data-sheet]').forEach(a => a.addEventListener('click', e => { e.preventDefault(); show(+a.dataset.sheet, true); }));
+  /* ---------- lead-in: jump straight to a vocabulary group + live word counts ---------- */
+  $$('a[data-go]').forEach(a => a.addEventListener('click', e => {
+    e.preventDefault(); const t = document.getElementById(a.dataset.go); if (!t) return;
+    const idx = sheets.findIndex(s => s.contains(t)); if (idx >= 0) show(idx, false);
+    setTimeout(() => t.scrollIntoView({ behavior: 'smooth', block: 'start' }), 30);
+  }));
+  (function () {
+    const cards = $$('.li-card'); if (!cards.length) return;
+    const sumW = $('#li-sum-words'), sumK = $('#li-sum-weak');
+    const count = v => v.split(/[,;\n]+/).map(s => s.trim()).filter(Boolean).length;
+    const update = () => {
+      let total = 0, weak = 0;
+      cards.forEach(c => {
+        const inp = $('input.ans', c), n = $('.li-n', c), cb = $('input[type=checkbox]', c);
+        const k = count(inp.value); total += k; n.textContent = k + ' ' + STR.words;
+        c.classList.toggle('weak', cb.checked); if (cb.checked) weak++;
+      });
+      sumW.textContent = total; sumK.textContent = weak + '/3'; sumK.classList.toggle('full', weak === 3);
+    };
+    cards.forEach(c => {
+      $('input.ans', c).addEventListener('input', update);
+      const cb = $('input[type=checkbox]', c);
+      cb.addEventListener('change', () => { if (cb.checked && cards.filter(x => $('input[type=checkbox]', x).checked).length > 3) { cb.checked = false; store.del(KEY + ':c:' + cb.id); } update(); });
+    });
+    update();
+  })();
+  let start = 0;
+  const hashId = location.hash.slice(1);
+  if (hashId) { const idx = sheets.findIndex(s => s.id === hashId || s.querySelector('#' + CSS.escape(hashId))); if (idx >= 0) start = idx; }
+  else { const saved = +store.get(KEY + ':sheet'); if (!isNaN(saved) && saved >= 0 && saved < sheets.length) start = saved; }
+  show(start, false);
+  if (hashId) { const t = document.getElementById(hashId); if (t && !t.classList.contains('sheet')) setTimeout(() => t.scrollIntoView({ block: 'start' }), 50); }
+
+  /* ---------- bins (select a word, then tap the column to place it) ---------- */
+  $$('.bins').forEach(b => {
+    const cats = b.dataset.cats.split('|');
+    const itemsRaw = b.dataset.items.split(',').map(x => { const i = x.indexOf(':'); return { w: x.slice(0, i).trim(), a: x.slice(i + 1).trim() }; });
+    // deterministic shuffle (seeded by the item list) so the bank isn't a giveaway order
+    let seed = 0; for (const c of b.dataset.items) seed = (seed * 31 + c.charCodeAt(0)) % 2147483647;
+    const rnd = () => { seed = (seed * 48271) % 2147483647; return seed / 2147483647; };
+    const items = itemsRaw.slice();
+    for (let i = items.length - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [items[i], items[j]] = [items[j], items[i]]; }
+
+    b.innerHTML = '<div class="bank"></div><div class="cols">' + cats.map(c => `<div class="col" data-cat="${c}" role="button" tabindex="0" aria-label="${STR.putInto} ${c}"><div class="col-h">${c}</div></div>`).join('') + '</div>';
+    const bank = $('.bank', b);
+    const colOf = cat => cat === '' ? bank : $$('.col', b).find(c => c.dataset.cat === cat);
+    let selected = null;
+    const arm = on => b.classList.toggle('armed', on);
+    const deselect = () => { if (selected) selected.classList.remove('sel'); selected = null; arm(false); };
+    const move = (ch, cat) => { ch.dataset.cat = cat; ch.classList.remove('ok', 'bad'); colOf(cat).appendChild(ch); };
+    items.forEach(it => {
+      const ch = document.createElement('button'); ch.type = 'button'; ch.className = 'chip-w'; ch.textContent = it.w; ch.dataset.a = it.a; ch.dataset.cat = '';
+      ch.title = STR.binsHint;
+      ch.addEventListener('click', () => {
+        if (ch.dataset.cat !== '') { move(ch, ''); if (selected === ch) deselect(); return; } // placed chip -> tap to send back
+        if (selected === ch) { deselect(); return; } // tap again to unselect
+        if (selected) selected.classList.remove('sel');
+        selected = ch; ch.classList.add('sel'); arm(true);
+      });
+      bank.appendChild(ch);
+    });
+    $$('.col', b).forEach(col => {
+      const place = () => { if (!selected) return; move(selected, col.dataset.cat); deselect(); };
+      col.addEventListener('click', place);
+      col.addEventListener('keydown', ev => { if (ev.key === ' ' || ev.key === 'Enter') { ev.preventDefault(); place(); } });
+    });
+    b._check = () => { let n = 0, ok = 0; $$('.chip-w', b).forEach(ch => { if (ch.dataset.cat === '') { ch.classList.remove('ok', 'bad'); return; } n++; const good = ch.dataset.a.split('|').includes(ch.dataset.cat); ch.classList.toggle('ok', good); ch.classList.toggle('bad', !good); if (good) ok++; }); return [ok, n]; };
+    b._reveal = (onlyMissing) => { $$('.chip-w', b).forEach(ch => { if (onlyMissing && ch.dataset.cat !== '') return; move(ch, ch.dataset.a.split('|')[0]); ch.classList.add('ok'); }); };
+    b._reset = () => { deselect(); $$('.chip-w', b).forEach(ch => move(ch, '')); };
+  });
+
+  /* ---------- builder (tap words in order) ---------- */
+  $$('.builder').forEach(b => {
+    const ans = b.dataset.a; const toks = ans.split(' ');
+    let seed = 0; for (const c of ans) seed = (seed * 31 + c.charCodeAt(0)) % 2147483647;
+    const rnd = () => { seed = (seed * 48271) % 2147483647; return seed / 2147483647; };
+    const order = toks.map((_, i) => i);
+    for (let i = order.length - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [order[i], order[j]] = [order[j], order[i]]; }
+    if (order.every((v, i) => v === i)) order.push(order.shift());
+    b.innerHTML = '<div class="hint">' + STR.orderHint + '</div><div class="line"></div><div class="bank"></div>';
+    const line = $('.line', b), bank = $('.bank', b); line.dataset.empty = STR.builderEmpty;
+    order.forEach(i => {
+      const ch = document.createElement('button'); ch.type = 'button'; ch.className = 'chip-w'; ch.textContent = toks[i]; ch.dataset.i = i;
+      ch.addEventListener('click', () => { b.classList.remove('ok', 'bad'); (ch.parentElement === bank ? line : bank).appendChild(ch); });
+      bank.appendChild(ch);
+    });
+    b._check = () => { const got = $$('.chip-w', line).map(c => c.textContent).join(' '); const good = norm(got) === norm(ans) && $$('.chip-w', bank).length === 0; b.classList.toggle('ok', good); b.classList.toggle('bad', !good); return [good ? 1 : 0, 1]; };
+    b._reveal = () => { toks.forEach((_, i) => { const c = $$('.chip-w', b).find(x => +x.dataset.i === i); if (c) line.appendChild(c); }); b.classList.remove('bad'); b.classList.add('ok'); };
+    b._reset = () => { $$('.chip-w', b).sort((x, y) => order.indexOf(+x.dataset.i) - order.indexOf(+y.dataset.i)).forEach(c => bank.appendChild(c)); b.classList.remove('ok', 'bad'); };
+  });
+
+  /* ---------- gaps (tap the position of the adverb) ---------- */
+  $$('.gaps').forEach(g => {
+    const ADVS = (g.dataset.opts || 'never|sometimes|often|usually|always').split('|'); // data-opts="a|b|c" — the words the learner places
+    const words = g.dataset.s.split(' '); const a = +g.dataset.a;
+    let html = `<select class="advsel" aria-label="${STR.adverb}">${ADVS.map(x => `<option${x === g.dataset.adv ? ' selected' : ''}>${x}</option>`).join('')}</select>`;
+    words.forEach((w, i) => { html += `<button type="button" class="gap" data-i="${i}" aria-label="${STR.position} ${i}"></button><span class="w">${w}</span>`; });
+    g.innerHTML = html;
+    const clear = () => $$('.gap', g).forEach(x => { x.classList.remove('sel'); x.textContent = ''; });
+    $$('.gap', g).forEach(btn => btn.addEventListener('click', () => { clear(); btn.classList.add('sel'); btn.textContent = $('.advsel', g).value; g.classList.remove('ok', 'bad'); }));
+    $('.advsel', g).addEventListener('change', e => { const s = $('.gap.sel', g); if (s) s.textContent = e.target.value; });
+    g._check = () => { const s = $('.gap.sel', g); const good = !!s && +s.dataset.i === a; g.classList.toggle('ok', good); g.classList.toggle('bad', !good); return [good ? 1 : 0, 1]; };
+    g._reveal = () => { clear(); const t = $$('.gap', g).find(x => +x.dataset.i === a); $('.advsel', g).value = g.dataset.adv; t.classList.add('sel'); t.textContent = g.dataset.adv; g.classList.remove('bad'); g.classList.add('ok'); };
+    g._reset = () => { clear(); g.classList.remove('ok', 'bad'); };
+  });
+
+  /* ---------- evidence (tap phrases) ---------- */
+  $$('.evid').forEach(e => {
+    const a = e.dataset.a.split(',').map(x => x.trim()).sort().join(',');
+    $$('.ev', e).forEach(s => { s.setAttribute('role', 'button'); s.tabIndex = 0; const tog = () => { s.classList.toggle('sel'); e.classList.remove('ok', 'bad'); }; s.addEventListener('click', tog); s.addEventListener('keydown', ev => { if (ev.key === ' ' || ev.key === 'Enter') { ev.preventDefault(); tog(); } }); });
+    e._check = () => { const sel = $$('.ev.sel', e).map(s => s.dataset.k).sort().join(','); const good = sel === a; e.classList.toggle('ok', good); e.classList.toggle('bad', !good); return [good ? 1 : 0, 1]; };
+    e._reveal = () => { const want = a.split(','); $$('.ev', e).forEach(s => s.classList.toggle('sel', want.includes(s.dataset.k))); e.classList.remove('bad'); e.classList.add('ok'); };
+    e._reset = () => { $$('.ev', e).forEach(s => s.classList.remove('sel')); e.classList.remove('ok', 'bad'); };
+  });
+
+  /* ---------- exercise controller ---------- */
+  function isFilled(el) {
+    if (el.classList.contains('ans')) return (el.value || '').trim() !== '';
+    if (el.classList.contains('mcq')) return !!$('input:checked', el);
+    if (el.classList.contains('gaps')) return !!$('.gap.sel', el);
+    if (el.classList.contains('evid')) return $$('.ev.sel', el).length > 0;
+    if (el.classList.contains('builder')) { const bank = $('.bank', el); return !!bank && bank.children.length === 0; }
+    if (el.classList.contains('bins')) return $$('.chip-w', el).every(ch => ch.dataset.cat !== '');
+    return true;
+  }
+  function checkOne(el, skipEmpty) {
+    if (el.classList.contains('bins')) return el._check ? el._check() : [0, 0];
+    if (skipEmpty && !isFilled(el)) { el.classList.remove('ok', 'bad'); return [0, 0]; }
+    if (el.classList.contains('ans')) {
+      if (el.readOnly || (!el.dataset.a && !el.dataset.re)) return [0, 0];
+      const v = el.value || '';
+      const good = el.dataset.re ? new RegExp(el.dataset.re, 'i').test(lite(v)) : el.dataset.a.split('|').map(norm).includes(norm(v));
+      el.classList.toggle('ok', good); el.classList.toggle('bad', !good); return [good ? 1 : 0, 1];
+    }
+    if (el.classList.contains('mcq')) {
+      const r = $('input:checked', el); const good = !!r && r.value === el.dataset.a;
+      el.classList.toggle('ok', good); el.classList.toggle('bad', !good); return [good ? 1 : 0, 1];
+    }
+    return el._check ? el._check() : [0, 0];
+  }
+  function revealOne(el, onlyMissing) {
+    if (el.classList.contains('ans')) { if (el.readOnly || !el.dataset.a) return; if (onlyMissing && isFilled(el)) return; el.value = el.dataset.a.split('|')[0]; el.classList.remove('bad'); el.classList.add('ok'); return; }
+    if (el.classList.contains('mcq')) { if (onlyMissing && isFilled(el)) return; $$('input', el).forEach(r => { r.checked = r.value === el.dataset.a; }); el.classList.remove('bad'); el.classList.add('ok'); return; }
+    if (el.classList.contains('bins')) { if (el._reveal) el._reveal(onlyMissing); return; }
+    if (onlyMissing && isFilled(el)) return;
+    if (el._reveal) el._reveal();
+  }
+  function resetOne(el) {
+    if (el.classList.contains('ans')) { if (!el.readOnly) el.value = ''; el.classList.remove('ok', 'bad'); if (el.tagName === 'SELECT') el.selectedIndex = 0; return; }
+    if (el.classList.contains('mcq')) { $$('input', el).forEach(r => { r.checked = false; }); el.classList.remove('ok', 'bad'); return; }
+    if (el._reset) el._reset();
+  }
+  const parts = ex => $$('.ans, .mcq, .gaps, .builder, .bins, .evid', ex);
+  function updateProgress() {
+    sheets.forEach(s => { const p = $('[data-prog]', s); if (!p) return; const exs = $$('.ex', s).filter(x => $('.check', x)); const done = exs.filter(x => store.get(KEY + ':' + x.id)).length; p.textContent = `${done}/${exs.length} ${STR.checked}`; });
+  }
+  $$('.ex').forEach(ex => {
+    const score = $('[data-score]', ex);
+    const saved = store.get(KEY + ':' + ex.id); if (saved && score) { score.textContent = saved; const [a, b] = saved.split('/').map(Number); score.classList.toggle('full', a === b); }
+    const chk = $('.check', ex), rev = $('.reveal', ex), rst = $('.reset', ex);
+    if (chk) chk.addEventListener('click', () => {
+      let ok = 0, n = 0; parts(ex).forEach(el => { const [a, b] = checkOne(el, true); ok += a; n += b; });
+      const complete = parts(ex).every(isFilled);
+      if (n && score) { score.textContent = `${ok}/${n}`; score.classList.toggle('full', complete && ok === n); store.set(KEY + ':' + ex.id, `${ok}/${n}`); updateProgress(); }
+    });
+    if (rev) rev.addEventListener('click', () => {
+      const complete = parts(ex).every(isFilled);
+      parts(ex).forEach(el => revealOne(el, !complete));
+      $$('.sample', ex).forEach(s => { s.hidden = false; });
+    });
+    if (rst) rst.addEventListener('click', () => {
+      parts(ex).forEach(resetOne); $$('textarea.free', ex).forEach(t => { t.value = ''; store.del(KEY + ':f:' + t.id); });
+      $$('input[type=checkbox]', ex).forEach(c => { c.checked = false; store.del(KEY + ':c:' + c.id); });
+      $$('.sample', ex).forEach(s => { if (!s.dataset.keep) s.hidden = true; });
+      if (score) { score.textContent = ''; score.classList.remove('full'); } store.del(KEY + ':' + ex.id); updateProgress();
+      $$('.wc', ex).forEach(w => { w.textContent = '0'; });
+    });
+  });
+  // samples that were visible by default stay visible after reset
+  $$('.sample').forEach(s => { if (!s.hidden) s.dataset.keep = '1'; });
+  updateProgress();
+
+  /* ---------- persist free text, checkboxes ---------- */
+  $$('textarea.free, input.ans[id]').forEach(t => {
+    if (t.readOnly) return;
+    const k = KEY + ':f:' + t.id; const v = store.get(k); if (v !== null) { t.value = v; t.dispatchEvent(new Event('input')); }
+    t.addEventListener('input', () => store.set(k, t.value));
+  });
+  $$('input[type=checkbox][id]').forEach(c => {
+    const k = KEY + ':c:' + c.id; if (store.get(k) === '1') c.checked = true;
+    c.addEventListener('change', () => { if (c.checked) store.set(k, '1'); else store.del(k); });
+  });
+  /* ---------- live score for self-assessment checklists (Speaking/Writing) ---------- */
+  $$('.ex').forEach(ex => {
+    const scoreEl = $('[data-score]', ex);
+    const list = $('.checklist', ex);
+    if (!scoreEl || !list) return;
+    const boxes = () => $$('input[type=checkbox]', list);
+    const update = () => {
+      const bs = boxes(); const n = bs.length; const ok = bs.filter(b => b.checked).length;
+      scoreEl.textContent = n ? `${ok}/${n}` : '';
+      scoreEl.classList.toggle('full', n > 0 && ok === n);
+    };
+    boxes().forEach(b => b.addEventListener('change', update));
+    update();
+  });
+  $$('.wc').forEach(w => {
+    const t = document.getElementById(w.dataset.for); if (!t) return;
+    const upd = () => { w.textContent = String((t.value.match(/[A-Za-z\u00C0-\u1EF90-9']+/g) || []).length); };
+    t.addEventListener('input', upd); upd();
+  });
+  $$('.copy').forEach(b => b.addEventListener('click', () => {
+    const txt = b.dataset.for.split(',').map(id => { const t = document.getElementById(id); return t && t.value ? t.value : ''; }).filter(Boolean).join('\n');
+    const done = () => { const o = b.textContent; b.textContent = STR.copied; setTimeout(() => { b.textContent = o; }, 1500); };
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(done, done); else done();
+  }));
+
+  /* ---------- speech (browser TTS) ---------- */
+  const synth = 'speechSynthesis' in window ? window.speechSynthesis : null;
+  let voices = [];
+  const loadVoices = () => { if (synth) voices = synth.getVoices(); };
+  if (synth) { loadVoices(); synth.onvoiceschanged = loadVoices; }
+  function speak(text, rate) {
+    if (!synth) return false;
+    synth.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'en-GB'; u.rate = rate || 0.92;
+    const v = voices.find(x => /en[-_]GB/i.test(x.lang)) || voices.find(x => /^en/i.test(x.lang));
+    if (v) u.voice = v;
+    synth.speak(u); return true;
+  }
+  $$('.say').forEach(b => b.addEventListener('click', () => {
+    const t = b.dataset.text; if (!t) return;
+    if (!speak(t, +(b.dataset.rate || 0.92))) { b.textContent = STR.noSpeech; }
+  }));
+  $$('.stop').forEach(b => b.addEventListener('click', () => { if (synth) synth.cancel(); }));
+
+  /* ---------- spelling tool ---------- */
+  const NAMES = { A: 'eɪ', B: 'biː', C: 'siː', D: 'diː', E: 'iː', F: 'ef', G: 'dʒiː', H: 'eɪtʃ', I: 'aɪ', J: 'dʒeɪ', K: 'keɪ', L: 'el', M: 'em', N: 'en', O: 'əʊ', P: 'piː', Q: 'kjuː', R: 'ɑː', S: 'es', T: 'tiː', U: 'juː', V: 'viː', W: 'ˈdʌbljuː', X: 'eks', Y: 'waɪ', Z: 'zed' };
+  const sIn = $('#spell-in'), sOut = $('#spell-out'), sSay = $('#spell-say');
+  if (sIn && sOut) {
+    const strip = s => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\u0111/g, 'd').replace(/\u0110/g, 'D');
+    const render = () => {
+      const words = strip(sIn.value).toUpperCase().split(/\s+/).filter(Boolean);
+      sOut.innerHTML = words.map(w => Array.from(w).filter(c => NAMES[c]).map(c => `<span class="letter"><b>${c}</b><i class="ipa">/${NAMES[c]}/</i></span>`).join('')).join('<span style="width:14px"></span>');
+      if (sSay) sSay.dataset.text = words.map(w => Array.from(w).filter(c => NAMES[c]).join(', ')).join('. ');
+    };
+    sIn.addEventListener('input', render); render();
+    if (sSay) sSay.addEventListener('click', () => { if (sSay.dataset.text) speak(sSay.dataset.text, 0.75); });
+  }
+
+  /* ---------- timers ---------- */
+  $$('.timer').forEach(t => {
+    const d = $('.tdisp', t); let iv = null, left = 0;
+    const show = () => { d.textContent = Math.floor(left / 60) + ':' + String(left % 60).padStart(2, '0'); };
+    $$('button[data-sec]', t).forEach(b => b.addEventListener('click', () => {
+      clearInterval(iv); left = +b.dataset.sec; t.classList.remove('done'); show();
+      iv = setInterval(() => { left--; if (left <= 0) { clearInterval(iv); left = 0; t.classList.add('done'); d.textContent = STR.timeUp; return; } show(); }, 1000);
+    }));
+    const st = $('.tstop', t); if (st) st.addEventListener('click', () => { clearInterval(iv); left = 0; t.classList.remove('done'); show(); });
+  });
+})();
+</script>
+
+</body>
+</html>
