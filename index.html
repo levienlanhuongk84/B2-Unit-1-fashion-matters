@@ -156,6 +156,8 @@
   .card h4 { margin-bottom: 6px; }
   .card .eyebrow { display: block; margin-bottom: 6px; }
   .card ul, .card p { font-size: .95em; }
+  .card ul { padding-left: 1.1em; color: var(--ink-2); }
+  .card ul li + li { margin-top: 3px; }
   .card p { color: var(--ink-2); }
 
   .tablewrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
@@ -247,8 +249,11 @@
   .btn.stop { background: var(--surface); color: var(--ink-2); border: 1px solid var(--line-strong); }
 
   .items { display: grid; gap: 10px; }
-  .items.two { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
-  .items.three { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+  .items.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  @media (max-width: 700px) { .items.two { grid-template-columns: 1fr; } }
+  .items.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  @media (max-width: 900px) { .items.three { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 560px) { .items.three { grid-template-columns: 1fr; } }
   .it { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
   .it .lab { font-family: var(--font-mono); font-weight: 700; color: var(--orange-ink); min-width: 1.4em; }
   .it .q { flex: 1 1 200px; }
@@ -424,10 +429,6 @@
   .li-card .li-foot { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-size: .85em; color: var(--muted); flex-wrap: wrap; }
   .li-card .li-foot label { display: inline-flex; align-items: center; gap: 6px; color: var(--ink-2); cursor: pointer; }
   .li-card .li-n { font-family: var(--font-mono); font-weight: 700; color: var(--purple-ink); }
-  .li-card.weak { border-color: var(--gold); box-shadow: 0 0 0 2px var(--gold-soft) inset; }
-  .li-sum { display: flex; gap: 8px 18px; flex-wrap: wrap; margin: 10px 0 4px; font-family: var(--font-cond); font-weight: 700; color: var(--purple-ink); }
-  .li-sum .n { font-family: var(--font-mono); font-size: 1.25em; margin-right: 4px; }
-  .li-sum .n.full { color: var(--good); }
   @media (max-width: 640px) { .li-grid { grid-template-columns: 1fr; } }
   .use { background: linear-gradient(90deg, var(--gold-soft), var(--surface)); border-left: 4px solid var(--gold); padding: 10px 14px; border-radius: 0 10px 10px 0; margin-top: 10px; }
   .use b { font-family: var(--font-cond); text-transform: uppercase; letter-spacing: .06em; font-size: .78em; color: var(--orange-ink); margin-right: 8px; }
@@ -468,7 +469,9 @@
   .qa .a { line-height: 1.9; }
   .model p.step { margin-block: 8px; }
   .model .wcnt { display: block; margin-top: 8px; font-size: .82em; color: var(--muted); font-family: var(--font-mono); }
-  .fn { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 10px; }
+  .fn { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+  @media (max-width: 900px) { .fn { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 560px) { .fn { grid-template-columns: 1fr; } }
   .fn .card h4 { color: var(--purple-ink); font-size: 1em; }
   .fn .card ul { padding-left: 1.1em; font-size: .93em; }
   .fn .card p.ex { color: var(--orange-ink); margin-top: 8px; padding-top: 8px; border-top: 1px dashed var(--line); }
@@ -486,9 +489,9 @@
 
   /* vocabulary cards: photo on top (untouched by text); word/meaning/IPA centred below it; example below that in a distinct colour */
   .sub-h { font-family: var(--font-cond); text-transform: uppercase; letter-spacing: .06em; font-size: .8em; color: var(--orange-ink); font-weight: 700; padding: 12px 14px 2px; }
-  .vgrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; padding: 6px 14px 14px; }
-  @media (max-width: 900px) { .vgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-  @media (max-width: 560px) { .vgrid { grid-template-columns: 1fr; } }
+  .vgrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; padding: 6px 14px 14px; max-width: 860px; }
+  @media (max-width: 900px) { .vgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 620px; } }
+  @media (max-width: 560px) { .vgrid { grid-template-columns: 1fr; max-width: 340px; } }
   .vcard { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; box-shadow: var(--shadow); }
   .vcard .vmedia { position: relative; background: var(--surface-2); }
   .vcard .vmedia img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
@@ -585,17 +588,17 @@
   <section class="block">
     <div class="part-sticky">
       <h3 id="li-a2">Hoạt động 2 · Bạn đã có bao nhiêu từ cho 6 nhóm?</h3>
-      <div class="timer"><span class="tdisp">5:00</span><button class="btn sm" type="button" data-sec="300">Brainstorm 5'</button><button class="btn sm stop tstop" type="button">⏹</button><span style="color:var(--muted);font-size:.9em">Với mỗi nhóm, gõ mọi từ / cụm tiếng Anh bạn nghĩ ra (cách nhau bằng dấu phẩy). Tick <b>3 nhóm bạn yếu nhất</b>. Ngày 7 làm lại và so số từ.</span></div>
+      <div class="timer"><span class="tdisp">5:00</span><button class="btn sm" type="button" data-sec="300">Brainstorm 5'</button><button class="btn sm stop tstop" type="button">⏹</button><span style="color:var(--muted);font-size:.9em">Với mỗi nhóm, gõ mọi từ / cụm tiếng Anh bạn nghĩ ra (cách nhau bằng dấu phẩy).</span></div>
     </div>
     <div class="li-grid">
-      <div class="li-card"><div class="li-top"><span class="chip p">Group 1</span><a class="li-go" href="#g1" data-go="g1">Mở nhóm →</a></div><b>Mặc gì — trang phục, giày dép, chất liệu</b><p class="ask">What are the people around you wearing right now?</p><input class="ans" id="li-g1" placeholder="từ 1, từ 2, …" aria-label="Group 1"><details class="li-hint"><summary>Gợi ý từ</summary><p>suit · sweatshirt · jeans · jacket · T-shirt · polo shirt · top · shorts · dress · jumper · shirt · tie · shawl · outfit · gear · boots · sandals · trainers · high-heeled shoes · flip flops · bracelet · earrings · necklace · ring · hood · helmet · hat · baseball cap · woollen · leather · cotton · silk · polyester · suede · fur · striped · faded · knitted · sparkly · second-hand · open-necked · short-sleeved · V-neck · knee-length · handmade</p></details><div class="li-foot"><span class="li-n">0 từ</span><label><input type="checkbox" id="li-w1"> nhóm mình yếu</label></div></div>
-      <div class="li-card"><div class="li-top"><span class="chip p">Group 2</span><a class="li-go" href="#g2" data-go="g2">Mở nhóm →</a></div><b>Trông thế nào — vẻ ngoài &amp; phong cách</b><p class="ask">How would you describe a colleague's style in three words?</p><input class="ans" id="li-g2" placeholder="từ 1, từ 2, …" aria-label="Group 2"><details class="li-hint"><summary>Gợi ý từ</summary><p>casual · smart · stylish · comfortable · elegant · practical · outrageous · fashionable · untidy · scruffy · tatty · classy · sophisticated · laid-back · fashion-conscious · ordinary · cool · look smart · casually dressed · dressed up for a special event · good taste · image · bright colours · in comparison</p></details><div class="li-foot"><span class="li-n">0 từ</span><label><input type="checkbox" id="li-w2"> nhóm mình yếu</label></div></div>
-      <div class="li-card"><div class="li-top"><span class="chip p">Group 3</span><a class="li-go" href="#g3" data-go="g3">Mở nhóm →</a></div><b>Làm gì với quần áo — phrasal verbs</b><p class="ask">What do you do with clothes — from the shop to the wardrobe?</p><input class="ans" id="li-g3" placeholder="từ 1, từ 2, …" aria-label="Group 3"><details class="li-hint"><summary>Gợi ý từ</summary><p>dress up · slip on · pull on · put on · take off · try on · put together · stand out · fit in with · keep up with · take back · save up · cut down · go out · add to · get away with · go up · go on · go for · go back · go over · go ahead · wake up · go clubbing</p></details><div class="li-foot"><span class="li-n">0 từ</span><label><input type="checkbox" id="li-w3"> nhóm mình yếu</label></div></div>
-      <div class="li-card"><div class="li-top"><span class="chip p">Group 4</span><a class="li-go" href="#g4" data-go="g4">Mở nhóm →</a></div><b>Thời trang quan trọng đến đâu — thái độ</b><p class="ask">How important is fashion to you — and how would you say so in English?</p><input class="ans" id="li-g4" placeholder="từ 1, từ 2, …" aria-label="Group 4"><details class="li-hint"><summary>Gợi ý từ</summary><p>I prefer to wear … · What I absolutely love is … · I wouldn't be seen dead in … · … isn't really my scene · I don't really mind what I wear · clothes are important to me · my image is really important to me · I favour the casual look · comfortable as well as stylish · I'm not a suit man · (the least) fashion-conscious · get away with casual stuff</p></details><div class="li-foot"><span class="li-n">0 từ</span><label><input type="checkbox" id="li-w4"> nhóm mình yếu</label></div></div>
-      <div class="li-card"><div class="li-top"><span class="chip p">Group 5</span><a class="li-go" href="#g5" data-go="g5">Mở nhóm →</a></div><b>So sánh &amp; lựa chọn</b><p class="ask">Trainers or leather shoes for a ward round — how many ways can you compare them?</p><input class="ans" id="li-g5" placeholder="từ 1, từ 2, …" aria-label="Group 5"><details class="li-hint"><summary>Gợi ý từ</summary><p>-er than · more … than · the most … · the -est · less … than · the least … · not as … as · a bit / slightly / a lot / much / far + comparative · by far / easily + superlative · more commonly · less seriously · better · worse</p></details><div class="li-foot"><span class="li-n">0 từ</span><label><input type="checkbox" id="li-w5"> nhóm mình yếu</label></div></div>
-      <div class="li-card"><div class="li-top"><span class="chip p">Group 6</span><a class="li-go" href="#g6" data-go="g6">Mở nhóm →</a></div><b>Ngành thời trang — vấn đề &amp; quan điểm</b><p class="ask">What is wrong with the fashion industry, in your view?</p><input class="ans" id="li-g6" placeholder="từ 1, từ 2, …" aria-label="Group 6"><details class="li-hint"><summary>Gợi ý từ</summary><p>the fashion industry · fashion houses · supermodels · underweight models · the catwalk · designer labels · brands · luxury items · counterfeit goods · knock-offs · imitation goods · fake designer goods · the genuine product · cheap copies · illegal activity · market stalls · value for money · free advertising · fight back · damage the brands · reduce sales · high-tech solutions · the least achievable figure · look like supermodels</p></details><div class="li-foot"><span class="li-n">0 từ</span><label><input type="checkbox" id="li-w6"> nhóm mình yếu</label></div></div>
+      <div class="li-card"><div class="li-top"><span class="chip p">Group 1</span><a class="li-go" href="#g1" data-go="g1">Mở nhóm →</a></div><b>Mặc gì — trang phục, giày dép, chất liệu</b><p class="ask">What are the people around you wearing right now?</p><input class="ans" id="li-g1" placeholder="từ 1, từ 2, …" aria-label="Group 1"><details class="li-hint"><summary>Gợi ý từ</summary><p>suit · sweatshirt · jeans · jacket · T-shirt · polo shirt · top · shorts · dress · jumper · shirt · tie · shawl · outfit · gear · boots · sandals · trainers · high-heeled shoes · flip flops · bracelet · earrings · necklace · ring · hood · helmet · hat · baseball cap · woollen · leather · cotton · silk · polyester · suede · fur · striped · faded · knitted · sparkly · second-hand · open-necked · short-sleeved · V-neck · knee-length · handmade</p></details><div class="li-foot"><span class="li-n">0 từ</span></div></div>
+      <div class="li-card"><div class="li-top"><span class="chip p">Group 2</span><a class="li-go" href="#g2" data-go="g2">Mở nhóm →</a></div><b>Trông thế nào — vẻ ngoài &amp; phong cách</b><p class="ask">How would you describe a colleague's style in three words?</p><input class="ans" id="li-g2" placeholder="từ 1, từ 2, …" aria-label="Group 2"><details class="li-hint"><summary>Gợi ý từ</summary><p>casual · smart · stylish · comfortable · elegant · practical · outrageous · fashionable · untidy · scruffy · tatty · classy · sophisticated · laid-back · fashion-conscious · ordinary · cool · look smart · casually dressed · dressed up for a special event · good taste · image · bright colours · in comparison</p></details><div class="li-foot"><span class="li-n">0 từ</span></div></div>
+      <div class="li-card"><div class="li-top"><span class="chip p">Group 3</span><a class="li-go" href="#g3" data-go="g3">Mở nhóm →</a></div><b>Làm gì với quần áo — phrasal verbs</b><p class="ask">What do you do with clothes — from the shop to the wardrobe?</p><input class="ans" id="li-g3" placeholder="từ 1, từ 2, …" aria-label="Group 3"><details class="li-hint"><summary>Gợi ý từ</summary><p>dress up · slip on · pull on · put on · take off · try on · put together · stand out · fit in with · keep up with · take back · save up · cut down · go out · add to · get away with · go up · go on · go for · go back · go over · go ahead · wake up · go clubbing</p></details><div class="li-foot"><span class="li-n">0 từ</span></div></div>
+      <div class="li-card"><div class="li-top"><span class="chip p">Group 4</span><a class="li-go" href="#g4" data-go="g4">Mở nhóm →</a></div><b>Thời trang quan trọng đến đâu — thái độ</b><p class="ask">How important is fashion to you — and how would you say so in English?</p><input class="ans" id="li-g4" placeholder="từ 1, từ 2, …" aria-label="Group 4"><details class="li-hint"><summary>Gợi ý từ</summary><p>I prefer to wear … · What I absolutely love is … · I wouldn't be seen dead in … · … isn't really my scene · I don't really mind what I wear · clothes are important to me · my image is really important to me · I favour the casual look · comfortable as well as stylish · I'm not a suit man · (the least) fashion-conscious · get away with casual stuff</p></details><div class="li-foot"><span class="li-n">0 từ</span></div></div>
+      <div class="li-card"><div class="li-top"><span class="chip p">Group 5</span><a class="li-go" href="#g5" data-go="g5">Mở nhóm →</a></div><b>So sánh &amp; lựa chọn</b><p class="ask">Trainers or leather shoes for a ward round — how many ways can you compare them?</p><input class="ans" id="li-g5" placeholder="từ 1, từ 2, …" aria-label="Group 5"><details class="li-hint"><summary>Gợi ý từ</summary><p>-er than · more … than · the most … · the -est · less … than · the least … · not as … as · a bit / slightly / a lot / much / far + comparative · by far / easily + superlative · more commonly · less seriously · better · worse</p></details><div class="li-foot"><span class="li-n">0 từ</span></div></div>
+      <div class="li-card"><div class="li-top"><span class="chip p">Group 6</span><a class="li-go" href="#g6" data-go="g6">Mở nhóm →</a></div><b>Ngành thời trang — vấn đề &amp; quan điểm</b><p class="ask">What is wrong with the fashion industry, in your view?</p><input class="ans" id="li-g6" placeholder="từ 1, từ 2, …" aria-label="Group 6"><details class="li-hint"><summary>Gợi ý từ</summary><p>the fashion industry · fashion houses · supermodels · underweight models · the catwalk · designer labels · brands · luxury items · counterfeit goods · knock-offs · imitation goods · fake designer goods · the genuine product · cheap copies · illegal activity · market stalls · value for money · free advertising · fight back · damage the brands · reduce sales · high-tech solutions · the least achievable figure · look like supermodels</p></details><div class="li-foot"><span class="li-n">0 từ</span></div></div>
     </div>
-    <div class="li-sum"><span><span class="n" id="li-sum-words">0</span>từ đã có</span><span><span class="n" id="li-sum-weak">0/3</span>nhóm yếu đã chọn</span></div>
+    
   </section>
 </article>
 
@@ -611,12 +614,12 @@
   <section class="block">
     <h3 id="r-goal">Mục tiêu đầu ra</h3>
     <div class="grid-3">
-      <div class="card"><span class="eyebrow">Speaking · Part 1 · Social interaction</span><p>Trả lời 6 câu hỏi về thời trang và trang phục đi làm, mỗi câu ≤ 30 giây, 2–3 mệnh đề, ít nhất 1 collocation chủ đề.</p></div>
-      <div class="card"><span class="eyebrow">Speaking · Part 2 · Topic development</span><p>Nói khoảng 3 phút theo sơ đồ 3 ô + ý riêng, đủ Point → Why → Example → Counter → Evaluation, ≥ 6 cụm chủ đề và ≥ 3 cấu trúc so sánh.</p></div>
-      <div class="card"><span class="eyebrow">Speaking · Part 3 · Extended questions</span><p>Trả lời 3 câu hỏi mở rộng trong 4 phút, mỗi câu 3–4 mệnh đề có Point + Why + Counter + Evaluation và ≥ 1 cụm chủ đề.</p></div>
-      <div class="card"><span class="eyebrow">Writing · Task 1 · Email</span><p>Email ≥ 120 từ trả lời đủ 3 ý của bạn, giọng thân mật, ≥ 4 cụm chủ đề, ≥ 2 câu so sánh.</p></div>
-      <div class="card"><span class="eyebrow">Writing · Task 2 · Essay</span><p>Essay ≥ 250 từ nêu quan điểm, 4–5 đoạn, ≥ 6 cụm chủ đề, ≥ 3 cấu trúc so sánh / adverb of degree, 1 câu nhượng bộ.</p></div>
-      <div class="card"><span class="eyebrow">Từ vựng &amp; so sánh</span><p>Dùng chủ động 57 cụm B2 trong 6 nhóm (quiz ≥ 13/16 sau 7 ngày) và viết đúng ≥ 10/14 câu key word transformations về so sánh.</p></div>
+      <div class="card"><span class="eyebrow">Speaking · Part 1 · Social interaction</span><ul><li>Trả lời 6 câu hỏi về thời trang và trang phục đi làm</li><li>Mỗi câu ≤ 30 giây, 2–3 mệnh đề</li><li>Ít nhất 1 collocation chủ đề</li></ul></div>
+      <div class="card"><span class="eyebrow">Speaking · Part 2 · Topic development</span><ul><li>Nói khoảng 3 phút theo sơ đồ 3 ô + ý riêng</li><li>Đủ 5 bước: Point → Why → Example → Counter → Evaluation</li><li>≥ 6 cụm chủ đề và ≥ 3 cấu trúc so sánh</li></ul></div>
+      <div class="card"><span class="eyebrow">Speaking · Part 3 · Extended questions</span><ul><li>Trả lời 3 câu hỏi mở rộng trong 4 phút</li><li>Mỗi câu 3–4 mệnh đề có Point + Why + Counter + Evaluation</li><li>≥ 1 cụm chủ đề</li></ul></div>
+      <div class="card"><span class="eyebrow">Writing · Task 1 · Email</span><ul><li>Email ≥ 120 từ, trả lời đủ 3 ý của bạn</li><li>Giọng thân mật</li><li>≥ 4 cụm chủ đề, ≥ 2 câu so sánh</li></ul></div>
+      <div class="card"><span class="eyebrow">Writing · Task 2 · Essay</span><ul><li>Essay ≥ 250 từ, nêu rõ quan điểm</li><li>4–5 đoạn</li><li>≥ 6 cụm chủ đề, ≥ 3 cấu trúc so sánh / adverb of degree</li><li>1 câu nhượng bộ</li></ul></div>
+      <div class="card"><span class="eyebrow">Từ vựng &amp; so sánh</span><ul><li>Dùng chủ động 57 cụm B2 trong 6 nhóm</li><li>Quiz ≥ 13/16 sau 7 ngày</li><li>Viết đúng ≥ 10/14 câu key word transformations về so sánh</li></ul></div>
     </div>
   </section>
 
@@ -638,7 +641,7 @@
       <div class="card"><span class="eyebrow">Buổi 1 · 4 tiết · 1.1 Fashion matters (SB tr. 10–11) · nói được</span>
         <div class="tablewrap" style="border:0"><table>
           <tbody>
-            <tr><td class="t" style="width:14%">20'</td><td><ul class="substeps"><li>Sheet 1 · Hoạt động 1: 6 tình huống, cặp 3'</li><li>Hoạt động 2: gõ từ đã biết cho 6 nhóm, tick 3 nhóm yếu</li><li>Sheet 2: đọc 6 mục tiêu</li></ul></td></tr>
+            <tr><td class="t" style="width:14%">20'</td><td><ul class="substeps"><li>Sheet 1 · Hoạt động 1: 6 tình huống, cặp 3'</li><li>Hoạt động 2: gõ từ đã biết cho 6 nhóm</li><li>Sheet 2: đọc 6 mục tiêu</li></ul></td></tr>
             <tr><td class="t">40'</td><td><ul class="substeps"><li>Group 1 và Group 2: Core → Nâng cao → Collocations</li><li>SB tr. 10 bài 2–3: tả người trong ảnh 1a–4b theo cặp</li><li>Bài 1 Sheet 7 (phân loại)</li></ul></td></tr>
             <tr><td class="t">15'</td><td><ul class="substeps"><li>SB tr. 10 bài 6: nghe CD 1.02–1.03, nối 5 người nói với ảnh</li><li>Đối chiếu đáp án theo cặp</li></ul></td></tr>
             <tr><td class="t">40'</td><td><ul class="substeps"><li>Group 3: 3 thẻ quy tắc + 24 phrasal verbs; SB tr. 11 bài 7 và 9</li><li>Bài 2 Sheet 7 (tìm phrasal verb trong lời người nói)</li><li>Bài 3 Sheet 7 (= SB bài 8, làm trên trang)</li><li>Bài 4 Sheet 7 (trật tự từ)</li></ul></td></tr>
@@ -1719,22 +1722,14 @@
   }));
   (function () {
     const cards = $$('.li-card'); if (!cards.length) return;
-    const sumW = $('#li-sum-words'), sumK = $('#li-sum-weak');
     const count = v => v.split(/[,;\n]+/).map(s => s.trim()).filter(Boolean).length;
     const update = () => {
-      let total = 0, weak = 0;
       cards.forEach(c => {
-        const inp = $('input.ans', c), n = $('.li-n', c), cb = $('input[type=checkbox]', c);
-        const k = count(inp.value); total += k; n.textContent = k + ' ' + STR.words;
-        c.classList.toggle('weak', cb.checked); if (cb.checked) weak++;
+        const inp = $('input.ans', c), n = $('.li-n', c);
+        n.textContent = count(inp.value) + ' ' + STR.words;
       });
-      sumW.textContent = total; sumK.textContent = weak + '/3'; sumK.classList.toggle('full', weak === 3);
     };
-    cards.forEach(c => {
-      $('input.ans', c).addEventListener('input', update);
-      const cb = $('input[type=checkbox]', c);
-      cb.addEventListener('change', () => { if (cb.checked && cards.filter(x => $('input[type=checkbox]', x).checked).length > 3) { cb.checked = false; store.del(KEY + ':c:' + cb.id); } update(); });
-    });
+    cards.forEach(c => $('input.ans', c).addEventListener('input', update));
     update();
   })();
   let start = 0;
