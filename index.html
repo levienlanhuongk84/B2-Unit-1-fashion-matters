@@ -488,7 +488,8 @@
   .plan label { display: block; font-family: var(--font-cond); font-weight: 700; letter-spacing: .04em; font-size: .86em; color: var(--ink-2); margin-bottom: 4px; }
 
   /* vocabulary cards: photo on top (untouched by text); word/meaning/IPA centred below it; example below that in a distinct colour */
-  .sub-h { font-family: var(--font-cond); text-transform: uppercase; letter-spacing: .06em; font-size: .8em; color: var(--orange-ink); font-weight: 700; padding: 12px 14px 2px; }
+  .sub-h { display: inline-block; font-family: var(--font-cond); text-transform: uppercase; letter-spacing: .07em; font-size: .84em; color: var(--orange-ink); font-weight: 800; margin: 16px 14px 8px; padding: 5px 14px; background: var(--orange-soft); border-left: 4px solid var(--orange); border-radius: 0 8px 8px 0; }
+  .sub-h:first-child { margin-top: 4px; }
   .vgrid { display: grid; grid-template-columns: repeat(var(--vcols, 4), minmax(0, 1fr)); gap: 10px; padding: 6px 14px 14px; }
   @media (max-width: 1100px) { .vgrid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
   @media (max-width: 900px) { .vgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
@@ -514,6 +515,7 @@
   .rule-card ul { margin: 6px 0 0; padding-left: 1.1em; font-size: .86em; }
   .rule-card li { margin-block: .15em; }
   .rule-card li s { color: var(--bad); }
+  .rule-card ul + ul { margin-top: 8px; padding-top: 8px; border-top: 1px dashed var(--line); color: var(--ink); }
   /* exam-sheet style cue boxes */
   .cue-node, .cue-topic, .mind .p, .mind .c { border-radius: 4px; }
   .cue-node { background: var(--surface); border: 2px solid var(--ink); color: var(--ink); box-shadow: none; }
@@ -694,86 +696,86 @@
       <div class="tier core"><div class="tier-h">Core · SB Unit 1</div>
         <div class="sub-h">Quần áo</div>
         <div class="vgrid" style="--vcols:5">
-          <div class="vcard"><div class="vmedia"><img src="img/v-suit.jpg" alt="suit" loading="lazy"><div class="voverlay"><div class="vw">suit</div><div class="vm">bộ vest</div><div class="vipa">/suːt/</div></div></div><div class="vex">I only wear a suit for conferences and job interviews.</div></div>
-          <div class="vcard"><div class="vmedia"><img src="img/v-sweatshirt.jpg" alt="sweatshirt" loading="lazy"><div class="voverlay"><div class="vw">sweatshirt</div><div class="vm">áo nỉ dài tay</div><div class="vipa">/ˈswetʃɜːt/</div></div></div><div class="vex">After a night shift I just want a sweatshirt and a coffee.</div></div>
-          <div class="vcard"><div class="vmedia"><img src="img/v-jeans.jpg" alt="jeans" loading="lazy"><div class="voverlay"><div class="vw">jeans</div><div class="vm">quần bò</div><div class="vipa">/dʒiːnz/</div></div></div><div class="vex">Doctors on our ward aren't allowed to wear jeans under the coat.</div></div>
-          <div class="vcard"><div class="vmedia"><img src="img/v-jacket.jpg" alt="jacket" loading="lazy"><div class="voverlay"><div class="vw">jacket</div><div class="vm">áo khoác ngắn</div><div class="vipa">/ˈdʒækɪt/</div></div></div><div class="vex">He threw on a leather jacket and left the hospital.</div></div>
-          <div class="vcard"><div class="vmedia"><img src="img/v-tshirt.jpg" alt="T-shirt" loading="lazy"><div class="voverlay"><div class="vw">T-shirt</div><div class="vm">áo phông</div><div class="vipa">/ˈtiː ʃɜːt/</div></div></div><div class="vex">A plain white T-shirt goes with almost everything.</div></div>
-          <div class="vcard"><div class="vmedia"><img src="img/v-poloshirt.jpg" alt="polo shirt" loading="lazy"><div class="voverlay"><div class="vw">polo shirt</div><div class="vm">áo polo có cổ</div><div class="vipa">/ˈpəʊləʊ ʃɜːt/</div></div></div><div class="vex">Our clinic staff wear a blue polo shirt with the logo.</div></div>
-          <div class="vcard"><div class="vmedia"><img src="img/v-top.jpg" alt="top" loading="lazy"><div class="voverlay"><div class="vw">top</div><div class="vm">áo (nữ), áo phần trên</div><div class="vipa">/tɒp/</div></div></div><div class="vex">She was wearing a black top and a long skirt.</div></div>
-          <div class="vcard"><div class="vmedia"><img src="img/v-shorts.jpg" alt="shorts" loading="lazy"><div class="voverlay"><div class="vw">shorts</div><div class="vm">quần soóc</div><div class="vipa">/ʃɔːts/</div></div></div><div class="vex">Shorts are fine at the beach, not at the conference dinner.</div></div>
-          <div class="vcard"><div class="vmedia"><img src="img/v-dress.jpg" alt="dress" loading="lazy"><div class="voverlay"><div class="vw">dress</div><div class="vm">váy liền</div><div class="vipa">/dres/</div></div></div><div class="vex">My wife bought a new dress for the wedding.</div></div>
-          <div class="vcard"><div class="vmedia"><img src="img/v-jumper.jpg" alt="jumper" loading="lazy"><div class="voverlay"><div class="vw">jumper</div><div class="vm">áo len chui đầu</div><div class="vipa">/ˈdʒʌmpə/</div></div></div><div class="vex">In winter I wear a jumper under my white coat.</div></div>
-          <div class="vcard"><div class="vmedia"><img src="img/v-shirt.jpg" alt="shirt" loading="lazy"><div class="voverlay"><div class="vw">shirt</div><div class="vm">áo sơ mi</div><div class="vipa">/ʃɜːt/</div></div></div><div class="vex">A clean shirt every morning is part of the job.</div></div>
-          <div class="vcard"><div class="vmedia"><img src="img/v-tie.jpg" alt="tie" loading="lazy"><div class="voverlay"><div class="vw">tie</div><div class="vm">cà vạt</div><div class="vipa">/taɪ/</div></div></div><div class="vex">Many hospitals have banned ties for hygiene reasons.</div></div>
-          <div class="vcard"><div class="vmedia"><img src="img/v-shawl.jpg" alt="shawl" loading="lazy"><div class="voverlay"><div class="vw">shawl</div><div class="vm">khăn choàng</div><div class="vipa">/ʃɔːl/</div></div></div><div class="vex">The elderly patient had a woollen shawl round her shoulders.</div></div>
-          <div class="vcard"><div class="vmedia"><img src="img/v-outfit.jpg" alt="outfit" loading="lazy"><div class="voverlay"><div class="vw">outfit</div><div class="vm">bộ trang phục (cả bộ)</div><div class="vipa">/ˈaʊtfɪt/</div></div></div><div class="vex">I planned my outfit for the presentation the night before.</div></div>
-          <div class="vcard"><div class="vmedia"><img src="img/v-gear.jpg" alt="gear" loading="lazy"><div class="voverlay"><div class="vw">gear</div><div class="vm">đồ (bảo hộ) chuyên dụng</div><div class="vipa">/ɡɪə/</div></div></div><div class="vex">The biker arrived at A&amp;E still wearing all his gear.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-suit.jpg" alt="suit" loading="lazy"><div class="voverlay"><div class="vw">suit</div><div class="vm">bộ vest</div><div class="vipa">/suːt/</div></div></div><div class="vex">I only wear a <strong>suit</strong> for conferences and job interviews.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-sweatshirt.jpg" alt="sweatshirt" loading="lazy"><div class="voverlay"><div class="vw">sweatshirt</div><div class="vm">áo nỉ dài tay</div><div class="vipa">/ˈswetʃɜːt/</div></div></div><div class="vex">After a night shift I just want a <strong>sweatshirt</strong> and a coffee.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-jeans.jpg" alt="jeans" loading="lazy"><div class="voverlay"><div class="vw">jeans</div><div class="vm">quần bò</div><div class="vipa">/dʒiːnz/</div></div></div><div class="vex">Doctors on our ward aren't allowed to wear <strong>jeans</strong> under the coat.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-jacket.jpg" alt="jacket" loading="lazy"><div class="voverlay"><div class="vw">jacket</div><div class="vm">áo khoác ngắn</div><div class="vipa">/ˈdʒækɪt/</div></div></div><div class="vex">He threw on a leather <strong>jacket</strong> and left the hospital.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-tshirt.jpg" alt="T-shirt" loading="lazy"><div class="voverlay"><div class="vw">T-shirt</div><div class="vm">áo phông</div><div class="vipa">/ˈtiː ʃɜːt/</div></div></div><div class="vex">A plain white <strong>T-shirt</strong> goes with almost everything.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-poloshirt.jpg" alt="polo shirt" loading="lazy"><div class="voverlay"><div class="vw">polo shirt</div><div class="vm">áo polo có cổ</div><div class="vipa">/ˈpəʊləʊ ʃɜːt/</div></div></div><div class="vex">Our clinic staff wear a blue <strong>polo shirt</strong> with the logo.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-top.jpg" alt="top" loading="lazy"><div class="voverlay"><div class="vw">top</div><div class="vm">áo (nữ), áo phần trên</div><div class="vipa">/tɒp/</div></div></div><div class="vex">She was wearing a black <strong>top</strong> and a long skirt.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-shorts.jpg" alt="shorts" loading="lazy"><div class="voverlay"><div class="vw">shorts</div><div class="vm">quần soóc</div><div class="vipa">/ʃɔːts/</div></div></div><div class="vex"><strong>Shorts</strong> are fine at the beach, not at the conference dinner.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-dress.jpg" alt="dress" loading="lazy"><div class="voverlay"><div class="vw">dress</div><div class="vm">váy liền</div><div class="vipa">/dres/</div></div></div><div class="vex">My wife bought a new <strong>dress</strong> for the wedding.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-jumper.jpg" alt="jumper" loading="lazy"><div class="voverlay"><div class="vw">jumper</div><div class="vm">áo len chui đầu</div><div class="vipa">/ˈdʒʌmpə/</div></div></div><div class="vex">In winter I wear a <strong>jumper</strong> under my white coat.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-shirt.jpg" alt="shirt" loading="lazy"><div class="voverlay"><div class="vw">shirt</div><div class="vm">áo sơ mi</div><div class="vipa">/ʃɜːt/</div></div></div><div class="vex">A clean <strong>shirt</strong> every morning is part of the job.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-tie.jpg" alt="tie" loading="lazy"><div class="voverlay"><div class="vw">tie</div><div class="vm">cà vạt</div><div class="vipa">/taɪ/</div></div></div><div class="vex">Many hospitals have banned <strong>ties</strong> for hygiene reasons.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-shawl.jpg" alt="shawl" loading="lazy"><div class="voverlay"><div class="vw">shawl</div><div class="vm">khăn choàng</div><div class="vipa">/ʃɔːl/</div></div></div><div class="vex">The elderly patient had a woollen <strong>shawl</strong> round her shoulders.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-outfit.jpg" alt="outfit" loading="lazy"><div class="voverlay"><div class="vw">outfit</div><div class="vm">bộ trang phục (cả bộ)</div><div class="vipa">/ˈaʊtfɪt/</div></div></div><div class="vex">I planned my <strong>outfit</strong> for the presentation the night before.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-gear.jpg" alt="gear" loading="lazy"><div class="voverlay"><div class="vw">gear</div><div class="vm">đồ (bảo hộ) chuyên dụng</div><div class="vipa">/ɡɪə/</div></div></div><div class="vex">The biker arrived at A&amp;E still wearing all his <strong>gear</strong>.</div></div>
         </div>
         <div class="sub-h">Giày dép</div>
         <div class="vgrid" style="--vcols:5">
-          <div class="vcard"><div class="vmedia"><img src="img/v-boots.jpg" alt="boots" loading="lazy"><div class="voverlay"><div class="vw">boots</div><div class="vm">bốt, giày cao cổ</div><div class="vipa">/buːts/</div></div></div><div class="vex">Leather boots are warm but hard to clean.</div></div>
-          <div class="vcard"><div class="vmedia"><img src="img/v-sandals.jpg" alt="sandals" loading="lazy"><div class="voverlay"><div class="vw">sandals</div><div class="vm">dép quai hậu, xăng-đan</div><div class="vipa">/ˈsændlz/</div></div></div><div class="vex">Sandals aren't allowed in theatre — your feet need protection.</div></div>
-          <div class="vcard"><div class="vmedia"><img src="img/v-trainers.jpg" alt="trainers" loading="lazy"><div class="voverlay"><div class="vw">trainers</div><div class="vm">giày thể thao</div><div class="vipa">/ˈtreɪnəz/</div></div></div><div class="vex">Most nurses wear white trainers on a twelve-hour shift.</div></div>
-          <div class="vcard"><div class="vmedia"><img src="img/v-highheels.jpg" alt="high-heeled shoes" loading="lazy"><div class="voverlay"><div class="vw">high-heeled shoes</div><div class="vm">giày cao gót</div><div class="vipa">/ˌhaɪ hiːld ˈʃuːz/</div></div></div><div class="vex">High-heeled shoes look elegant but they're not practical on a ward.</div></div>
-          <div class="vcard"><div class="vmedia"><img src="img/v-flipflops.jpg" alt="flip flops" loading="lazy"><div class="voverlay"><div class="vw">flip flops</div><div class="vm">dép xỏ ngón</div><div class="vipa">/ˈflɪp flɒps/</div></div></div><div class="vex">The patient came in wearing flip flops in the middle of winter.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-boots.jpg" alt="boots" loading="lazy"><div class="voverlay"><div class="vw">boots</div><div class="vm">bốt, giày cao cổ</div><div class="vipa">/buːts/</div></div></div><div class="vex">Leather <strong>boots</strong> are warm but hard to clean.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-sandals.jpg" alt="sandals" loading="lazy"><div class="voverlay"><div class="vw">sandals</div><div class="vm">dép quai hậu, xăng-đan</div><div class="vipa">/ˈsændlz/</div></div></div><div class="vex"><strong>Sandals</strong> aren't allowed in theatre — your feet need protection.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-trainers.jpg" alt="trainers" loading="lazy"><div class="voverlay"><div class="vw">trainers</div><div class="vm">giày thể thao</div><div class="vipa">/ˈtreɪnəz/</div></div></div><div class="vex">Most nurses wear white <strong>trainers</strong> on a twelve-hour shift.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-highheels.jpg" alt="high-heeled shoes" loading="lazy"><div class="voverlay"><div class="vw">high-heeled shoes</div><div class="vm">giày cao gót</div><div class="vipa">/ˌhaɪ hiːld ˈʃuːz/</div></div></div><div class="vex"><strong>High-heeled shoes</strong> look elegant but they're not practical on a ward.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-flipflops.jpg" alt="flip flops" loading="lazy"><div class="voverlay"><div class="vw">flip flops</div><div class="vm">dép xỏ ngón</div><div class="vipa">/ˈflɪp flɒps/</div></div></div><div class="vex">The patient came in wearing <strong>flip flops</strong> in the middle of winter.</div></div>
         </div>
         <div class="sub-h">Trang sức &amp; mũ nón</div>
         <div class="vgrid" style="--vcols:4">
-          <div class="vcard"><div class="vmedia"><img src="img/v-bracelet.jpg" alt="bracelet" loading="lazy"><div class="voverlay"><div class="vw">bracelet</div><div class="vm">vòng tay</div><div class="vipa">/ˈbreɪslət/</div></div></div><div class="vex">Please take your bracelet off before the X-ray.</div></div>
-          <div class="vcard"><div class="vmedia"><img src="img/v-earrings.jpg" alt="earrings" loading="lazy"><div class="voverlay"><div class="vw">earrings</div><div class="vm">hoa tai</div><div class="vipa">/ˈɪərɪŋz/</div></div></div><div class="vex">Small earrings are fine; long ones can catch on your mask.</div></div>
-          <div class="vcard"><div class="vmedia"><img src="img/v-necklace.jpg" alt="necklace" loading="lazy"><div class="voverlay"><div class="vw">necklace</div><div class="vm">dây chuyền</div><div class="vipa">/ˈnekləs/</div></div></div><div class="vex">She keeps her necklace in her locker during surgery.</div></div>
-          <div class="vcard"><div class="vmedia"><img src="img/v-ring.jpg" alt="ring" loading="lazy"><div class="voverlay"><div class="vw">ring</div><div class="vm">nhẫn</div><div class="vipa">/rɪŋ/</div></div></div><div class="vex">Rings carry bacteria, so we're bare below the elbow on the wards.</div></div>
-          <div class="vcard"><div class="vmedia"><img src="img/v-hood.jpg" alt="hood" loading="lazy"><div class="voverlay"><div class="vw">hood</div><div class="vm">mũ liền áo</div><div class="vipa">/hʊd/</div></div></div><div class="vex">He pulled his hood up because it was raining.</div></div>
-          <div class="vcard"><div class="vmedia"><img src="img/v-helmet.jpg" alt="helmet" loading="lazy"><div class="voverlay"><div class="vw">helmet</div><div class="vm">mũ bảo hiểm</div><div class="vipa">/ˈhelmɪt/</div></div></div><div class="vex">A helmet is by far the most important thing a biker wears.</div></div>
-          <div class="vcard"><div class="vmedia"><img src="img/v-hat.jpg" alt="hat" loading="lazy"><div class="voverlay"><div class="vw">hat</div><div class="vm">mũ (vành)</div><div class="vipa">/hæt/</div></div></div><div class="vex">Wear a hat in the sun — I say that to patients all summer.</div></div>
-          <div class="vcard"><div class="vmedia"><img src="img/v-baseballcap.jpg" alt="baseball cap" loading="lazy"><div class="voverlay"><div class="vw">baseball cap</div><div class="vm">mũ lưỡi trai</div><div class="vipa">/ˈbeɪsbɔːl kæp/</div></div></div><div class="vex">My son wears his baseball cap back to front.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-bracelet.jpg" alt="bracelet" loading="lazy"><div class="voverlay"><div class="vw">bracelet</div><div class="vm">vòng tay</div><div class="vipa">/ˈbreɪslət/</div></div></div><div class="vex">Please take your <strong>bracelet</strong> off before the X-ray.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-earrings.jpg" alt="earrings" loading="lazy"><div class="voverlay"><div class="vw">earrings</div><div class="vm">hoa tai</div><div class="vipa">/ˈɪərɪŋz/</div></div></div><div class="vex">Small <strong>earrings</strong> are fine; long ones can catch on your mask.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-necklace.jpg" alt="necklace" loading="lazy"><div class="voverlay"><div class="vw">necklace</div><div class="vm">dây chuyền</div><div class="vipa">/ˈnekləs/</div></div></div><div class="vex">She keeps her <strong>necklace</strong> in her locker during surgery.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-ring.jpg" alt="ring" loading="lazy"><div class="voverlay"><div class="vw">ring</div><div class="vm">nhẫn</div><div class="vipa">/rɪŋ/</div></div></div><div class="vex"><strong>Rings</strong> carry bacteria, so we're bare below the elbow on the wards.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-hood.jpg" alt="hood" loading="lazy"><div class="voverlay"><div class="vw">hood</div><div class="vm">mũ liền áo</div><div class="vipa">/hʊd/</div></div></div><div class="vex">He pulled his <strong>hood</strong> up because it was raining.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-helmet.jpg" alt="helmet" loading="lazy"><div class="voverlay"><div class="vw">helmet</div><div class="vm">mũ bảo hiểm</div><div class="vipa">/ˈhelmɪt/</div></div></div><div class="vex">A <strong>helmet</strong> is by far the most important thing a biker wears.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-hat.jpg" alt="hat" loading="lazy"><div class="voverlay"><div class="vw">hat</div><div class="vm">mũ (vành)</div><div class="vipa">/hæt/</div></div></div><div class="vex">Wear a <strong>hat</strong> in the sun — I say that to patients all summer.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-baseballcap.jpg" alt="baseball cap" loading="lazy"><div class="voverlay"><div class="vw">baseball cap</div><div class="vm">mũ lưỡi trai</div><div class="vipa">/ˈbeɪsbɔːl kæp/</div></div></div><div class="vex">My son wears his <strong>baseball cap</strong> back to front.</div></div>
         </div>
         <div class="sub-h">Chất liệu</div>
         <div class="vgrid" style="--vcols:4">
-          <div class="vcard"><div class="vmedia"><img src="img/v-woollen.jpg" alt="woollen" loading="lazy"><div class="voverlay"><div class="vw">woollen</div><div class="vm">bằng len</div><div class="vipa">/ˈwʊlən/</div></div></div><div class="vex">A woollen scarf is all you need in Hanoi in January.</div></div>
-          <div class="vcard"><div class="vmedia"><img src="img/v-leather.jpg" alt="leather" loading="lazy"><div class="voverlay"><div class="vw">leather</div><div class="vm">da (thuộc)</div><div class="vipa">/ˈleðə/</div></div></div><div class="vex">Good leather shoes last for years if you look after them.</div></div>
-          <div class="vcard"><div class="vmedia"><img src="img/v-cotton.jpg" alt="cotton" loading="lazy"><div class="voverlay"><div class="vw">cotton</div><div class="vm">bông, vải cotton</div><div class="vipa">/ˈkɒtn/</div></div></div><div class="vex">Cotton is far more comfortable than polyester in the heat.</div></div>
-          <div class="vcard"><div class="vmedia"><img src="img/v-silk.jpg" alt="silk" loading="lazy"><div class="voverlay"><div class="vw">silk</div><div class="vm">lụa</div><div class="vipa">/sɪlk/</div></div></div><div class="vex">The áo dài was made of pure silk.</div></div>
-          <div class="vcard"><div class="vmedia"><img src="img/v-polyester.jpg" alt="polyester" loading="lazy"><div class="voverlay"><div class="vw">polyester</div><div class="vm">vải sợi tổng hợp</div><div class="vipa">/ˌpɒliˈestə/</div></div></div><div class="vex">Most scrubs are a cotton-polyester mix.</div></div>
-          <div class="vcard"><div class="vmedia"><img src="img/v-suede.jpg" alt="suede" loading="lazy"><div class="voverlay"><div class="vw">suede</div><div class="vm">da lộn</div><div class="vipa">/sweɪd/</div></div></div><div class="vex">Don't wear suede shoes on a rainy day.</div></div>
-          <div class="vcard"><div class="vmedia"><img src="img/v-fur.jpg" alt="fur" loading="lazy"><div class="voverlay"><div class="vw">fur</div><div class="vm">lông thú</div><div class="vipa">/fɜː/</div></div></div><div class="vex">Real fur is far less popular than it used to be.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-woollen.jpg" alt="woollen" loading="lazy"><div class="voverlay"><div class="vw">woollen</div><div class="vm">bằng len</div><div class="vipa">/ˈwʊlən/</div></div></div><div class="vex">A <strong>woollen</strong> scarf is all you need in Hanoi in January.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-leather.jpg" alt="leather" loading="lazy"><div class="voverlay"><div class="vw">leather</div><div class="vm">da (thuộc)</div><div class="vipa">/ˈleðə/</div></div></div><div class="vex">Good <strong>leather</strong> shoes last for years if you look after them.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-cotton.jpg" alt="cotton" loading="lazy"><div class="voverlay"><div class="vw">cotton</div><div class="vm">bông, vải cotton</div><div class="vipa">/ˈkɒtn/</div></div></div><div class="vex"><strong>Cotton</strong> is far more comfortable than polyester in the heat.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-silk.jpg" alt="silk" loading="lazy"><div class="voverlay"><div class="vw">silk</div><div class="vm">lụa</div><div class="vipa">/sɪlk/</div></div></div><div class="vex">The áo dài was made of pure <strong>silk</strong>.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-polyester.jpg" alt="polyester" loading="lazy"><div class="voverlay"><div class="vw">polyester</div><div class="vm">vải sợi tổng hợp</div><div class="vipa">/ˌpɒliˈestə/</div></div></div><div class="vex">Most scrubs are a cotton-<strong>polyester</strong> mix.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-suede.jpg" alt="suede" loading="lazy"><div class="voverlay"><div class="vw">suede</div><div class="vm">da lộn</div><div class="vipa">/sweɪd/</div></div></div><div class="vex">Don't wear <strong>suede</strong> shoes on a rainy day.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-fur.jpg" alt="fur" loading="lazy"><div class="voverlay"><div class="vw">fur</div><div class="vm">lông thú</div><div class="vipa">/fɜː/</div></div></div><div class="vex">Real <strong>fur</strong> is far less popular than it used to be.</div></div>
         </div>
         <div class="sub-h">Kiểu dáng &amp; hoạ tiết</div>
         <div class="vgrid" style="--vcols:5">
-          <div class="vcard"><div class="vmedia"><img src="img/v-striped.jpg" alt="striped" loading="lazy"><div class="voverlay"><div class="vw">striped</div><div class="vm">kẻ sọc</div><div class="vipa">/straɪpt/</div></div></div><div class="vex">He was wearing a striped jumper and faded jeans.</div></div>
-          <div class="vcard"><div class="vmedia"><img src="img/v-faded.jpg" alt="faded" loading="lazy"><div class="voverlay"><div class="vw">faded</div><div class="vm">bạc màu</div><div class="vipa">/ˈfeɪdɪd/</div></div></div><div class="vex">These faded jeans are ten years old and still my favourite.</div></div>
-          <div class="vcard"><div class="vmedia"><img src="img/v-knitted.jpg" alt="knitted" loading="lazy"><div class="voverlay"><div class="vw">knitted</div><div class="vm">đan (len)</div><div class="vipa">/ˈnɪtɪd/</div></div></div><div class="vex">My grandmother made me a knitted hat every winter.</div></div>
-          <div class="vcard"><div class="vmedia"><img src="img/v-sparkly.jpg" alt="sparkly" loading="lazy"><div class="voverlay"><div class="vw">sparkly</div><div class="vm">lấp lánh</div><div class="vipa">/ˈspɑːkli/</div></div></div><div class="vex">She slipped on a sparkly top for the party.</div></div>
-          <div class="vcard"><div class="vmedia"><img src="img/v-secondhand.jpg" alt="second-hand" loading="lazy"><div class="voverlay"><div class="vw">second-hand</div><div class="vm">đồ cũ, đã qua sử dụng</div><div class="vipa">/ˌsekənd ˈhænd/</div></div></div><div class="vex">Second-hand clothes can be real bargains.</div></div>
-          <div class="vcard"><div class="vmedia"><img src="img/v-openneck.jpg" alt="open-necked" loading="lazy"><div class="voverlay"><div class="vw">open-necked</div><div class="vm">(áo sơ mi) mở cổ, không cà vạt</div><div class="vipa">/ˌəʊpən ˈnekt/</div></div></div><div class="vex">An open-necked shirt is smart enough for the clinic.</div></div>
-          <div class="vcard"><div class="vmedia"><img src="img/v-shortsleeved.jpg" alt="short-sleeved" loading="lazy"><div class="voverlay"><div class="vw">short-sleeved</div><div class="vm">ngắn tay</div><div class="vipa">/ˌʃɔːt ˈsliːvd/</div></div></div><div class="vex">Short-sleeved shirts are part of the hospital dress code.</div></div>
-          <div class="vcard"><div class="vmedia"><img src="img/v-vneck.jpg" alt="V-neck" loading="lazy"><div class="voverlay"><div class="vw">V-neck</div><div class="vm">cổ chữ V</div><div class="vipa">/ˈviː nek/</div></div></div><div class="vex">He wore a V-neck jumper over an open-necked shirt.</div></div>
-          <div class="vcard"><div class="vmedia"><img src="img/v-kneelength.jpg" alt="knee-length" loading="lazy"><div class="voverlay"><div class="vw">knee-length</div><div class="vm">dài đến gối</div><div class="vipa">/ˈniː leŋθ/</div></div></div><div class="vex">Knee-length boots with stars on — that was Sally's outfit.</div></div>
-          <div class="vcard"><div class="vmedia"><img src="img/v-handmade.jpg" alt="handmade" loading="lazy"><div class="voverlay"><div class="vw">handmade</div><div class="vm">làm thủ công</div><div class="vipa">/ˌhændˈmeɪd/</div></div></div><div class="vex">A handmade leather bag costs more but lasts a lifetime.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-striped.jpg" alt="striped" loading="lazy"><div class="voverlay"><div class="vw">striped</div><div class="vm">kẻ sọc</div><div class="vipa">/straɪpt/</div></div></div><div class="vex">He was wearing a <strong>striped</strong> jumper and faded jeans.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-faded.jpg" alt="faded" loading="lazy"><div class="voverlay"><div class="vw">faded</div><div class="vm">bạc màu</div><div class="vipa">/ˈfeɪdɪd/</div></div></div><div class="vex">These <strong>faded</strong> jeans are ten years old and still my favourite.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-knitted.jpg" alt="knitted" loading="lazy"><div class="voverlay"><div class="vw">knitted</div><div class="vm">đan (len)</div><div class="vipa">/ˈnɪtɪd/</div></div></div><div class="vex">My grandmother made me a <strong>knitted</strong> hat every winter.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-sparkly.jpg" alt="sparkly" loading="lazy"><div class="voverlay"><div class="vw">sparkly</div><div class="vm">lấp lánh</div><div class="vipa">/ˈspɑːkli/</div></div></div><div class="vex">She slipped on a <strong>sparkly</strong> top for the party.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-secondhand.jpg" alt="second-hand" loading="lazy"><div class="voverlay"><div class="vw">second-hand</div><div class="vm">đồ cũ, đã qua sử dụng</div><div class="vipa">/ˌsekənd ˈhænd/</div></div></div><div class="vex"><strong>Second-hand</strong> clothes can be real bargains.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-openneck.jpg" alt="open-necked" loading="lazy"><div class="voverlay"><div class="vw">open-necked</div><div class="vm">(áo sơ mi) mở cổ, không cà vạt</div><div class="vipa">/ˌəʊpən ˈnekt/</div></div></div><div class="vex">An <strong>open-necked</strong> shirt is smart enough for the clinic.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-shortsleeved.jpg" alt="short-sleeved" loading="lazy"><div class="voverlay"><div class="vw">short-sleeved</div><div class="vm">ngắn tay</div><div class="vipa">/ˌʃɔːt ˈsliːvd/</div></div></div><div class="vex"><strong>Short-sleeved</strong> shirts are part of the hospital dress code.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-vneck.jpg" alt="V-neck" loading="lazy"><div class="voverlay"><div class="vw">V-neck</div><div class="vm">cổ chữ V</div><div class="vipa">/ˈviː nek/</div></div></div><div class="vex">He wore a <strong>V-neck</strong> jumper over an open-necked shirt.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-kneelength.jpg" alt="knee-length" loading="lazy"><div class="voverlay"><div class="vw">knee-length</div><div class="vm">dài đến gối</div><div class="vipa">/ˈniː leŋθ/</div></div></div><div class="vex"><strong>Knee-length</strong> boots with stars on — that was Sally's outfit.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-handmade.jpg" alt="handmade" loading="lazy"><div class="voverlay"><div class="vw">handmade</div><div class="vm">làm thủ công</div><div class="vipa">/ˌhændˈmeɪd/</div></div></div><div class="vex">A <strong>handmade</strong> leather bag costs more but lasts a lifetime.</div></div>
         </div>
       </div>
       <div class="tier adv"><div class="tier-h">Nâng cao</div>
         <div class="sub-h">Trang phục nơi làm việc</div>
         <div class="tablewrap"><table class="vt"><tbody>
-          <tr><td>wear a white coat (over …)<span class="ipa">/ˌwaɪt ˈkəʊt/</span></td><td>mặc áo blouse trắng (bên ngoài …)</td><td><i>On the ward round, every doctor has to wear a white coat over their own clothes.</i></td></tr>
-          <tr><td>change into scrubs<span class="ipa">/skrʌbz/</span></td><td>thay sang bộ đồ phẫu thuật / đồ y tế</td><td><i>Surgeons change into scrubs before they go into theatre.</i></td></tr>
-          <tr><td>wear a uniform<span class="ipa">/ˈjuːnɪfɔːm/</span></td><td>mặc đồng phục</td><td><i>Nurses at our hospital wear a light-blue uniform.</i></td></tr>
+          <tr><td>wear a white coat (over …)<span class="ipa">/ˌwaɪt ˈkəʊt/</span></td><td>mặc áo blouse trắng (bên ngoài …)</td><td><i>On the ward round, every doctor has to <strong>wear a white coat</strong> over their own clothes.</i></td></tr>
+          <tr><td>change into scrubs<span class="ipa">/skrʌbz/</span></td><td>thay sang bộ đồ phẫu thuật / đồ y tế</td><td><i>Surgeons <strong>change into scrubs</strong> before they go into theatre.</i></td></tr>
+          <tr><td>wear a uniform<span class="ipa">/ˈjuːnɪfɔːm/</span></td><td>mặc đồng phục</td><td><i>Nurses at our hospital <strong>wear a</strong> light-blue <strong>uniform</strong>.</i></td></tr>
         </tbody></table></div>
         <div class="sub-h">Kiểu dáng &amp; chất lượng</div>
         <div class="tablewrap"><table class="vt"><tbody>
-          <tr><td>loose-fitting / tight-fitting</td><td>rộng, thoải mái / ôm sát</td><td><i>Loose-fitting cotton trousers are far more comfortable on a twelve-hour shift.</i></td></tr>
-          <tr><td>plain / patterned<span class="ipa">/ˈpætənd/</span></td><td>trơn / có hoạ tiết</td><td><i>A plain shirt looks more professional than a patterned one at a conference.</i></td></tr>
-          <tr><td>badly made / well-made</td><td>may cẩu thả / may kỹ</td><td><i>The jacket was so badly made that I took it back the next day.</i></td></tr>
+          <tr><td>loose-fitting / tight-fitting</td><td>rộng, thoải mái / ôm sát</td><td><i><strong>Loose-fitting</strong> cotton trousers are far more comfortable on a twelve-hour shift.</i></td></tr>
+          <tr><td>plain / patterned<span class="ipa">/ˈpætənd/</span></td><td>trơn / có hoạ tiết</td><td><i>A plain shirt looks more professional than a <strong>patterned</strong> one at a conference.</i></td></tr>
+          <tr><td>badly made / well-made</td><td>may cẩu thả / may kỹ</td><td><i>The jacket was so <strong>badly made</strong> that I took it back the next day.</i></td></tr>
         </tbody></table></div>
       </div>
       <div class="tier col"><div class="tier-h">Collocations</div>
         <div class="tablewrap"><table class="vt"><tbody>
-          <tr><td>be dressed in + clothes</td><td>đang mặc … (mô tả)</td><td><i>The patient was dressed in a hospital gown and a pair of slippers.</i></td></tr>
-          <tr><td>go with (something)</td><td>hợp với (màu, món đồ khác)</td><td><i>That bright tie doesn't really go with a white coat.</i></td></tr>
-          <tr><td>suit somebody</td><td>hợp với ai (trông đẹp)</td><td><i>Dark colours suit you much better than bright ones.</i></td></tr>
-          <tr><td>fit somebody</td><td>vừa cỡ ai</td><td><i>The scrubs they gave me didn't fit — the trousers were far too long.</i></td></tr>
-          <tr><td>a pair of + jeans / trousers / shoes</td><td>một cái / một đôi</td><td><i>I keep a spare pair of trousers in my locker in case of emergencies.</i></td></tr>
+          <tr><td>be dressed in + clothes</td><td>đang mặc … (mô tả)</td><td><i>The patient <strong>was dressed in</strong> a hospital gown and a pair of slippers.</i></td></tr>
+          <tr><td>go with (something)</td><td>hợp với (màu, món đồ khác)</td><td><i>That bright tie doesn't really <strong>go with</strong> a white coat.</i></td></tr>
+          <tr><td>suit somebody</td><td>hợp với ai (trông đẹp)</td><td><i>Dark colours <strong>suit you</strong> much better than bright ones.</i></td></tr>
+          <tr><td>fit somebody</td><td>vừa cỡ ai</td><td><i>The scrubs they gave me <strong>didn't fit</strong> — the trousers were far too long.</i></td></tr>
+          <tr><td>a pair of + jeans / trousers / shoes</td><td>một cái / một đôi</td><td><i>I keep a spare pair of <strong>trousers</strong> in my locker in case of emergencies.</i></td></tr>
         </tbody></table></div>
       </div>
     </div>
@@ -785,51 +787,51 @@
       <div class="tier core"><div class="tier-h">Core · SB Unit 1</div>
         <div class="sub-h">Sáu kiểu phong cách</div>
         <div class="vgrid" style="--vcols:6">
-          <div class="vcard"><div class="vmedia"><img src="img/v-casual.jpg" alt="casual" loading="lazy"><div class="voverlay"><div class="vw">casual</div><div class="vm">thường ngày, thoải mái</div><div class="vipa">/ˈkæʒuəl/</div></div></div><div class="vex">I prefer casual clothes at the weekend.</div></div>
-          <div class="vcard"><div class="vmedia"><img src="img/v-smart.jpg" alt="smart" loading="lazy"><div class="voverlay"><div class="vw">smart</div><div class="vm">chỉnh tề, lịch sự</div><div class="vipa">/smɑːt/</div></div></div><div class="vex">You need to look smart for the interview.</div></div>
-          <div class="vcard"><div class="vmedia"><img src="img/v-elegant.jpg" alt="elegant" loading="lazy"><div class="voverlay"><div class="vw">elegant</div><div class="vm">thanh lịch</div><div class="vipa">/ˈelɪɡənt/</div></div></div><div class="vex">Her dress was simple but very elegant.</div></div>
-          <div class="vcard"><div class="vmedia"><img src="img/v-scruffy.jpg" alt="scruffy" loading="lazy"><div class="voverlay"><div class="vw">scruffy</div><div class="vm">lôi thôi, nhếch nhác</div><div class="vipa">/ˈskrʌfi/</div></div></div><div class="vex">He looked scruffy after three days on call.</div></div>
-          <div class="vcard"><div class="vmedia"><img src="img/v-outrageous.jpg" alt="outrageous" loading="lazy"><div class="voverlay"><div class="vw">outrageous</div><div class="vm">gây sốc, quá lố</div><div class="vipa">/aʊtˈreɪdʒəs/</div></div></div><div class="vex">Sally put together the most outrageous outfit for the party.</div></div>
-          <div class="vcard"><div class="vmedia"><img src="img/v-fashionable.jpg" alt="fashionable" loading="lazy"><div class="voverlay"><div class="vw">fashionable</div><div class="vm">hợp mốt</div><div class="vipa">/ˈfæʃnəbl/</div></div></div><div class="vex">Big sunglasses are fashionable again this year.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-casual.jpg" alt="casual" loading="lazy"><div class="voverlay"><div class="vw">casual</div><div class="vm">thường ngày, thoải mái</div><div class="vipa">/ˈkæʒuəl/</div></div></div><div class="vex">I prefer <strong>casual</strong> clothes at the weekend.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-smart.jpg" alt="smart" loading="lazy"><div class="voverlay"><div class="vw">smart</div><div class="vm">chỉnh tề, lịch sự</div><div class="vipa">/smɑːt/</div></div></div><div class="vex">You need to look <strong>smart</strong> for the interview.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-elegant.jpg" alt="elegant" loading="lazy"><div class="voverlay"><div class="vw">elegant</div><div class="vm">thanh lịch</div><div class="vipa">/ˈelɪɡənt/</div></div></div><div class="vex">Her dress was simple but very <strong>elegant</strong>.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-scruffy.jpg" alt="scruffy" loading="lazy"><div class="voverlay"><div class="vw">scruffy</div><div class="vm">lôi thôi, nhếch nhác</div><div class="vipa">/ˈskrʌfi/</div></div></div><div class="vex">He looked <strong>scruffy</strong> after three days on call.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-outrageous.jpg" alt="outrageous" loading="lazy"><div class="voverlay"><div class="vw">outrageous</div><div class="vm">gây sốc, quá lố</div><div class="vipa">/aʊtˈreɪdʒəs/</div></div></div><div class="vex">Sally put together the most <strong>outrageous</strong> outfit for the party.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-fashionable.jpg" alt="fashionable" loading="lazy"><div class="voverlay"><div class="vw">fashionable</div><div class="vm">hợp mốt</div><div class="vipa">/ˈfæʃnəbl/</div></div></div><div class="vex">Big sunglasses are <strong>fashionable</strong> again this year.</div></div>
         </div>
         <div class="sub-h">Tính từ khác</div>
         <div class="vadjgrid">
-          <div class="vadjcard"><div class="vw">stylish</div><div class="vm">phong cách, sành điệu</div><div class="vipa">/ˈstaɪlɪʃ/</div><div class="vex">Clothes need to be comfortable as well as stylish.</div></div>
-          <div class="vadjcard"><div class="vw">comfortable</div><div class="vm">thoải mái</div><div class="vipa">/ˈkʌmftəbl/</div><div class="vex">My clothes have to be comfortable — I'm on my feet all day.</div></div>
-          <div class="vadjcard"><div class="vw">practical</div><div class="vm">thực dụng, tiện dụng</div><div class="vipa">/ˈpræktɪkl/</div><div class="vex">Trainers are more practical than high heels on a ward.</div></div>
-          <div class="vadjcard"><div class="vw">untidy</div><div class="vm">bừa bộn, không gọn gàng</div><div class="vipa">/ʌnˈtaɪdi/</div><div class="vex">His hair was untidy and his shirt wasn't ironed.</div></div>
-          <div class="vadjcard"><div class="vw">tatty</div><div class="vm">cũ nát, sờn rách</div><div class="vipa">/ˈtæti/</div><div class="vex">My friends sometimes wear the tattiest things ever.</div></div>
-          <div class="vadjcard"><div class="vw">classy</div><div class="vm">sang, có đẳng cấp</div><div class="vipa">/ˈklɑːsi/</div><div class="vex">She likes to present a classy image at work.</div></div>
-          <div class="vadjcard"><div class="vw">sophisticated</div><div class="vm">tinh tế, sành sỏi</div><div class="vipa">/səˈfɪstɪkeɪtɪd/</div><div class="vex">A dark suit gives a sophisticated look.</div></div>
-          <div class="vadjcard"><div class="vw">laid-back</div><div class="vm">thư thái, không câu nệ</div><div class="vipa">/ˌleɪd ˈbæk/</div><div class="vex">He looks friendly and laid-back in jeans and a jumper.</div></div>
-          <div class="vadjcard"><div class="vw">fashion-conscious</div><div class="vm">quan tâm đến thời trang</div><div class="vipa">/ˈfæʃn ˌkɒnʃəs/</div><div class="vex">I'm the least fashion-conscious person I know.</div></div>
-          <div class="vadjcard"><div class="vw">ordinary</div><div class="vm">bình thường, không nổi bật</div><div class="vipa">/ˈɔːdnri/</div><div class="vex">I looked very ordinary in comparison with them.</div></div>
-          <div class="vadjcard"><div class="vw">cool</div><div class="vm">ngầu, hay</div><div class="vipa">/kuːl/</div><div class="vex">This girl looks really cool with her blue and green outfit.</div></div>
-          <div class="vadjcard"><div class="vw">look smart · casually dressed · dressed up for a special event</div><div class="vm">trông chỉnh tề · ăn mặc giản dị · mặc đẹp cho dịp đặc biệt</div><div class="vex">Even for work I like my clothes to look smart.</div></div>
-          <div class="vadjcard"><div class="vw">(good) taste · image · bright colours · in comparison</div><div class="vm">gu (tốt) · hình ảnh · màu sắc rực rỡ · so ra thì</div><div class="vex">My brother has the worst taste in ties ever.</div></div>
+          <div class="vadjcard"><div class="vw">stylish</div><div class="vm">phong cách, sành điệu</div><div class="vipa">/ˈstaɪlɪʃ/</div><div class="vex">Clothes need to be comfortable as well as <strong>stylish</strong>.</div></div>
+          <div class="vadjcard"><div class="vw">comfortable</div><div class="vm">thoải mái</div><div class="vipa">/ˈkʌmftəbl/</div><div class="vex">My clothes have to be <strong>comfortable</strong> — I'm on my feet all day.</div></div>
+          <div class="vadjcard"><div class="vw">practical</div><div class="vm">thực dụng, tiện dụng</div><div class="vipa">/ˈpræktɪkl/</div><div class="vex">Trainers are more <strong>practical</strong> than high heels on a ward.</div></div>
+          <div class="vadjcard"><div class="vw">untidy</div><div class="vm">bừa bộn, không gọn gàng</div><div class="vipa">/ʌnˈtaɪdi/</div><div class="vex">His hair was <strong>untidy</strong> and his shirt wasn't ironed.</div></div>
+          <div class="vadjcard"><div class="vw">tatty</div><div class="vm">cũ nát, sờn rách</div><div class="vipa">/ˈtæti/</div><div class="vex">My friends sometimes wear the <strong>tattiest</strong> things ever.</div></div>
+          <div class="vadjcard"><div class="vw">classy</div><div class="vm">sang, có đẳng cấp</div><div class="vipa">/ˈklɑːsi/</div><div class="vex">She likes to present a <strong>classy</strong> image at work.</div></div>
+          <div class="vadjcard"><div class="vw">sophisticated</div><div class="vm">tinh tế, sành sỏi</div><div class="vipa">/səˈfɪstɪkeɪtɪd/</div><div class="vex">A dark suit gives a <strong>sophisticated</strong> look.</div></div>
+          <div class="vadjcard"><div class="vw">laid-back</div><div class="vm">thư thái, không câu nệ</div><div class="vipa">/ˌleɪd ˈbæk/</div><div class="vex">He looks friendly and <strong>laid-back</strong> in jeans and a jumper.</div></div>
+          <div class="vadjcard"><div class="vw">fashion-conscious</div><div class="vm">quan tâm đến thời trang</div><div class="vipa">/ˈfæʃn ˌkɒnʃəs/</div><div class="vex">I'm the least <strong>fashion-conscious</strong> person I know.</div></div>
+          <div class="vadjcard"><div class="vw">ordinary</div><div class="vm">bình thường, không nổi bật</div><div class="vipa">/ˈɔːdnri/</div><div class="vex">I looked very <strong>ordinary</strong> in comparison with them.</div></div>
+          <div class="vadjcard"><div class="vw">cool</div><div class="vm">ngầu, hay</div><div class="vipa">/kuːl/</div><div class="vex">This girl looks really <strong>cool</strong> with her blue and green outfit.</div></div>
+          <div class="vadjcard"><div class="vw">look smart · casually dressed · dressed up for a special event</div><div class="vm">trông chỉnh tề · ăn mặc giản dị · mặc đẹp cho dịp đặc biệt</div><div class="vex">Even for work I like my clothes to <strong>look smart</strong>.</div></div>
+          <div class="vadjcard"><div class="vw">(good) taste · image · bright colours · in comparison</div><div class="vm">gu (tốt) · hình ảnh · màu sắc rực rỡ · so ra thì</div><div class="vex">My brother has the worst <strong>taste</strong> in ties ever.</div></div>
         </div>
       </div>
       <div class="tier adv"><div class="tier-h">Nâng cao</div>
         <div class="sub-h">Ấn tượng chung</div>
         <div class="tablewrap"><table class="vt"><tbody>
-          <tr><td>well-dressed<span class="ipa">/ˌwel ˈdrest/</span></td><td>ăn mặc đẹp, chỉnh tề</td><td><i>The new consultant is always well-dressed, even after a night on call.</i></td></tr>
-          <tr><td>presentable<span class="ipa">/prɪˈzentəbl/</span></td><td>tươm tất, coi được</td><td><i>You don't need a suit — just look presentable when you meet the patient's family.</i></td></tr>
-          <tr><td>old-fashioned<span class="ipa">/ˌəʊld ˈfæʃnd/</span></td><td>lỗi mốt, kiểu cũ</td><td><i>My father's suits are a bit old-fashioned, but they're beautifully made.</i></td></tr>
+          <tr><td>well-dressed<span class="ipa">/ˌwel ˈdrest/</span></td><td>ăn mặc đẹp, chỉnh tề</td><td><i>The new consultant is always <strong>well-dressed</strong>, even after a night on call.</i></td></tr>
+          <tr><td>presentable<span class="ipa">/prɪˈzentəbl/</span></td><td>tươm tất, coi được</td><td><i>You don't need a suit — just look <strong>presentable</strong> when you meet the patient's family.</i></td></tr>
+          <tr><td>old-fashioned<span class="ipa">/ˌəʊld ˈfæʃnd/</span></td><td>lỗi mốt, kiểu cũ</td><td><i>My father's suits are a bit <strong>old-fashioned</strong>, but they're beautifully made.</i></td></tr>
         </tbody></table></div>
         <div class="sub-h">Phong cách</div>
         <div class="tablewrap"><table class="vt"><tbody>
-          <tr><td>trendy<span class="ipa">/ˈtrendi/</span></td><td>hợp mốt, thời thượng</td><td><i>Younger doctors tend to wear trendier glasses than the professors.</i></td></tr>
-          <tr><td>dress sense (U)</td><td>gu ăn mặc</td><td><i>My sister has far better dress sense than I do.</i></td></tr>
-          <tr><td>smart-casual</td><td>lịch sự nhưng không quá trang trọng</td><td><i>The conference dinner is smart-casual, so leave the tie at home.</i></td></tr>
+          <tr><td>trendy<span class="ipa">/ˈtrendi/</span></td><td>hợp mốt, thời thượng</td><td><i>Younger doctors tend to wear <strong>trendier</strong> glasses than the professors.</i></td></tr>
+          <tr><td>dress sense (U)</td><td>gu ăn mặc</td><td><i>My sister has far better <strong>dress sense</strong> than I do.</i></td></tr>
+          <tr><td>smart-casual</td><td>lịch sự nhưng không quá trang trọng</td><td><i>The conference dinner is <strong>smart-casual</strong>, so leave the tie at home.</i></td></tr>
         </tbody></table></div>
       </div>
       <div class="tier col"><div class="tier-h">Collocations</div>
         <div class="tablewrap"><table class="vt"><tbody>
-          <tr><td>make an effort to look good</td><td>cố gắng để trông đẹp</td><td><i>As a doctor, I make an effort to look good because patients notice everything.</i></td></tr>
-          <tr><td>take (a lot of / little) trouble with your clothes</td><td>chăm chút / ít chăm chút quần áo</td><td><i>Since he became head of department, he has taken a lot more trouble with his clothes.</i></td></tr>
-          <tr><td>present a (professional) image</td><td>thể hiện hình ảnh …</td><td><i>A clean white coat presents a professional image to patients.</i></td></tr>
-          <tr><td>stand out in a crowd</td><td>nổi bật giữa đám đông</td><td><i>With her bright red hair, she always stands out in a crowd.</i></td></tr>
-          <tr><td>create a good impression</td><td>tạo ấn tượng tốt</td><td><i>Neat clothes create a good impression before you say a single word.</i></td></tr>
+          <tr><td>make an effort to look good</td><td>cố gắng để trông đẹp</td><td><i>As a doctor, I <strong>make an effort to look good</strong> because patients notice everything.</i></td></tr>
+          <tr><td>take (a lot of / little) trouble with your clothes</td><td>chăm chút / ít chăm chút quần áo</td><td><i>Since he became head of department, he has <strong>taken a lot more trouble with his clothes</strong>.</i></td></tr>
+          <tr><td>present a (professional) image</td><td>thể hiện hình ảnh …</td><td><i>A clean white coat <strong>presents a professional image</strong> to patients.</i></td></tr>
+          <tr><td>stand out in a crowd</td><td>nổi bật giữa đám đông</td><td><i>With her bright red hair, she always <strong>stands out in a crowd</strong>.</i></td></tr>
+          <tr><td>create a good impression</td><td>tạo ấn tượng tốt</td><td><i>Neat clothes <strong>create a good impression</strong> before you say a single word.</i></td></tr>
         </tbody></table></div>
       </div>
     </div>
@@ -848,48 +850,48 @@
         <div class="note warn"><span class="tag">Corpus spot</span><ul><li>Động từ trong phrasal verb vẫn bất quy tắc ở thì quá khứ: <i>took off</i> (không phải <s>taked off</s>), <i>went out</i>, <i>stood out</i>, <i>put together</i>.</li></ul></div>
         <div class="sub-h">Phrasal verbs về quần áo</div>
         <div class="vadjgrid">
-          <div class="vadjcard"><div class="vw">dress up</div><div class="vm">mặc đẹp hơn thường ngày</div><div class="vex">I always dress up when I go to a wedding.</div></div>
-          <div class="vadjcard"><div class="vw">slip on</div><div class="vm">mặc / xỏ nhanh</div><div class="vex">I slipped on some trainers and ran to the car.</div></div>
-          <div class="vadjcard"><div class="vw">pull on</div><div class="vm">kéo mặc vào (nhanh)</div><div class="vex">She pulled on a jumper because the ward was cold.</div></div>
-          <div class="vadjcard"><div class="vw">put on · take off</div><div class="vm">mặc vào · cởi ra</div><div class="vex">Put your coat on before you go out; take it off when you come back.</div></div>
-          <div class="vadjcard"><div class="vw">try on</div><div class="vm">mặc thử</div><div class="vex">Try the jacket on before you buy it.</div></div>
-          <div class="vadjcard"><div class="vw">put together (an outfit)</div><div class="vm">phối đồ</div><div class="vex">She puts together outfits from second-hand clothes.</div></div>
-          <div class="vadjcard"><div class="vw">stand out</div><div class="vm">nổi bật</div><div class="vex">In that red dress she really stood out.</div></div>
-          <div class="vadjcard"><div class="vw">fit in with</div><div class="vm">hoà hợp với</div><div class="vex">I wear a suit to fit in with the other consultants.</div></div>
-          <div class="vadjcard"><div class="vw">keep up with</div><div class="vm">theo kịp</div><div class="vex">I can't keep up with my daughter's fashions.</div></div>
-          <div class="vadjcard"><div class="vw">take back</div><div class="vm">trả lại (đồ đã mua)</div><div class="vex">I took the shoes back because they didn't fit.</div></div>
-          <div class="vadjcard"><div class="vw">add to</div><div class="vm">thêm vào</div><div class="vex">A silver necklace added to the elegant look.</div></div>
-          <div class="vadjcard"><div class="vw">get away with</div><div class="vm">làm mà không bị chê trách</div><div class="vex">In the lab I can get away with jeans and a T-shirt.</div></div>
+          <div class="vadjcard"><div class="vw">dress up</div><div class="vm">mặc đẹp hơn thường ngày</div><div class="vex">I always <strong>dress up</strong> when I go to a wedding.</div></div>
+          <div class="vadjcard"><div class="vw">slip on</div><div class="vm">mặc / xỏ nhanh</div><div class="vex">I <strong>slipped on</strong> some trainers and ran to the car.</div></div>
+          <div class="vadjcard"><div class="vw">pull on</div><div class="vm">kéo mặc vào (nhanh)</div><div class="vex">She <strong>pulled on</strong> a jumper because the ward was cold.</div></div>
+          <div class="vadjcard"><div class="vw">put on · take off</div><div class="vm">mặc vào · cởi ra</div><div class="vex"><strong>Put</strong> your coat <strong>on</strong> before you go out; <strong>take it off</strong> when you come back.</div></div>
+          <div class="vadjcard"><div class="vw">try on</div><div class="vm">mặc thử</div><div class="vex"><strong>Try</strong> the jacket <strong>on</strong> before you buy it.</div></div>
+          <div class="vadjcard"><div class="vw">put together (an outfit)</div><div class="vm">phối đồ</div><div class="vex">She <strong>puts together</strong> outfits from second-hand clothes.</div></div>
+          <div class="vadjcard"><div class="vw">stand out</div><div class="vm">nổi bật</div><div class="vex">In that red dress she really <strong>stood out</strong>.</div></div>
+          <div class="vadjcard"><div class="vw">fit in with</div><div class="vm">hoà hợp với</div><div class="vex">I wear a suit to <strong>fit in with</strong> the other consultants.</div></div>
+          <div class="vadjcard"><div class="vw">keep up with</div><div class="vm">theo kịp</div><div class="vex">I can't <strong>keep up with</strong> my daughter's fashions.</div></div>
+          <div class="vadjcard"><div class="vw">take back</div><div class="vm">trả lại (đồ đã mua)</div><div class="vex">I <strong>took</strong> the shoes <strong>back</strong> because they didn't fit.</div></div>
+          <div class="vadjcard"><div class="vw">add to</div><div class="vm">thêm vào</div><div class="vex">A silver necklace <strong>added to</strong> the elegant look.</div></div>
+          <div class="vadjcard"><div class="vw">get away with</div><div class="vm">làm mà không bị chê trách</div><div class="vex">In the lab I can <strong>get away with</strong> jeans and a T-shirt.</div></div>
         </div>
         <div class="sub-h">Phrasal verbs về tiền &amp; đi chơi</div>
         <div class="vadjgrid">
-          <div class="vadjcard"><div class="vw">save up (for)</div><div class="vm">dành dụm tiền</div><div class="vex">I'm saving up for a good winter coat.</div></div>
-          <div class="vadjcard"><div class="vw">cut down (on)</div><div class="vm">cắt giảm</div><div class="vex">I should cut down on the amount I spend on clothes.</div></div>
-          <div class="vadjcard"><div class="vw">go out · go clubbing</div><div class="vm">đi chơi · đi bar / vũ trường</div><div class="vex">We went out clubbing after the exam.</div></div>
+          <div class="vadjcard"><div class="vw">save up (for)</div><div class="vm">dành dụm tiền</div><div class="vex">I'm <strong>saving up</strong> for a good winter coat.</div></div>
+          <div class="vadjcard"><div class="vw">cut down (on)</div><div class="vm">cắt giảm</div><div class="vex">I should <strong>cut down</strong> on the amount I spend on clothes.</div></div>
+          <div class="vadjcard"><div class="vw">go out · go clubbing</div><div class="vm">đi chơi · đi bar / vũ trường</div><div class="vex">We <strong>went out clubbing</strong> after the exam.</div></div>
         </div>
         <div class="sub-h">Phrasal verbs với <i>go</i> (SB tr. 11 bài 8)</div>
         <div class="vadjgrid">
-          <div class="vadjcard"><div class="vw">go up</div><div class="vm">tăng (giá)</div><div class="vex">The prices of leather bags have gone up a lot recently.</div></div>
-          <div class="vadjcard"><div class="vw">go on</div><div class="vm">xảy ra</div><div class="vex">What's going on in the changing room?</div></div>
-          <div class="vadjcard"><div class="vw">go for</div><div class="vm">chọn</div><div class="vex">If I see something I like, I go for it there and then.</div></div>
-          <div class="vadjcard"><div class="vw">go back</div><div class="vm">quay lại</div><div class="vex">I went back to the shop but they had no more pairs in my size.</div></div>
-          <div class="vadjcard"><div class="vw">go over</div><div class="vm">rà soát</div><div class="vex">Go over the dress-code rules before the inspection.</div></div>
-          <div class="vadjcard"><div class="vw">go ahead</div><div class="vm">cứ làm đi</div><div class="vex">Can I borrow your tie? — Sure, go ahead!</div></div>
+          <div class="vadjcard"><div class="vw">go up</div><div class="vm">tăng (giá)</div><div class="vex">The prices of leather bags have <strong>gone up</strong> a lot recently.</div></div>
+          <div class="vadjcard"><div class="vw">go on</div><div class="vm">xảy ra</div><div class="vex">What's <strong>going on</strong> in the changing room?</div></div>
+          <div class="vadjcard"><div class="vw">go for</div><div class="vm">chọn</div><div class="vex">If I see something I like, I <strong>go for</strong> it there and then.</div></div>
+          <div class="vadjcard"><div class="vw">go back</div><div class="vm">quay lại</div><div class="vex">I <strong>went back</strong> to the shop but they had no more pairs in my size.</div></div>
+          <div class="vadjcard"><div class="vw">go over</div><div class="vm">rà soát</div><div class="vex"><strong>Go over</strong> the dress-code rules before the inspection.</div></div>
+          <div class="vadjcard"><div class="vw">go ahead</div><div class="vm">cứ làm đi</div><div class="vex">Can I borrow your tie? — Sure, <strong>go ahead</strong>!</div></div>
         </div>
       </div>
       <div class="tier adv"><div class="tier-h">Nâng cao</div>
         <div class="tablewrap"><table class="vt"><tbody>
-          <tr><td>wear out</td><td>mòn, rách vì dùng nhiều</td><td><i>I wore out two pairs of trainers during my first year on the wards.</i></td></tr>
-          <tr><td>splash out (on)</td><td>vung tiền mua (một món)</td><td><i>Once a year I splash out on a really good pair of shoes.</i></td></tr>
+          <tr><td>wear out</td><td>mòn, rách vì dùng nhiều</td><td><i>I <strong>wore out</strong> two pairs of trainers during my first year on the wards.</i></td></tr>
+          <tr><td>splash out (on)</td><td>vung tiền mua (một món)</td><td><i>Once a year I <strong>splash out</strong> on a really good pair of shoes.</i></td></tr>
         </tbody></table></div>
       </div>
       <div class="tier col"><div class="tier-h">Collocations</div>
         <div class="tablewrap"><table class="vt"><tbody>
-          <tr><td>go shopping for clothes</td><td>đi mua sắm quần áo</td><td><i>I go shopping for clothes about twice a year, usually before Tết.</i></td></tr>
-          <tr><td>buy (clothes) online</td><td>mua trên mạng</td><td><i>I buy most of my clothes online because hospital shifts leave no time for shops.</i></td></tr>
-          <tr><td>keep up with the latest fashions</td><td>theo kịp mốt mới nhất</td><td><i>Medical students rarely have the money to keep up with the latest fashions.</i></td></tr>
-          <tr><td>a real bargain<span class="ipa">/ˈbɑːɡɪn/</span></td><td>món hời thật sự</td><td><i>This coat was a real bargain — half price in the January sales.</i></td></tr>
-          <tr><td>spend a fortune on clothes</td><td>tiêu cả đống tiền vào quần áo</td><td><i>My cousin spends a fortune on clothes she wears only once.</i></td></tr>
+          <tr><td>go shopping for clothes</td><td>đi mua sắm quần áo</td><td><i>I <strong>go shopping for clothes</strong> about twice a year, usually before Tết.</i></td></tr>
+          <tr><td>buy (clothes) online</td><td>mua trên mạng</td><td><i>I <strong>buy</strong> most of my clothes <strong>online</strong> because hospital shifts leave no time for shops.</i></td></tr>
+          <tr><td>keep up with the latest fashions</td><td>theo kịp mốt mới nhất</td><td><i>Medical students rarely have the money to <strong>keep up with the latest fashions</strong>.</i></td></tr>
+          <tr><td>a real bargain<span class="ipa">/ˈbɑːɡɪn/</span></td><td>món hời thật sự</td><td><i>This coat was <strong>a real bargain</strong> — half price in the January sales.</i></td></tr>
+          <tr><td>spend a fortune on clothes</td><td>tiêu cả đống tiền vào quần áo</td><td><i>My cousin <strong>spends a fortune on clothes</strong> she wears only once.</i></td></tr>
         </tbody></table></div>
       </div>
     </div>
@@ -901,35 +903,35 @@
       <div class="tier core"><div class="tier-h">Core · SB Unit 1 · tr. 10, 199–200</div>
         <div class="sub-h">Thích</div>
         <div class="vadjgrid">
-          <div class="vadjcard"><div class="vw">I prefer to wear …</div><div class="vm">tôi thích mặc … hơn</div><div class="vex">I prefer to wear casual clothes like jeans and T-shirts.</div></div>
-          <div class="vadjcard"><div class="vw">What I absolutely love is …</div><div class="vm">điều tôi cực thích là …</div><div class="vex">What I absolutely love is a well-made pair of shoes.</div></div>
-          <div class="vadjcard"><div class="vw">clothes are important to me · my image is really important to me</div><div class="vm">quần áo / hình ảnh rất quan trọng với tôi</div><div class="vex">My image is really important to me because I deal with people all day.</div></div>
-          <div class="vadjcard"><div class="vw">I favour the casual look</div><div class="vm">tôi chuộng phong cách giản dị</div><div class="vex">If anything, I favour the casual look.</div></div>
-          <div class="vadjcard"><div class="vw">comfortable as well as stylish</div><div class="vm">vừa thoải mái vừa phong cách</div><div class="vex">Clothes need to be comfortable as well as stylish.</div></div>
+          <div class="vadjcard"><div class="vw">I prefer to wear …</div><div class="vm">tôi thích mặc … hơn</div><div class="vex"><strong>I prefer to wear</strong> casual clothes like jeans and T-shirts.</div></div>
+          <div class="vadjcard"><div class="vw">What I absolutely love is …</div><div class="vm">điều tôi cực thích là …</div><div class="vex"><strong>What I absolutely love is</strong> a well-made pair of shoes.</div></div>
+          <div class="vadjcard"><div class="vw">clothes are important to me · my image is really important to me</div><div class="vm">quần áo / hình ảnh rất quan trọng với tôi</div><div class="vex"><strong>My image is really important to me</strong> because I deal with people all day.</div></div>
+          <div class="vadjcard"><div class="vw">I favour the casual look</div><div class="vm">tôi chuộng phong cách giản dị</div><div class="vex">If anything, <strong>I favour the casual look</strong>.</div></div>
+          <div class="vadjcard"><div class="vw">comfortable as well as stylish</div><div class="vm">vừa thoải mái vừa phong cách</div><div class="vex">Clothes need to be <strong>comfortable as well as stylish</strong>.</div></div>
         </div>
         <div class="sub-h">Không thích / không quan tâm</div>
         <div class="vadjgrid">
-          <div class="vadjcard"><div class="vw">I wouldn't be seen dead in …</div><div class="vm">tôi không đời nào mặc …</div><div class="vex">I wouldn't be seen dead in a tie at the weekend.</div></div>
-          <div class="vadjcard"><div class="vw">… isn't really my scene</div><div class="vm">… không phải gu của tôi</div><div class="vex">Shopping for clothes isn't really my scene.</div></div>
-          <div class="vadjcard"><div class="vw">I don't really mind what I wear</div><div class="vm">tôi không quá bận tâm mặc gì</div><div class="vex">To tell you the truth, I don't really mind what I wear.</div></div>
-          <div class="vadjcard"><div class="vw">I'm not a suit man</div><div class="vm">tôi không phải người thích mặc vest</div><div class="vex">I'm not a suit man — even for work I can get away with casual stuff.</div></div>
-          <div class="vadjcard"><div class="vw">(the least) fashion-conscious person I know</div><div class="vm">người ít quan tâm thời trang nhất tôi biết</div><div class="vex">My brother is the least fashion-conscious person I know.</div></div>
+          <div class="vadjcard"><div class="vw">I wouldn't be seen dead in …</div><div class="vm">tôi không đời nào mặc …</div><div class="vex"><strong>I wouldn't be seen dead in</strong> a tie at the weekend.</div></div>
+          <div class="vadjcard"><div class="vw">… isn't really my scene</div><div class="vm">… không phải gu của tôi</div><div class="vex">Shopping for clothes <strong>isn't really my scene</strong>.</div></div>
+          <div class="vadjcard"><div class="vw">I don't really mind what I wear</div><div class="vm">tôi không quá bận tâm mặc gì</div><div class="vex">To tell you the truth, <strong>I don't really mind what I wear</strong>.</div></div>
+          <div class="vadjcard"><div class="vw">I'm not a suit man</div><div class="vm">tôi không phải người thích mặc vest</div><div class="vex"><strong>I'm not a suit man</strong> — even for work I can get away with casual stuff.</div></div>
+          <div class="vadjcard"><div class="vw">(the least) fashion-conscious person I know</div><div class="vm">người ít quan tâm thời trang nhất tôi biết</div><div class="vex">My brother is the least <strong>fashion-conscious person I know</strong>.</div></div>
         </div>
       </div>
       <div class="tier adv"><div class="tier-h">Nâng cao</div>
         <div class="tablewrap"><table class="vt"><tbody>
-          <tr><td>be into fashion</td><td>thích, quan tâm thời trang</td><td><i>I'm not really into fashion, but I like clothes that fit well.</i></td></tr>
-          <tr><td>follow the latest trends</td><td>chạy theo xu hướng</td><td><i>Teenage patients often follow the latest trends they see on TikTok.</i></td></tr>
-          <tr><td>put comfort first</td><td>ưu tiên sự thoải mái</td><td><i>On a 24-hour shift I put comfort first and wear trainers.</i></td></tr>
-          <tr><td>express your personality</td><td>thể hiện cá tính</td><td><i>For many young people, clothes are a way to express their personality.</i></td></tr>
-          <tr><td>it's a matter of personal taste</td><td>chuyện gu của mỗi người</td><td><i>Whether a white coat looks good is a matter of personal taste.</i></td></tr>
+          <tr><td>be into fashion</td><td>thích, quan tâm thời trang</td><td><i>I'm not really <strong>into fashion</strong>, but I like clothes that fit well.</i></td></tr>
+          <tr><td>follow the latest trends</td><td>chạy theo xu hướng</td><td><i>Teenage patients often <strong>follow the latest trends</strong> they see on TikTok.</i></td></tr>
+          <tr><td>put comfort first</td><td>ưu tiên sự thoải mái</td><td><i>On a 24-hour shift I <strong>put comfort first</strong> and wear trainers.</i></td></tr>
+          <tr><td>express your personality</td><td>thể hiện cá tính</td><td><i>For many young people, clothes are a way to <strong>express their personality</strong>.</i></td></tr>
+          <tr><td>it's a matter of personal taste</td><td>chuyện gu của mỗi người</td><td><i>Whether a white coat looks good is <strong>a matter of personal taste</strong>.</i></td></tr>
         </tbody></table></div>
       </div>
       <div class="tier col"><div class="tier-h">Collocations</div>
         <div class="tablewrap"><table class="vt"><tbody>
-          <tr><td>dress for the occasion</td><td>ăn mặc phù hợp với dịp</td><td><i>At a medical conference you should dress for the occasion: smart, not showy.</i></td></tr>
-          <tr><td>judge people by their appearance</td><td>đánh giá người khác qua vẻ ngoài</td><td><i>Patients shouldn't judge doctors by their appearance, but many of them do.</i></td></tr>
-          <tr><td>care about your appearance</td><td>quan tâm đến vẻ ngoài</td><td><i>Caring about your appearance is not the same as being vain.</i></td></tr>
+          <tr><td>dress for the occasion</td><td>ăn mặc phù hợp với dịp</td><td><i>At a medical conference you should <strong>dress for the occasion</strong>: smart, not showy.</i></td></tr>
+          <tr><td>judge people by their appearance</td><td>đánh giá người khác qua vẻ ngoài</td><td><i>Patients shouldn't <strong>judge doctors by their appearance</strong>, but many of them do.</i></td></tr>
+          <tr><td>care about your appearance</td><td>quan tâm đến vẻ ngoài</td><td><i><strong>Caring about your appearance</strong> is not the same as being vain.</i></td></tr>
         </tbody></table></div>
       </div>
     </div>
@@ -941,30 +943,30 @@
       <div class="tier core"><div class="tier-h">Core · SB Unit 1 · tr. 12–13 · Grammar folder tr. 188</div>
         <div class="sub-h">Sáu quy tắc</div>
         <div class="rule-cards">
-          <div class="rule-card"><span class="ic">📏</span><b>-ER / MORE</b><p>Tính từ 1 âm tiết thêm <b>-er / -est</b>. Tính từ 2 âm tiết trở lên dùng <b>more / the most</b>. Chính tả: tận cùng -e chỉ thêm -r/-st; nguyên âm + phụ âm → gấp đôi phụ âm; phụ âm + y → -ier / -iest.</p><ul><li>old → older → the oldest</li><li>nice → nicer → the nicest</li><li>big → bigger · slim → slimmer</li><li>dirty → dirtier · skinny → the skinniest</li><li>casual → more casual → the most casual</li></ul></div>
-          <div class="rule-card"><span class="ic">🔁</span><b>HAI DẠNG ĐỀU ĐÚNG</b><p>Một số tính từ 2 âm tiết dùng được cả -er/-est lẫn more/most.</p><ul><li>simple → simpler / more simple</li><li>common · likely · narrow</li><li>pleasant · polite · gentle</li></ul></div>
-          <div class="rule-card"><span class="ic">⚠️</span><b>BẤT QUY TẮC</b><p>Không thêm -er, không thêm more.</p><ul><li>good → better → the best</li><li>bad → worse → the worst</li><li>far → farther / further → the farthest / furthest</li><li>old → older / elder → the oldest / eldest</li></ul></div>
-          <div class="rule-card"><span class="ic">📉</span><b>LESS / THE LEAST · NOT AS … AS</b><p><b>less … than</b> và <b>the least …</b> là chiều ngược của more / the most. <b>not as … as</b> = không … bằng (<i>not so … as</i> hiếm gặp hơn).</p><ul><li>less serious than · less expensive than</li><li>the least achievable figure</li><li>Sally is not as tall as her brother.</li><li>These shoes don't look as comfortable as the flip flops.</li></ul></div>
-          <div class="rule-card"><span class="ic">🎚️</span><b>ADVERBS OF DEGREE</b><p>Trước comparative: <b>a bit · slightly · a little · a lot · much · far · rather · a great deal</b>. Trước superlative: <b>by far · easily · much · quite</b>.</p><ul><li>He is much older than me.</li><li>your feet are a lot bigger than mine</li><li>slightly better value for money</li><li>by far the most creative student</li><li>easily the biggest animal in the world</li></ul></div>
-          <div class="rule-card"><span class="ic">🏃</span><b>SO SÁNH TRẠNG TỪ</b><p>Trạng từ đuôi -ly: <b>more / less + trạng từ</b>. Trạng từ ngắn thêm -er; một số bất quy tắc.</p><ul><li>more commonly · more readily available</li><li>less seriously · less exclusively</li><li>well → better · badly → worse</li><li>fast → faster · hard → harder</li></ul></div>
+          <div class="rule-card"><span class="ic">📏</span><b>-ER / MORE</b><ul><li>Tính từ 1 âm tiết thêm <b>-er / -est</b>.</li><li>Tính từ 2 âm tiết trở lên dùng <b>more / the most</b>.</li><li>Chính tả — tận cùng -e: chỉ thêm <b>-r / -st</b>.</li><li>Chính tả — nguyên âm + phụ âm: gấp đôi phụ âm.</li><li>Chính tả — phụ âm + y: đổi thành <b>-ier / -iest</b>.</li></ul><ul><li>old → older → the oldest</li><li>nice → nicer → the nicest</li><li>big → bigger · slim → slimmer</li><li>dirty → dirtier · skinny → the skinniest</li><li>casual → more casual → the most casual</li></ul></div>
+          <div class="rule-card"><span class="ic">🔁</span><b>HAI DẠNG ĐỀU ĐÚNG</b><ul><li>Một số tính từ 2 âm tiết dùng được cả -er/-est lẫn more/most.</li></ul><ul><li>simple → simpler / more simple</li><li>common · likely · narrow</li><li>pleasant · polite · gentle</li></ul></div>
+          <div class="rule-card"><span class="ic">⚠️</span><b>BẤT QUY TẮC</b><ul><li>Không thêm <b>-er</b>.</li><li>Không thêm <b>more</b>.</li></ul><ul><li>good → better → the best</li><li>bad → worse → the worst</li><li>far → farther / further → the farthest / furthest</li><li>old → older / elder → the oldest / eldest</li></ul></div>
+          <div class="rule-card"><span class="ic">📉</span><b>LESS / THE LEAST · NOT AS … AS</b><ul><li><b>less … than</b> và <b>the least …</b> là chiều ngược của more / the most.</li><li><b>not as … as</b> = không … bằng (<i>not so … as</i> hiếm gặp hơn).</li></ul><ul><li>less serious than · less expensive than</li><li>the least achievable figure</li><li>Sally is not as tall as her brother.</li><li>These shoes don't look as comfortable as the flip flops.</li></ul></div>
+          <div class="rule-card"><span class="ic">🎚️</span><b>ADVERBS OF DEGREE</b><ul><li>Trước comparative: <b>a bit · slightly · a little · a lot · much · far · rather · a great deal</b>.</li><li>Trước superlative: <b>by far · easily · much · quite</b>.</li></ul><ul><li>He is much older than me.</li><li>your feet are a lot bigger than mine</li><li>slightly better value for money</li><li>by far the most creative student</li><li>easily the biggest animal in the world</li></ul></div>
+          <div class="rule-card"><span class="ic">🏃</span><b>SO SÁNH TRẠNG TỪ</b><ul><li>Trạng từ đuôi -ly: <b>more / less + trạng từ</b>.</li><li>Trạng từ ngắn thêm <b>-er</b>.</li><li>Một số trạng từ bất quy tắc.</li></ul><ul><li>more commonly · more readily available</li><li>less seriously · less exclusively</li><li>well → better · badly → worse</li><li>fast → faster · hard → harder</li></ul></div>
         </div>
         <div class="note info"><span class="tag">Dùng với</span><ul><li><b>than</b> sau comparative: <i>She is two years older than me.</i></li><li><b>the</b> trước superlative: <i>It was the happiest day of my life.</i></li><li>Corpus spot SB tr. 12: <i>the best clothes</i> (không phải <s>the better clothes</s>) · <i>a much better one</i> (không phải <s>much more better</s>) · <i>easier</i> (không phải <s>more easy</s>).</li></ul></div>
       </div>
       <div class="tier adv"><div class="tier-h">Mẫu so sánh</div>
         <div class="tablewrap"><table class="vt"><tbody>
-          <tr><td>one of the most … + plural</td><td>một trong những … nhất</td><td><i>Vietnam is one of the most fashion-conscious countries in the region.</i></td></tr>
-          <tr><td>by far the most …</td><td>… nhất, hơn hẳn</td><td><i>Trainers are by far the most practical footwear for a ward round.</i></td></tr>
-          <tr><td>twice as … as / half as … as</td><td>gấp đôi / bằng một nửa</td><td><i>A designer bag can cost twice as much as a good-quality copy.</i></td></tr>
-          <tr><td>nowhere near as … as</td><td>kém xa</td><td><i>A knock-off is nowhere near as well-made as the genuine product.</i></td></tr>
-          <tr><td>the more …, the more / the less …</td><td>càng … càng …</td><td><i>The more I earn, the less I seem to care about labels.</i></td></tr>
+          <tr><td>one of the most … + plural</td><td>một trong những … nhất</td><td><i>Vietnam is <strong>one of the most</strong> fashion-conscious countries in the region.</i></td></tr>
+          <tr><td>by far the most …</td><td>… nhất, hơn hẳn</td><td><i>Trainers are <strong>by far the most</strong> practical footwear for a ward round.</i></td></tr>
+          <tr><td>twice as … as / half as … as</td><td>gấp đôi / bằng một nửa</td><td><i>A designer bag can cost <strong>twice as much as</strong> a good-quality copy.</i></td></tr>
+          <tr><td>nowhere near as … as</td><td>kém xa</td><td><i>A knock-off is <strong>nowhere near as</strong> well-made as the genuine product.</i></td></tr>
+          <tr><td>the more …, the more / the less …</td><td>càng … càng …</td><td><i><strong>The more</strong> I earn, <strong>the less</strong> I seem to care about labels.</i></td></tr>
         </tbody></table></div>
       </div>
       <div class="tier col"><div class="tier-h">Collocations</div>
         <div class="tablewrap"><table class="vt"><tbody>
-          <tr><td>weigh up the options</td><td>cân nhắc các lựa chọn</td><td><i>Before buying a suit, I weigh up the options: price, fit and how often I'll wear it.</i></td></tr>
-          <tr><td>the best option would be to …</td><td>lựa chọn tốt nhất là</td><td><i>For a hospital dress code, the best option would be to ban rings and bracelets.</i></td></tr>
-          <tr><td>it depends on …</td><td>tuỳ vào …</td><td><i>Whether I dress up depends on who I'm meeting that day.</i></td></tr>
-          <tr><td>(good) value for money</td><td>đáng đồng tiền</td><td><i>A plain cotton shirt from the market is often better value for money than a designer one.</i></td></tr>
+          <tr><td>weigh up the options</td><td>cân nhắc các lựa chọn</td><td><i>Before buying a suit, I <strong>weigh up the options</strong>: price, fit and how often I'll wear it.</i></td></tr>
+          <tr><td>the best option would be to …</td><td>lựa chọn tốt nhất là</td><td><i>For a hospital dress code, <strong>the best option would be to</strong> ban rings and bracelets.</i></td></tr>
+          <tr><td>it depends on …</td><td>tuỳ vào …</td><td><i>Whether I dress up <strong>depends on</strong> who I'm meeting that day.</i></td></tr>
+          <tr><td>(good) value for money</td><td>đáng đồng tiền</td><td><i>A plain cotton shirt from the market is often better <strong>value for money</strong> than a designer one.</i></td></tr>
         </tbody></table></div>
       </div>
     </div>
@@ -976,46 +978,46 @@
       <div class="tier core"><div class="tier-h">Core · SB Unit 1 · tr. 12–13</div>
         <div class="sub-h">Thế giới thời trang</div>
         <div class="vgrid" style="--vcols:6">
-          <div class="vcard"><div class="vmedia"><img src="img/v-catwalk.jpg" alt="the catwalk" loading="lazy"><div class="voverlay"><div class="vw">the catwalk</div><div class="vm">sàn diễn thời trang</div><div class="vipa">/ˈkætwɔːk/</div></div></div><div class="vex">Underweight models have dominated the world's catwalks for years.</div></div>
-          <div class="vcard"><div class="vmedia"><img src="img/v-supermodel.jpg" alt="supermodel" loading="lazy"><div class="voverlay"><div class="vw">supermodel</div><div class="vm">siêu mẫu</div><div class="vipa">/ˈsuːpəmɒdl/</div></div></div><div class="vex">We may not actually want to look like supermodels.</div></div>
-          <div class="vcard"><div class="vmedia"><img src="img/v-designerlabel.jpg" alt="designer label" loading="lazy"><div class="voverlay"><div class="vw">designer label</div><div class="vm">nhãn hiệu thiết kế</div><div class="vipa">/dɪˌzaɪnə ˈleɪbl/</div></div></div><div class="vex">Knock-offs are free advertising for the real designer labels, some say.</div></div>
-          <div class="vcard"><div class="vmedia"><img src="img/v-luxury.jpg" alt="luxury items" loading="lazy"><div class="voverlay"><div class="vw">luxury items</div><div class="vm">hàng xa xỉ</div><div class="vipa">/ˈlʌkʃəri/</div></div></div><div class="vex">Designer bags are no longer the luxury items they once were.</div></div>
-          <div class="vcard"><div class="vmedia"><img src="img/v-marketstall.jpg" alt="market stalls" loading="lazy"><div class="voverlay"><div class="vw">market stalls</div><div class="vm">sạp hàng ở chợ</div><div class="vipa">/ˈmɑːkɪt stɔːlz/</div></div></div><div class="vex">Fake goods are sold on market stalls worldwide.</div></div>
-          <div class="vcard"><div class="vmedia"><img src="img/leadin-6.jpg" alt="counterfeit goods" loading="lazy"><div class="voverlay"><div class="vw">counterfeit goods</div><div class="vm">hàng giả, hàng nhái</div><div class="vipa">/ˈkaʊntəfɪt ɡʊdz/</div></div></div><div class="vex">Counterfeit goods are a big problem for the fashion industry.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-catwalk.jpg" alt="the catwalk" loading="lazy"><div class="voverlay"><div class="vw">the catwalk</div><div class="vm">sàn diễn thời trang</div><div class="vipa">/ˈkætwɔːk/</div></div></div><div class="vex">Underweight models have dominated the world's <strong>catwalks</strong> for years.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-supermodel.jpg" alt="supermodel" loading="lazy"><div class="voverlay"><div class="vw">supermodel</div><div class="vm">siêu mẫu</div><div class="vipa">/ˈsuːpəmɒdl/</div></div></div><div class="vex">We may not actually want to look like <strong>supermodels</strong>.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-designerlabel.jpg" alt="designer label" loading="lazy"><div class="voverlay"><div class="vw">designer label</div><div class="vm">nhãn hiệu thiết kế</div><div class="vipa">/dɪˌzaɪnə ˈleɪbl/</div></div></div><div class="vex">Knock-offs are free advertising for the real <strong>designer labels</strong>, some say.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-luxury.jpg" alt="luxury items" loading="lazy"><div class="voverlay"><div class="vw">luxury items</div><div class="vm">hàng xa xỉ</div><div class="vipa">/ˈlʌkʃəri/</div></div></div><div class="vex">Designer bags are no longer the <strong>luxury items</strong> they once were.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/v-marketstall.jpg" alt="market stalls" loading="lazy"><div class="voverlay"><div class="vw">market stalls</div><div class="vm">sạp hàng ở chợ</div><div class="vipa">/ˈmɑːkɪt stɔːlz/</div></div></div><div class="vex">Fake goods are sold on <strong>market stalls</strong> worldwide.</div></div>
+          <div class="vcard"><div class="vmedia"><img src="img/leadin-6.jpg" alt="counterfeit goods" loading="lazy"><div class="voverlay"><div class="vw">counterfeit goods</div><div class="vm">hàng giả, hàng nhái</div><div class="vipa">/ˈkaʊntəfɪt ɡʊdz/</div></div></div><div class="vex"><strong>Counterfeit goods</strong> are a big problem for the fashion industry.</div></div>
         </div>
         <div class="sub-h">Từ &amp; cụm khác trong hai bài đọc</div>
         <div class="vadjgrid">
-          <div class="vadjcard"><div class="vw">the fashion industry · fashion houses · brands</div><div class="vm">ngành thời trang · nhà mốt · các thương hiệu</div><div class="vex">Fashion houses design their clothes for the youngest and skinniest models.</div></div>
-          <div class="vadjcard"><div class="vw">underweight models · the least achievable figure</div><div class="vm">người mẫu thiếu cân · vóc dáng khó đạt nhất</div><div class="vipa">/ˌʌndəˈweɪt/</div><div class="vex">Fashion carries the image of the least achievable figure.</div></div>
-          <div class="vadjcard"><div class="vw">knock-offs · imitation goods · fake designer goods · cheap copies</div><div class="vm">hàng nhái · hàng giả · đồ hiệu giả · bản sao rẻ tiền</div><div class="vipa">/ˈnɒk ɒfs/ · /ˌɪmɪˈteɪʃn/</div><div class="vex">Knock-offs are now far more readily available than they were.</div></div>
-          <div class="vadjcard"><div class="vw">the genuine product · the real thing</div><div class="vm">hàng thật</div><div class="vipa">/ˈdʒenjuɪn/</div><div class="vex">Often a knock-off looks as good as the real thing.</div></div>
-          <div class="vadjcard"><div class="vw">an illegal activity</div><div class="vm">hoạt động phi pháp</div><div class="vipa">/ɪˈliːɡl/</div><div class="vex">There is no getting away from the fact that this is an illegal activity.</div></div>
-          <div class="vadjcard"><div class="vw">damage the brands · reduce sales · free advertising</div><div class="vm">làm hại thương hiệu · giảm doanh số · quảng cáo miễn phí</div><div class="vex">Fake goods damage the actual brands in more ways than one.</div></div>
-          <div class="vadjcard"><div class="vw">fight back · high-tech solutions</div><div class="vm">phản công · giải pháp công nghệ cao</div><div class="vex">The industry is fighting back with high-tech solutions.</div></div>
-          <div class="vadjcard"><div class="vw">street markets · look like supermodels</div><div class="vm">chợ vỉa hè · trông như siêu mẫu</div><div class="vex">I often find stuff in street markets.</div></div>
+          <div class="vadjcard"><div class="vw">the fashion industry · fashion houses · brands</div><div class="vm">ngành thời trang · nhà mốt · các thương hiệu</div><div class="vex"><strong>Fashion houses</strong> design their clothes for the youngest and skinniest models.</div></div>
+          <div class="vadjcard"><div class="vw">underweight models · the least achievable figure</div><div class="vm">người mẫu thiếu cân · vóc dáng khó đạt nhất</div><div class="vipa">/ˌʌndəˈweɪt/</div><div class="vex">Fashion carries the image of <strong>the least achievable figure</strong>.</div></div>
+          <div class="vadjcard"><div class="vw">knock-offs · imitation goods · fake designer goods · cheap copies</div><div class="vm">hàng nhái · hàng giả · đồ hiệu giả · bản sao rẻ tiền</div><div class="vipa">/ˈnɒk ɒfs/ · /ˌɪmɪˈteɪʃn/</div><div class="vex"><strong>Knock-offs</strong> are now far more readily available than they were.</div></div>
+          <div class="vadjcard"><div class="vw">the genuine product · the real thing</div><div class="vm">hàng thật</div><div class="vipa">/ˈdʒenjuɪn/</div><div class="vex">Often a knock-off looks as good as <strong>the real thing</strong>.</div></div>
+          <div class="vadjcard"><div class="vw">an illegal activity</div><div class="vm">hoạt động phi pháp</div><div class="vipa">/ɪˈliːɡl/</div><div class="vex">There is no getting away from the fact that this is <strong>an illegal activity</strong>.</div></div>
+          <div class="vadjcard"><div class="vw">damage the brands · reduce sales · free advertising</div><div class="vm">làm hại thương hiệu · giảm doanh số · quảng cáo miễn phí</div><div class="vex">Fake goods <strong>damage the actual brands</strong> in more ways than one.</div></div>
+          <div class="vadjcard"><div class="vw">fight back · high-tech solutions</div><div class="vm">phản công · giải pháp công nghệ cao</div><div class="vex">The industry is fighting back with <strong>high-tech solutions</strong>.</div></div>
+          <div class="vadjcard"><div class="vw">street markets · look like supermodels</div><div class="vm">chợ vỉa hè · trông như siêu mẫu</div><div class="vex">I often find stuff in <strong>street markets</strong>.</div></div>
         </div>
       </div>
       <div class="tier adv"><div class="tier-h">Nâng cao</div>
         <div class="sub-h">Thời trang &amp; sức khoẻ</div>
         <div class="tablewrap"><table class="vt"><tbody>
-          <tr><td>body image (U)</td><td>hình ảnh cơ thể (trong mắt chính mình)</td><td><i>Fashion advertising has a powerful effect on teenagers' body image.</i></td></tr>
-          <tr><td>self-esteem (U)<span class="ipa">/ˌself ɪˈstiːm/</span></td><td>lòng tự trọng, tự tin về bản thân</td><td><i>Constant comparison with models can damage a young patient's self-esteem.</i></td></tr>
-          <tr><td>an eating disorder<span class="ipa">/dɪsˈɔːdə/</span></td><td>rối loạn ăn uống</td><td><i>We see more eating disorders in girls who want to look like catwalk models.</i></td></tr>
+          <tr><td>body image (U)</td><td>hình ảnh cơ thể (trong mắt chính mình)</td><td><i>Fashion advertising has a powerful effect on teenagers' <strong>body image</strong>.</i></td></tr>
+          <tr><td>self-esteem (U)<span class="ipa">/ˌself ɪˈstiːm/</span></td><td>lòng tự trọng, tự tin về bản thân</td><td><i>Constant comparison with models can damage a young patient's <strong>self-esteem</strong>.</i></td></tr>
+          <tr><td>an eating disorder<span class="ipa">/dɪsˈɔːdə/</span></td><td>rối loạn ăn uống</td><td><i>We see more <strong>eating disorders</strong> in girls who want to look like catwalk models.</i></td></tr>
         </tbody></table></div>
         <div class="sub-h">Thời trang &amp; xã hội</div>
         <div class="tablewrap"><table class="vt"><tbody>
-          <tr><td>set unrealistic standards<span class="ipa">/ˌʌnrɪəˈlɪstɪk/</span></td><td>đặt ra chuẩn mực phi thực tế</td><td><i>Fashion houses set unrealistic standards that almost nobody can reach.</i></td></tr>
-          <tr><td>fast fashion (U)</td><td>thời trang nhanh, giá rẻ</td><td><i>Fast fashion is cheap for the buyer but expensive for the environment.</i></td></tr>
-          <tr><td>peer pressure (U)<span class="ipa">/ˈpɪə ˌpreʃə/</span></td><td>áp lực từ bạn bè</td><td><i>Peer pressure pushes students to buy labels they can't afford.</i></td></tr>
+          <tr><td>set unrealistic standards<span class="ipa">/ˌʌnrɪəˈlɪstɪk/</span></td><td>đặt ra chuẩn mực phi thực tế</td><td><i>Fashion houses <strong>set unrealistic standards</strong> that almost nobody can reach.</i></td></tr>
+          <tr><td>fast fashion (U)</td><td>thời trang nhanh, giá rẻ</td><td><i><strong>Fast fashion</strong> is cheap for the buyer but expensive for the environment.</i></td></tr>
+          <tr><td>peer pressure (U)<span class="ipa">/ˈpɪə ˌpreʃə/</span></td><td>áp lực từ bạn bè</td><td><i><strong>Peer pressure</strong> pushes students to buy labels they can't afford.</i></td></tr>
         </tbody></table></div>
       </div>
       <div class="tier col"><div class="tier-h">Collocations</div>
         <div class="tablewrap"><table class="vt"><tbody>
-          <tr><td>have a negative impact on</td><td>có ảnh hưởng tiêu cực đến</td><td><i>Counterfeit goods have a negative impact on jobs in the fashion industry.</i></td></tr>
-          <tr><td>there's no getting away from the fact that</td><td>không thể phủ nhận rằng</td><td><i>There's no getting away from the fact that most of us have bought a fake at some point.</i></td></tr>
-          <tr><td>raise awareness of</td><td>nâng cao nhận thức về</td><td><i>Doctors can raise awareness of the health risks of extreme dieting.</i></td></tr>
-          <tr><td>ban somebody from + -ing</td><td>cấm ai làm gì</td><td><i>Some countries have banned agencies from using underweight models.</i></td></tr>
-          <tr><td>put pressure on somebody to …</td><td>gây áp lực buộc ai …</td><td><i>Advertising puts pressure on young women to be as thin as possible.</i></td></tr>
+          <tr><td>have a negative impact on</td><td>có ảnh hưởng tiêu cực đến</td><td><i>Counterfeit goods <strong>have a negative impact on</strong> jobs in the fashion industry.</i></td></tr>
+          <tr><td>there's no getting away from the fact that</td><td>không thể phủ nhận rằng</td><td><i><strong>There's no getting away from the fact that</strong> most of us have bought a fake at some point.</i></td></tr>
+          <tr><td>raise awareness of</td><td>nâng cao nhận thức về</td><td><i>Doctors can <strong>raise awareness of</strong> the health risks of extreme dieting.</i></td></tr>
+          <tr><td>ban somebody from + -ing</td><td>cấm ai làm gì</td><td><i>Some countries have <strong>banned</strong> agencies <strong>from using</strong> underweight models.</i></td></tr>
+          <tr><td>put pressure on somebody to …</td><td>gây áp lực buộc ai …</td><td><i>Advertising <strong>puts pressure on</strong> young women to be as thin as possible.</i></td></tr>
         </tbody></table></div>
       </div>
     </div>
