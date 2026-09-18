@@ -489,9 +489,10 @@
 
   /* vocabulary cards: photo on top (untouched by text); word/meaning/IPA centred below it; example below that in a distinct colour */
   .sub-h { font-family: var(--font-cond); text-transform: uppercase; letter-spacing: .06em; font-size: .8em; color: var(--orange-ink); font-weight: 700; padding: 12px 14px 2px; }
-  .vgrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; padding: 6px 14px 14px; max-width: 860px; }
-  @media (max-width: 900px) { .vgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 620px; } }
-  @media (max-width: 560px) { .vgrid { grid-template-columns: 1fr; max-width: 340px; } }
+  .vgrid { display: grid; grid-template-columns: repeat(var(--vcols, 4), minmax(0, 1fr)); gap: 10px; padding: 6px 14px 14px; }
+  @media (max-width: 1100px) { .vgrid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  @media (max-width: 900px) { .vgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 560px) { .vgrid { grid-template-columns: 1fr; } }
   .vcard { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; box-shadow: var(--shadow); }
   .vcard .vmedia { position: relative; background: var(--surface-2); }
   .vcard .vmedia img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
@@ -692,7 +693,7 @@
     <div class="tiers">
       <div class="tier core"><div class="tier-h">Core · SB Unit 1</div>
         <div class="sub-h">Quần áo</div>
-        <div class="vgrid">
+        <div class="vgrid" style="--vcols:5">
           <div class="vcard"><div class="vmedia"><img src="img/v-suit.jpg" alt="suit" loading="lazy"><div class="voverlay"><div class="vw">suit</div><div class="vm">bộ vest</div><div class="vipa">/suːt/</div></div></div><div class="vex">I only wear a suit for conferences and job interviews.</div></div>
           <div class="vcard"><div class="vmedia"><img src="img/v-sweatshirt.jpg" alt="sweatshirt" loading="lazy"><div class="voverlay"><div class="vw">sweatshirt</div><div class="vm">áo nỉ dài tay</div><div class="vipa">/ˈswetʃɜːt/</div></div></div><div class="vex">After a night shift I just want a sweatshirt and a coffee.</div></div>
           <div class="vcard"><div class="vmedia"><img src="img/v-jeans.jpg" alt="jeans" loading="lazy"><div class="voverlay"><div class="vw">jeans</div><div class="vm">quần bò</div><div class="vipa">/dʒiːnz/</div></div></div><div class="vex">Doctors on our ward aren't allowed to wear jeans under the coat.</div></div>
@@ -710,7 +711,7 @@
           <div class="vcard"><div class="vmedia"><img src="img/v-gear.jpg" alt="gear" loading="lazy"><div class="voverlay"><div class="vw">gear</div><div class="vm">đồ (bảo hộ) chuyên dụng</div><div class="vipa">/ɡɪə/</div></div></div><div class="vex">The biker arrived at A&amp;E still wearing all his gear.</div></div>
         </div>
         <div class="sub-h">Giày dép</div>
-        <div class="vgrid">
+        <div class="vgrid" style="--vcols:5">
           <div class="vcard"><div class="vmedia"><img src="img/v-boots.jpg" alt="boots" loading="lazy"><div class="voverlay"><div class="vw">boots</div><div class="vm">bốt, giày cao cổ</div><div class="vipa">/buːts/</div></div></div><div class="vex">Leather boots are warm but hard to clean.</div></div>
           <div class="vcard"><div class="vmedia"><img src="img/v-sandals.jpg" alt="sandals" loading="lazy"><div class="voverlay"><div class="vw">sandals</div><div class="vm">dép quai hậu, xăng-đan</div><div class="vipa">/ˈsændlz/</div></div></div><div class="vex">Sandals aren't allowed in theatre — your feet need protection.</div></div>
           <div class="vcard"><div class="vmedia"><img src="img/v-trainers.jpg" alt="trainers" loading="lazy"><div class="voverlay"><div class="vw">trainers</div><div class="vm">giày thể thao</div><div class="vipa">/ˈtreɪnəz/</div></div></div><div class="vex">Most nurses wear white trainers on a twelve-hour shift.</div></div>
@@ -718,7 +719,7 @@
           <div class="vcard"><div class="vmedia"><img src="img/v-flipflops.jpg" alt="flip flops" loading="lazy"><div class="voverlay"><div class="vw">flip flops</div><div class="vm">dép xỏ ngón</div><div class="vipa">/ˈflɪp flɒps/</div></div></div><div class="vex">The patient came in wearing flip flops in the middle of winter.</div></div>
         </div>
         <div class="sub-h">Trang sức &amp; mũ nón</div>
-        <div class="vgrid">
+        <div class="vgrid" style="--vcols:4">
           <div class="vcard"><div class="vmedia"><img src="img/v-bracelet.jpg" alt="bracelet" loading="lazy"><div class="voverlay"><div class="vw">bracelet</div><div class="vm">vòng tay</div><div class="vipa">/ˈbreɪslət/</div></div></div><div class="vex">Please take your bracelet off before the X-ray.</div></div>
           <div class="vcard"><div class="vmedia"><img src="img/v-earrings.jpg" alt="earrings" loading="lazy"><div class="voverlay"><div class="vw">earrings</div><div class="vm">hoa tai</div><div class="vipa">/ˈɪərɪŋz/</div></div></div><div class="vex">Small earrings are fine; long ones can catch on your mask.</div></div>
           <div class="vcard"><div class="vmedia"><img src="img/v-necklace.jpg" alt="necklace" loading="lazy"><div class="voverlay"><div class="vw">necklace</div><div class="vm">dây chuyền</div><div class="vipa">/ˈnekləs/</div></div></div><div class="vex">She keeps her necklace in her locker during surgery.</div></div>
@@ -729,7 +730,7 @@
           <div class="vcard"><div class="vmedia"><img src="img/v-baseballcap.jpg" alt="baseball cap" loading="lazy"><div class="voverlay"><div class="vw">baseball cap</div><div class="vm">mũ lưỡi trai</div><div class="vipa">/ˈbeɪsbɔːl kæp/</div></div></div><div class="vex">My son wears his baseball cap back to front.</div></div>
         </div>
         <div class="sub-h">Chất liệu</div>
-        <div class="vgrid">
+        <div class="vgrid" style="--vcols:4">
           <div class="vcard"><div class="vmedia"><img src="img/v-woollen.jpg" alt="woollen" loading="lazy"><div class="voverlay"><div class="vw">woollen</div><div class="vm">bằng len</div><div class="vipa">/ˈwʊlən/</div></div></div><div class="vex">A woollen scarf is all you need in Hanoi in January.</div></div>
           <div class="vcard"><div class="vmedia"><img src="img/v-leather.jpg" alt="leather" loading="lazy"><div class="voverlay"><div class="vw">leather</div><div class="vm">da (thuộc)</div><div class="vipa">/ˈleðə/</div></div></div><div class="vex">Good leather shoes last for years if you look after them.</div></div>
           <div class="vcard"><div class="vmedia"><img src="img/v-cotton.jpg" alt="cotton" loading="lazy"><div class="voverlay"><div class="vw">cotton</div><div class="vm">bông, vải cotton</div><div class="vipa">/ˈkɒtn/</div></div></div><div class="vex">Cotton is far more comfortable than polyester in the heat.</div></div>
@@ -739,7 +740,7 @@
           <div class="vcard"><div class="vmedia"><img src="img/v-fur.jpg" alt="fur" loading="lazy"><div class="voverlay"><div class="vw">fur</div><div class="vm">lông thú</div><div class="vipa">/fɜː/</div></div></div><div class="vex">Real fur is far less popular than it used to be.</div></div>
         </div>
         <div class="sub-h">Kiểu dáng &amp; hoạ tiết</div>
-        <div class="vgrid">
+        <div class="vgrid" style="--vcols:5">
           <div class="vcard"><div class="vmedia"><img src="img/v-striped.jpg" alt="striped" loading="lazy"><div class="voverlay"><div class="vw">striped</div><div class="vm">kẻ sọc</div><div class="vipa">/straɪpt/</div></div></div><div class="vex">He was wearing a striped jumper and faded jeans.</div></div>
           <div class="vcard"><div class="vmedia"><img src="img/v-faded.jpg" alt="faded" loading="lazy"><div class="voverlay"><div class="vw">faded</div><div class="vm">bạc màu</div><div class="vipa">/ˈfeɪdɪd/</div></div></div><div class="vex">These faded jeans are ten years old and still my favourite.</div></div>
           <div class="vcard"><div class="vmedia"><img src="img/v-knitted.jpg" alt="knitted" loading="lazy"><div class="voverlay"><div class="vw">knitted</div><div class="vm">đan (len)</div><div class="vipa">/ˈnɪtɪd/</div></div></div><div class="vex">My grandmother made me a knitted hat every winter.</div></div>
@@ -783,7 +784,7 @@
     <div class="tiers">
       <div class="tier core"><div class="tier-h">Core · SB Unit 1</div>
         <div class="sub-h">Sáu kiểu phong cách</div>
-        <div class="vgrid">
+        <div class="vgrid" style="--vcols:6">
           <div class="vcard"><div class="vmedia"><img src="img/v-casual.jpg" alt="casual" loading="lazy"><div class="voverlay"><div class="vw">casual</div><div class="vm">thường ngày, thoải mái</div><div class="vipa">/ˈkæʒuəl/</div></div></div><div class="vex">I prefer casual clothes at the weekend.</div></div>
           <div class="vcard"><div class="vmedia"><img src="img/v-smart.jpg" alt="smart" loading="lazy"><div class="voverlay"><div class="vw">smart</div><div class="vm">chỉnh tề, lịch sự</div><div class="vipa">/smɑːt/</div></div></div><div class="vex">You need to look smart for the interview.</div></div>
           <div class="vcard"><div class="vmedia"><img src="img/v-elegant.jpg" alt="elegant" loading="lazy"><div class="voverlay"><div class="vw">elegant</div><div class="vm">thanh lịch</div><div class="vipa">/ˈelɪɡənt/</div></div></div><div class="vex">Her dress was simple but very elegant.</div></div>
@@ -974,7 +975,7 @@
     <div class="tiers">
       <div class="tier core"><div class="tier-h">Core · SB Unit 1 · tr. 12–13</div>
         <div class="sub-h">Thế giới thời trang</div>
-        <div class="vgrid">
+        <div class="vgrid" style="--vcols:6">
           <div class="vcard"><div class="vmedia"><img src="img/v-catwalk.jpg" alt="the catwalk" loading="lazy"><div class="voverlay"><div class="vw">the catwalk</div><div class="vm">sàn diễn thời trang</div><div class="vipa">/ˈkætwɔːk/</div></div></div><div class="vex">Underweight models have dominated the world's catwalks for years.</div></div>
           <div class="vcard"><div class="vmedia"><img src="img/v-supermodel.jpg" alt="supermodel" loading="lazy"><div class="voverlay"><div class="vw">supermodel</div><div class="vm">siêu mẫu</div><div class="vipa">/ˈsuːpəmɒdl/</div></div></div><div class="vex">We may not actually want to look like supermodels.</div></div>
           <div class="vcard"><div class="vmedia"><img src="img/v-designerlabel.jpg" alt="designer label" loading="lazy"><div class="voverlay"><div class="vw">designer label</div><div class="vm">nhãn hiệu thiết kế</div><div class="vipa">/dɪˌzaɪnə ˈleɪbl/</div></div></div><div class="vex">Knock-offs are free advertising for the real designer labels, some say.</div></div>
